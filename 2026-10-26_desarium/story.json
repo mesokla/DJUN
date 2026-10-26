@@ -1,0 +1,6 @@
+[
+ {"out":"story_desarium_full.png","format":"story","theme":"dark","logo":"header",
+  "photo":{"src":"desarium_hall.jpg","mode":"full","focus":"center 40%"},"blocks":[]},
+ {"out":"story_desarium_beige.png","format":"story","theme":"beige","logo":"header",
+  "photo":{"src":"desarium_hall.jpg","mode":"top","focus":"center 35%","h":1150},"blocks":[{"type":"spacer"}]}
+]
