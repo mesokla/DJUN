@@ -1,0 +1,217 @@
+[
+ {
+  "out": "slide_1.png",
+  "format": "post",
+  "theme": "dark",
+  "logo": "header",
+  "photo": {
+   "src": "photo_hall.jpg",
+   "mode": "full",
+   "focus": "center 30%"
+  },
+  "blocks": [
+   {
+    "type": "mono",
+    "text": "// desarium 2026",
+    "accent": true
+   },
+   {
+    "type": "spacer"
+   },
+   {
+    "type": "headline",
+    "size": "xl",
+    "text": "Що AI змінив\nу дизайні\n*насправді*"
+   },
+   {
+    "type": "lead",
+    "text": "Тейки з Desarium, які ми забираємо собі"
+   }
+  ]
+ },
+ {
+  "out": "slide_2.png",
+  "format": "post",
+  "theme": "beige",
+  "logo": "header",
+  "art": [
+   {
+    "shape": "chevron",
+    "x": 560,
+    "y": 560,
+    "size": 400,
+    "color": "brown"
+   }
+  ],
+  "blocks": [
+   {
+    "type": "mono",
+    "text": "// підлога опустилась",
+    "accent": true
+   },
+   {
+    "type": "headline",
+    "size": "xl",
+    "text": "Створювати\nтепер може\n*кожен*"
+   },
+   {
+    "type": "spacer"
+   },
+   {
+    "type": "lead",
+    "text": "Макет, картинку чи відео можна зробити за хвилини, без досвіду і бюджету."
+   },
+   {
+    "type": "text",
+    "text": "Тому сама по собі гарна картинка більше не вражає."
+   }
+  ]
+ },
+ {
+  "out": "slide_3.png",
+  "format": "post",
+  "theme": "dark",
+  "logo": "header",
+  "photo": {
+   "src": "photo_skills_stage.jpg",
+   "mode": "top",
+   "focus": "center 58%",
+   "h": 560
+  },
+  "blocks": [
+   {
+    "type": "spacer"
+   },
+   {
+    "type": "mono",
+    "text": "// цінність не зникла",
+    "accent": true
+   },
+   {
+    "type": "headline",
+    "size": "m",
+    "text": "Вона перемістилась\nз виконання *в рішення*"
+   },
+   {
+    "type": "text",
+    "text": "Що робити, навіщо і як воно має відчуватися, машина не вирішить. На Desarium назвали 5 навичок, де тепер цінність:"
+   },
+   {
+    "type": "tags",
+    "items": [
+     "Смак",
+     "Авторство",
+     "Бачення",
+     "Адаптивність",
+     "Крафт"
+    ]
+   }
+  ]
+ },
+ {
+  "out": "slide_4.png",
+  "format": "post",
+  "theme": "dark",
+  "logo": "header",
+  "photo": {
+   "src": "photo_aico_prompt_dark.jpg",
+   "mode": "full",
+   "focus": "center 40%"
+  },
+  "blocks": [
+   {
+    "type": "mono",
+    "text": "// виступ AICO studio",
+    "accent": true
+   },
+   {
+    "type": "spacer"
+   },
+   {
+    "type": "headline",
+    "size": "l",
+    "text": "AI не працює без\n*досвідчених людей*"
+   },
+   {
+    "type": "lead",
+    "text": "Сильний промпт пишуть мовою професії: «85 mm, T2», а не «красиво й розмито»."
+   },
+   {
+    "type": "text",
+    "text": "Хто розуміє оптику, світло і композицію, отримує від тієї самої моделі зовсім інший результат."
+   }
+  ]
+ },
+ {
+  "out": "slide_5.png",
+  "format": "post",
+  "theme": "white",
+  "logo": "header",
+  "art": [
+   {
+    "shape": "checker",
+    "x": 640,
+    "y": -120,
+    "size": 560,
+    "color": "brown",
+    "color2": "ink"
+   }
+  ],
+  "blocks": [
+   {
+    "type": "gap",
+    "h": 330
+   },
+   {
+    "type": "mono",
+    "text": "// тейк, який нам найближчий",
+    "accent": true
+   },
+   {
+    "type": "headline",
+    "size": "l",
+    "text": "~~AI замінить джунів~~\n*AI скорочує шлях*\n*до складного*"
+   },
+   {
+    "type": "spacer"
+   },
+   {
+    "type": "lead",
+    "text": "Рутину бере на себе машина, тож новачок раніше переходить до задач, до яких колись ішов роками."
+   },
+   {
+    "type": "text",
+    "text": "Головне тут допитливість: вона веде на нову територію."
+   }
+  ]
+ },
+ {
+  "out": "slide_6.png",
+  "format": "post",
+  "theme": "accent",
+  "logo": "header",
+  "pattern": 0.1,
+  "blocks": [
+   {
+    "type": "mono",
+    "text": "// думка Джуна"
+   },
+   {
+    "type": "spacer"
+   },
+   {
+    "type": "headline",
+    "size": "l",
+    "text": "AI не зробить\nусе за вас.\n*Але зробить те,*\n*що ви чітко пояснили*"
+   },
+   {
+    "type": "lead",
+    "text": "Тому вчитися пояснювати, думати і бачити зараз важливіше, ніж будь-коли."
+   },
+   {
+    "type": "note",
+    "text": "Підписуйтесь, далі буде ще більше цікавого"
+   }
+  ]
+ }
+]
