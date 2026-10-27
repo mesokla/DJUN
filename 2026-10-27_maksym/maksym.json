@@ -1,0 +1,13 @@
+[
+ {"out":"slide_1.png","format":"post","theme":"dark","logo":"header",
+  "photo":{"src":"maksym_kovalenko.jpg","mode":"top","focus":"center 30%","h":780},
+  "blocks":[
+   {"type":"spacer"},
+   {"type":"mono","text":"// хто веде інтенсив","accent":true},
+   {"type":"headline","size":"l","text":"Максим Коваленко.\n*Не програміст*"},
+   {"type":"text","text":"Але три роботи і два власні проєкти тримаються на AI-системах, які він зібрав сам."}]},
+ {"out":"slide_2_bg.png","format":"post","theme":"dark","logo":"header",
+  "blocks":[
+   {"type":"mono","text":"// знайомтесь","accent":true},
+   {"type":"headline","size":"m","text":"Максим про себе\n*за 15 секунд*"}]}
+]

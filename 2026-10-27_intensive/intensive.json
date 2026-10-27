@@ -1,0 +1,242 @@
+[
+ {
+  "out": "slide_1.png",
+  "format": "post",
+  "theme": "dark",
+  "logo": "header",
+  "art": [
+   {
+    "shape": "chevron",
+    "x": 560,
+    "y": 260,
+    "size": 620,
+    "color": "brown"
+   }
+  ],
+  "blocks": [
+   {
+    "type": "mono",
+    "text": "// скоро старт",
+    "accent": true
+   },
+   {
+    "type": "spacer"
+   },
+   {
+    "type": "text",
+    "text": "Інтенсив «AI: Від чату до процесу»"
+   },
+   {
+    "type": "headline",
+    "size": "xl",
+    "text": "7 днів, щоб AI\n*працював на вас*"
+   }
+  ]
+ },
+ {
+  "out": "slide_2.png",
+  "format": "post",
+  "theme": "white",
+  "logo": "header",
+  "blocks": [
+   {
+    "type": "mono",
+    "text": "// знайомо?",
+    "accent": true
+   },
+   {
+    "type": "headline",
+    "size": "l",
+    "text": "Скільки вашого\nтижня йде\nна *те саме?*"
+   },
+   {
+    "type": "spacer"
+   },
+   {
+    "type": "list",
+    "style": "square",
+    "items": [
+     [
+      "Дані вручну",
+      "З пошти й месенджерів у таблицю"
+     ],
+     [
+      "Той самий звіт",
+      "Щоп'ятниці з тих самих цифр"
+     ],
+     [
+      "Однакові відповіді",
+      "Клієнти питають одне й те саме"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "out": "slide_3.png",
+  "format": "post",
+  "theme": "beige",
+  "logo": "header",
+  "blocks": [
+   {
+    "type": "mono",
+    "text": "// як це працює",
+    "accent": true
+   },
+   {
+    "type": "headline",
+    "size": "m",
+    "text": "Один раз пояснили.\n*Далі процес працює сам*"
+   },
+   {
+    "type": "spacer"
+   },
+   {
+    "type": "pipeline",
+    "dir": "v",
+    "items": [
+     {
+      "label": "Подія",
+      "title": "Нова заявка з форми",
+      "kind": "ink"
+     },
+     {
+      "label": "Claude",
+      "title": "Оформлює за вашою інструкцією",
+      "kind": "ai"
+     },
+     {
+      "label": "Telegram, 09:00",
+      "title": "Заявка у вас щоранку, без вас",
+      "kind": "ink"
+     },
+     {
+      "label": "Ви",
+      "title": "Перевіряєте. Рішення за вами",
+      "kind": "you"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "out": "slide_4.png",
+  "format": "post",
+  "theme": "white",
+  "logo": "header",
+  "blocks": [
+   {
+    "type": "mono",
+    "text": "// як проходить тиждень",
+    "accent": true
+   },
+   {
+    "type": "headline",
+    "size": "m",
+    "text": "3 зустрічі наживо\n*+ 4 уроки в записі*"
+   },
+   {
+    "type": "spacer"
+   },
+   {
+    "type": "list",
+    "style": "number",
+    "items": [
+     [
+      "Знайомство",
+      "Наживо з Максимом"
+     ],
+     "Налаштування Claude",
+     "Чітка задача для AI",
+     [
+      "Обговорення",
+      "Наживо з Максимом"
+     ],
+     "Робоче місце",
+     "Ваш процес за гайдом",
+     [
+      "Запуск",
+      "Наживо з Максимом"
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "out": "slide_5.png",
+  "format": "post",
+  "theme": "dark",
+  "logo": "header",
+  "art": [
+   {
+    "shape": "ring",
+    "x": 640,
+    "y": -260,
+    "size": 640,
+    "color": "brown"
+   }
+  ],
+  "blocks": [
+   {
+    "type": "gap",
+    "h": 250
+   },
+   {
+    "type": "mono",
+    "text": "// процес обираєте ви",
+    "accent": true
+   },
+   {
+    "type": "headline",
+    "size": "l",
+    "text": "Що можна\n*віддати AI*"
+   },
+   {
+    "type": "spacer"
+   },
+   {
+    "type": "list",
+    "style": "square",
+    "items": [
+     "Заявки з сайту в таблицю й Telegram",
+     "Щотижневий звіт сам",
+     "Нагадування клієнтам",
+     "Чернетки типових відповідей"
+    ]
+   },
+   {
+    "type": "text",
+    "text": "Не знаєте, що обрати? Підберемо на першій зустрічі."
+   }
+  ]
+ },
+ {
+  "out": "slide_6.png",
+  "format": "post",
+  "theme": "accent",
+  "logo": "header",
+  "pattern": 0.1,
+  "blocks": [
+   {
+    "type": "mono",
+    "text": "// головне"
+   },
+   {
+    "type": "spacer"
+   },
+   {
+    "type": "headline",
+    "size": "l",
+    "text": "AI не зробить\nусе за вас.\n*Але зробить те,*\n*що ви чітко пояснили*"
+   },
+   {
+    "type": "lead",
+    "text": "Код пише AI. Ваша частина: пояснити задачу й перевірити результат."
+   },
+   {
+    "type": "note",
+    "text": "Дату старту оголосимо зовсім скоро. Підписуйтесь"
+   }
+  ]
+ }
+]
