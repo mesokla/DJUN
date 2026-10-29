@@ -39,7 +39,7 @@ S['story_5']=page('''<div class="c"><div class="k">// що в нас є</div><h1
 <div class="it"><i>02</i><div><b>Кейси</b><span>AI у маркетингу, продажах і процесах</span></div></div>
 <div class="it"><i>03</i><div><b>Розбори</b><span>інструменти й промпти, які працюють</span></div></div>
 <div class="it"><i>04</i><div><b>Анонси</b><span>нові курси й зустрічі наживо</span></div></div></div></div>
-<div class="foot" style="top:1520px">підписуйтесь, щоб не пропустити старт ↓</div>''','chev','right:-120px;bottom:-30px;height:520px;opacity:.95')
+''','chev','right:-120px;bottom:-30px;height:520px;opacity:.95')
 S4='''<div class="c"><div class="k">// наш підхід</div><h1>Як ми<br><em>навчаємо</em></h1>
 <div class="list">
 <div class="it a" id="a0"><i>01</i><div><b>Практика, а не теорія</b><span>Кожен курс закінчується реальним результатом</span></div></div>
