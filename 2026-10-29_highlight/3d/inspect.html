@@ -1,0 +1,8 @@
+<!doctype html><script type="importmap">{"imports":{"three":"./three.module.js"}}</script>
+<script type="module">
+import * as THREE from 'three';import {SVGLoader} from './jsm/loaders/SVGLoader.js';
+const txt=await (await fetch('crest.svg')).text();const d=new SVGLoader().parse(txt);
+const out=[];d.paths.forEach((p,i)=>{const sh=SVGLoader.createShapes(p);sh.forEach((s,j)=>{const pts=s.getPoints();let b=new THREE.Box2();pts.forEach(q=>b.expandByPoint(q));
+ if(b.max.x>566&&b.min.x<727&&b.max.y>280&&b.min.y<462) out.push([i,j,p.color.getHexString(),b.min.x.toFixed(0),b.min.y.toFixed(0),b.max.x.toFixed(0),b.max.y.toFixed(0),s.holes.length]);});});
+window.R=[172,174,176,178,181].map(i=>[i,JSON.stringify(d.paths[i].userData.style.stroke),d.paths[i].userData.style.strokeWidth,d.paths[i].userData.style.fill,d.paths[i].subPaths.length,d.paths[i].subPaths.map(s=>s.getPoints(4).map(p=>[+p.x.toFixed(1),+p.y.toFixed(1)]))]);document.title='done';
+</script>
