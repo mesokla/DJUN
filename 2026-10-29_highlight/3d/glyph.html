@@ -34,5 +34,7 @@ P.hash=piece([182,183,184,185,186].flatMap(fillShapes),brown,5,6);
 window.show=function(name,ry,rx,rz,scale){for(const k in P){P[k].visible=(k===name);}
  const p=P[name];p.position.set(0,0,0);p.rotation.set(rx,ry,rz);p.scale.setScalar(scale);crest.position.set(0,0,0);crest.rotation.set(0,0,0);
  rim.position.set(500,400,900);renderer.render(scene,cam);};
+window.showCrest=function(ry,rx){for(const k in P){const h=P[k].userData.home;P[k].visible=true;P[k].position.copy(h);P[k].rotation.set(0,0,0);P[k].scale.setScalar(5.0);}
+ crest.position.set(0,0,0);crest.rotation.set(rx,ry,0);rim.position.set(500,400,900);renderer.render(scene,cam);};
 document.title='ready';
 </script>
