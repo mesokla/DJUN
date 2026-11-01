@@ -12,13 +12,10 @@ def logo(light=True):
 S={}
 # 1: giant centered type + floating role chips; quiz bottom
 S['1_who']=f'''<!doctype html><meta charset="utf-8"><style>{BASE}
-body{{background:url(meme_monkey.jpg) 38% center/cover;color:#fff}}
-.dim{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,6,3,.82) 0%,rgba(10,6,3,.55) 32%,rgba(10,6,3,.3) 55%,rgba(10,6,3,.55) 100%)}}
-h1{{position:absolute;left:80px;right:80px;top:400px;font-weight:800;font-size:124px;line-height:.95;letter-spacing:-.05em;text-shadow:0 6px 30px rgba(0,0,0,.5)}}
-.mini{{position:absolute;left:82px;top:680px;font:500 32px/1.35 J;color:#fff;opacity:.9}}
-</style><div class="dim"></div>{logo()}
-<h1>А ким<br>працюєте ви?</h1>
-'''
+body{{background:url(meme_sea.jpg) center/cover;color:#fff}}
+.dim{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,6,3,.78) 0%,rgba(10,6,3,.45) 30%,rgba(10,6,3,.15) 55%,rgba(10,6,3,.35) 100%)}}
+h1{{position:absolute;left:80px;right:80px;top:400px;font-weight:800;font-size:130px;line-height:.95;letter-spacing:-.05em;text-shadow:0 6px 30px rgba(0,0,0,.5)}}
+</style><div class="dim"></div>{logo()}<h1>Ким ви<br>працюєте?</h1>'''
 # 2: sticker on top half, giant 3D brace, text anchored bottom
 S['2_other']=f'''<!doctype html><meta charset="utf-8"><style>{BASE}
 body{{background:#EFE7DF;color:#190F09}}
@@ -30,8 +27,8 @@ h1 em{{font-style:normal;color:#A16E3B}}
 .s{{position:absolute;left:82px;top:1480px;font:500 34px/1.35 M;color:#6E5F52}}
 </style>{logo(False)}<img class="g" src="glyph_brace.png">
 
-<h1>Не знайшли<br>себе? <em>Напишіть,<br>ким працюєте</em></h1>
-<div class="s">Нам правда цікаво</div>'''
+<h1>Не знайшли<br>себе? <em>Впишіть<br>свій варіант</em></h1>
+'''
 # 3: routine wall of Ctrl+C/V, centered question, poll bottom
 rows=''.join(f'<div style="opacity:{o}">Ctrl+C → Ctrl+V &nbsp;·&nbsp; звіт_фінал_2.xlsx &nbsp;·&nbsp; «А скільки коштує?»</div>' for o in [.1,.16,.22,.3,.3,.22,.16,.1])
 S['3_time']=f'''<!doctype html><meta charset="utf-8"><style>{BASE}
@@ -43,6 +40,6 @@ body{{{DARK}}}
 .box b em{{font-style:normal;color:#A16E3B}}
 .mini{{position:absolute;left:0;right:0;top:1020px;text-align:center;font:500 30px/1 J;color:#B9A897}}
 </style>{DOTS}<div class="wall">{rows}</div>{logo()}
-<div class="box"><i>// чесно-чесно</i><b>Скільки годин на тиждень у вас іде <em>на це?</em></b></div>
+<div class="box"><i>// чесно-чесно</i><b>Скільки годин на тиждень у вас іде <em>на рутину?</em></b><p style="font:500 32px/1.35 M;color:#6E5F52;margin-top:22px">Звіти, документи, перевірка пошти й інша дрібна робота</p></div>
 '''
 for k,v in S.items(): open(f'story_{k}.html','w').write(v)
