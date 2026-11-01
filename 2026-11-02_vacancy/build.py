@@ -1,0 +1,49 @@
+CSS='''@font-face{font-family:M;src:url(Montserrat.ttf)}@font-face{font-family:J;src:url(JetBrainsMono.ttf)}
+*{margin:0;box-sizing:border-box}body{width:1080px;height:1350px;position:relative;overflow:hidden;font-family:M;color:#EFE7DF}
+.bg{position:absolute;inset:0;background:radial-gradient(70% 45% at 30% 38%,#3d2c1a 0%,#24190f 45%,#140e08 80%,#0e0905 100%)}
+.dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(217,180,140,.7) 1.8px,transparent 2.4px);background-size:48px 48px;-webkit-mask:radial-gradient(70% 50% at 35% 40%,#000 0%,rgba(0,0,0,.5) 55%,rgba(0,0,0,.18) 100%)}
+.logo{position:absolute;top:70px;left:80px;display:flex;align-items:center;gap:14px}
+.logo .w{display:flex;flex-direction:column;align-items:flex-end}.logo small{font:700 12px/1 M;letter-spacing:.2em;color:#D2A26C;margin-top:6px;margin-right:-.2em}
+.cnt{position:absolute;top:84px;right:80px;font:500 24px/1 J;color:#B9A897}
+.c{position:absolute;left:80px;right:80px;top:210px}
+.k{font:500 28px/1 J;color:#D2A26C;margin-bottom:26px}
+h1{font-weight:800;font-size:104px;line-height:.98;letter-spacing:-.04em}
+h1 em,b em{font-style:normal;color:#D2A26C}
+.lead{font:500 38px/1.35 M;color:#E4D8CB;margin-top:34px}
+.glyph{position:absolute;filter:drop-shadow(0 30px 50px rgba(0,0,0,.55))}
+.card{margin-top:56px;border-top:2px solid rgba(210,162,108,.6)}
+.row{display:flex;justify-content:space-between;align-items:baseline;padding:26px 0;border-bottom:1px solid rgba(239,231,223,.14)}
+.row span{font:500 28px/1 J;color:#B9A897}.row b{font-weight:800;font-size:44px;letter-spacing:-.02em}
+.it{display:flex;gap:26px;padding:30px 0;border-bottom:1px solid rgba(239,231,223,.14)}
+.it i{font:500 28px/1.3 J;font-style:normal;color:#D2A26C;min-width:52px;padding-top:8px}
+.it b{display:block;font-weight:800;font-size:46px;line-height:1.08;letter-spacing:-.02em}
+.it span{display:block;font:500 30px/1.35 M;color:#C9B8A6;margin-top:8px}
+.site{position:absolute;left:80px;bottom:90px;font:500 32px/1 J;color:#D2A26C}
+.swipe{position:absolute;left:80px;bottom:90px;font:500 28px/1 J;color:#B9A897}
+.facts{display:flex;gap:44px;margin-top:50px;padding-top:30px;border-top:2px solid rgba(210,162,108,.6)}
+.facts div{font:500 26px/1.3 J;color:#B9A897}.facts b{display:block;font:800 52px/1 M;color:#EFE7DF;letter-spacing:-.02em;margin-bottom:10px}
+.price{margin-top:44px;font-weight:800;font-size:64px;letter-spacing:-.03em}.price s{font-size:40px;color:#8f7f70;margin-left:18px;font-weight:600}
+.price small{display:block;font:500 28px/1.3 J;color:#D2A26C;margin-top:12px;letter-spacing:0}
+'''
+LOGO='<div class="logo"><img src="crest_light.svg" style="height:56px"><div class="w"><img src="letters_light.svg" style="height:24px"><small>AI академія</small></div></div>'
+def page(i,body,glyph,gs):
+    return f'<!doctype html><meta charset="utf-8"><style>{CSS}</style><div class="bg"></div><div class="dots"></div><img class="glyph" src="glyph_{glyph}.png" style="{gs}">{LOGO}<div class="cnt">{i}/5</div>{body}'
+S=[
+page(1,'''<div class="c"><div class="k">// вакансія</div><h1>Шукаємо<br><em>співробітника</em></h1>
+<div class="card"><div class="row"><span>зарплата</span><b>$20 / міс</b></div><div class="row"><span>графік</span><b>24/7</b></div><div class="row"><span>лікарняні й відпустки</span><b>ніколи</b></div></div></div>
+<div class="swipe">гортайте →</div>''','chev','right:-140px;bottom:-40px;height:440px;opacity:.95'),
+page(2,'''<div class="c"><div class="k">// обов'язки</div><h1>Що він<br><em>робитиме</em></h1>
+<div class="card">
+<div class="it"><i>01</i><div><b>Переносити заявки</b><span>з пошти й форм у таблицю</span></div></div>
+<div class="it"><i>02</i><div><b>Готувати звіт</b><span>щоп'ятниці, з тих самих цифр</span></div></div>
+<div class="it"><i>03</i><div><b>Відповідати клієнтам</b><span>на питання, які ставлять щодня</span></div></div></div></div>''','hash','right:-150px;bottom:-60px;height:420px;opacity:.9'),
+page(3,'''<div class="c" style="top:360px"><div class="k">// хто це</div><h1>Це AI&#8209;<br>асистент.</h1>
+<p class="lead">І найняти його можна <b><em>за тиждень.</em></b></p></div>''','O','right:-120px;bottom:-30px;height:520px;opacity:.95'),
+page(4,'''<div class="c" style="top:330px"><div class="k">// вимоги до вас</div><h1>Програмувати<br><em>не треба</em></h1>
+<p class="lead">Код пише AI. Ваша частина: чітко поставити задачу й перевірити результат.</p></div>''','brace','right:-100px;bottom:-60px;height:560px;opacity:.95'),
+page(5,'''<div class="c"><div class="k">// як найняти</div><h1>Інтенсив<br><em>«Найми AI»</em></h1>
+<div class="facts"><div><b>9.11</b>старт</div><div><b>7 днів</b>уроки в записі</div><div><b>3</b>живі дзвінки</div></div>
+<div class="price">1 490 ₴<s>3 490 ₴</s><small>ціна старту діє до 8 листопада</small></div></div>
+<div class="site">najmy-ai.djun.com.ua</div>''','chev','right:-150px;bottom:-60px;height:420px;opacity:.6'),
+]
+for i,s in enumerate(S,1): open(f'slide_{i}.html','w').write(s)
