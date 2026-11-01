@@ -12,18 +12,16 @@ def logo(light=True):
 S={}
 # 1: giant centered type + floating role chips; quiz bottom
 S['1_who']=f'''<!doctype html><meta charset="utf-8"><style>{BASE}
-body{{{DARK}}}
-.big{{position:absolute;left:0;right:0;top:470px;text-align:center;font-weight:800;font-size:330px;line-height:.85;letter-spacing:-.06em;{GOLD}}}
-.sub{{position:absolute;left:0;right:0;top:770px;text-align:center;font-weight:800;font-size:92px;letter-spacing:-.04em}}
-.chip{{position:absolute;font:600 30px/1 J;padding:18px 26px;border-radius:999px;border:2px solid rgba(210,162,108,.65);color:#EFE7DF;background:rgba(25,15,9,.6)}}
-.mini{{position:absolute;left:0;right:0;top:1000px;text-align:center;font:500 30px/1 J;color:#B9A897}}
-</style>{DOTS}{logo()}
-<div class="chip" style="left:70px;top:400px;transform:rotate(-8deg)">маркетолог</div>
-<div class="chip" style="right:80px;top:430px;transform:rotate(6deg)">HR</div>
-<div class="chip" style="left:60px;top:900px;transform:rotate(5deg)">фрилансер</div>
-<div class="chip" style="right:60px;top:880px;transform:rotate(-6deg)">власник бізнесу</div>
-<div class="big">Ким</div><div class="sub">ви працюєте?</div>
-<div class="mini">// оберіть свій варіант ↓</div>'''
+body{{background:#0e0905;color:#EFE7DF}}
+.ph{{position:absolute;left:0;right:0;top:330px;height:760px;background:url(meme_monkey.jpg) center 45%/cover}}
+.fade{{position:absolute;left:0;right:0;top:330px;height:770px;background:linear-gradient(180deg,#0e0905 0%,rgba(14,9,5,0) 18%,rgba(14,9,5,0) 70%,#0e0905 100%)}}
+.k{{position:absolute;left:80px;top:1040px;font:500 30px/1 J;color:#D2A26C}}
+h1{{position:absolute;left:80px;right:80px;top:1090px;font-weight:800;font-size:112px;line-height:.95;letter-spacing:-.05em}}
+h1 em{{font-style:normal;{GOLD}}}
+.mini{{position:absolute;left:80px;top:1330px;font:500 30px/1.35 J;color:#B9A897}}
+</style><div class="ph"></div><div class="fade"></div>{logo()}
+<div class="k">// це ми зранку з таблицями</div><h1>А ким<br><em>працюєте ви?</em></h1>
+<div class="mini">оберіть свій варіант ↓</div>'''
 # 2: sticker on top half, giant 3D brace, text anchored bottom
 S['2_other']=f'''<!doctype html><meta charset="utf-8"><style>{BASE}
 body{{background:#EFE7DF;color:#190F09}}
@@ -36,7 +34,7 @@ h1 em{{font-style:normal;color:#A16E3B}}
 </style>{logo(False)}<img class="g" src="glyph_brace.png">
 <div class="arrow">↑ ваша відповідь тут</div>
 <h1>Не знайшли<br>себе? <em>Напишіть,<br>ким працюєте</em></h1>
-<div class="s">Нам правда цікаво 🙂</div>'''
+<div class="s">Нам правда цікаво</div>'''
 # 3: routine wall of Ctrl+C/V, centered question, poll bottom
 rows=''.join(f'<div style="opacity:{o}">Ctrl+C → Ctrl+V &nbsp;·&nbsp; звіт_фінал_2.xlsx &nbsp;·&nbsp; «А скільки коштує?»</div>' for o in [.1,.16,.22,.3,.3,.22,.16,.1])
 S['3_time']=f'''<!doctype html><meta charset="utf-8"><style>{BASE}
