@@ -1,0 +1,18 @@
+<!doctype html><meta charset="utf-8"><style>
+@font-face{font-family:M;src:url(Montserrat.ttf)}@font-face{font-family:J;src:url(JetBrainsMono.ttf)}
+*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;position:relative;overflow:hidden;font-family:M;background:#140E08;color:#EFE7DF}
+.logo{position:absolute;top:250px;left:80px;display:flex;align-items:center;gap:14px}
+.logo .w{display:flex;flex-direction:column;align-items:flex-end}.logo small{font:700 13px/1 M;letter-spacing:.2em;margin-top:7px;margin-right:-.2em;color:#C9935E}
+.col{position:absolute;left:80px;right:80px;top:430px;display:flex;flex-direction:column}
+.k{font:500 28px/1 J;color:#C9935E;letter-spacing:.04em}
+.n{align-self:flex-start;font-weight:800;line-height:.9;letter-spacing:-.06em;color:#C9935E;white-space:nowrap;margin:30px 0 0 -8px}
+h1{font-weight:700;font-size:64px;white-space:nowrap;line-height:1.05;letter-spacing:-.035em;margin-top:30px}
+h1 em{font-style:normal;color:#C9935E}
+.line{width:120px;height:3px;background:#C9935E;margin-top:48px}
+p{font:400 38px/1.45 M;color:#BFAE9C;margin-top:30px;max-width:820px}
+p b{color:#EFE7DF;font-weight:600}
+</style><div class="logo"><img src="crest_light.svg" style="height:60px"><div class="w"><img src="letters_light.svg" style="height:25px"><small>AI академія</small></div></div>
+<div class="col"><div class="k">ваші відповіді</div><div class="n" id="n">пів тижня</div>
+<h1>у більшості з вас<br><em>з'їдає рутина</em></h1><div class="line"></div>
+<p>Добра новина: <b>це можна змінити.</b> Дивіться, як може виглядати ваш ранок</p></div>
+<script>document.fonts.ready.then(()=>{const n=document.getElementById('n');n.style.display='inline-block';let fs=320;n.style.fontSize=fs+'px';while(n.getBoundingClientRect().width>910&&fs>100){fs-=4;n.style.fontSize=fs+'px';}});</script>
