@@ -1,0 +1,81 @@
+<!doctype html><meta charset="utf-8"><style>
+@font-face{font-family:M;src:url(Montserrat.ttf)}@font-face{font-family:J;src:url(JetBrainsMono.ttf)}
+*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;position:relative;overflow:hidden;font-family:M;background:#EFE7DF;color:#190F09}
+.gold{background:linear-gradient(180deg,#F2D29A 0%,#C99662 55%,#8E5F33 100%);-webkit-background-clip:text;color:transparent}
+#head{position:absolute;left:0;right:0;top:250px;height:250px;text-align:center}
+#head div{position:absolute;left:0;right:0;font-weight:800;font-size:84px;line-height:1.02;letter-spacing:-.04em}
+#phone{position:absolute;left:150px;width:780px;top:560px;height:1500px;border-radius:90px;background:#0e0905;padding:22px;box-shadow:0 40px 90px rgba(25,15,9,.35)}
+#scr{position:relative;width:100%;height:100%;border-radius:70px;overflow:hidden;background:radial-gradient(90% 60% at 50% 30%,#4a3420 0%,#24190f 55%,#120c07 100%)}
+#crestbg{position:absolute;left:50%;top:740px;width:520px;transform:translateX(-50%);opacity:.12}
+#lt{position:absolute;left:0;right:0;top:120px;text-align:center;color:#F4EDE5}
+#lt small{display:block;font:600 30px/1 M;opacity:.85}
+#lt b{display:block;font-weight:700;font-size:170px;letter-spacing:-.04em;line-height:1;margin-top:10px}
+.n{position:absolute;left:28px;right:28px;top:0;background:rgba(246,241,235,.94);border-radius:36px;padding:24px 26px;display:flex;gap:22px;align-items:flex-start;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.n .ic{width:72px;height:72px;border-radius:18px;display:flex;align-items:center;justify-content:center;font:800 34px/1 M;color:#fff;flex:none}
+.n .tx{flex:1;min-width:0}.n .hd{display:flex;justify-content:space-between;font:600 22px/1 M;color:#8a7f73;margin-bottom:8px}
+.n b{display:block;font-weight:700;font-size:32px;line-height:1.2;color:#190F09}
+.n span{display:block;font:500 27px/1.3 M;color:#5d5248;margin-top:4px}
+.ai{background:rgba(246,241,235,.97)}
+.chk{display:flex;align-items:center;gap:14px;font:600 30px/1.2 M;color:#190F09;margin-top:14px}
+.chk i{width:40px;height:40px;border-radius:50%;background:linear-gradient(180deg,#F2D29A,#C99662 55%,#8E5F33);color:#140e08;display:flex;align-items:center;justify-content:center;font:800 22px/1 M;font-style:normal;flex:none}
+#end{position:absolute;inset:0;background:radial-gradient(80% 50% at 50% 45%,#2a1d12 0%,#160f09 60%,#0e0905 100%);color:#EFE7DF;opacity:0}
+.logo{position:absolute;top:250px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px}
+.logo .w{display:flex;flex-direction:column;align-items:flex-end}.logo small{font:700 13px/1 M;letter-spacing:.2em;margin-top:7px;margin-right:-.2em;color:#C9935E}
+.ln{position:absolute;left:0;right:0;text-align:center;font-weight:800;letter-spacing:-.04em;line-height:1}
+</style>
+<div id="head"><div id="h1">Понеділок, 9:00.<br><span style="color:#A16E3B">Ви відкриваєте пошту</span></div>
+<div id="h2">11:47.<br><span style="color:#B4532A">А роботу ще не почали</span></div>
+<div id="h3">А з AI-асистентом<br><span style="color:#A16E3B">ваш ранок такий</span></div></div>
+<div id="phone"><div id="scr"><img id="crestbg" src="crest_light.svg"><div id="lt"><small>понеділок, 2 листопада</small><b id="clk">9:00</b></div><div id="ns"></div></div></div>
+<div id="end">
+ <img src="glyph_O.png" id="g" style="position:absolute;right:-170px;top:1180px;height:600px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))">
+ <div class="logo"><img src="crest_light.svg" style="height:60px"><div class="w"><img src="letters_light.svg" style="height:25px"><small>AI академія</small></div></div>
+ <div class="ln" id="e1" style="top:470px;font-size:220px;line-height:.9">Найми<br><span class="gold">AI</span></div>
+ <div class="ln" id="e2" style="top:930px;font-size:50px;font-weight:600;line-height:1.3;color:#E4D8CB">Налаштуйте свого асистента<br>за 7 днів</div>
+ <div class="ln" id="e3" style="top:1130px;font-size:56px">Старт 9 листопада</div>
+ <div class="ln" id="e4" style="top:1220px;font:600 40px/1 J;color:#C9935E">najmy-ai.djun.com.ua</div>
+</div>
+<script>
+const cl=x=>Math.max(0,Math.min(1,x)),eo=x=>1-Math.pow(1-cl(x),3),eio=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2},eb=x=>{x=cl(x);const c=1.4;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const T2=6.8,T3=11.6,TOP=420,H=172;
+const C={mail:'#3B6FD8',tg:'#2AA0DA',xl:'#1F7A45',cal:'#D9483B',msg:'#33B356'};
+const N=[["mail","Пошта","Нові заявки (12)","Перенесіть у таблицю до обіду",0.35],
+["msg","Клієнт","А скільки коштує?","Вже вчетверте за ранок",1.0],
+["cal","Календар","Звіт до 12:00","Залишилось 2 години",1.6],
+["mail","Пошта","Re: той файл","Скинь ще раз, будь ласка",2.15],
+["xl","Excel","звіт_фінал_2.xlsx","Конфлікт версій",2.65],
+["tg","Telegram","Олена","А доставка є?",3.1],
+["msg","Клієнт","Ви тут?","Чекаю відповідь",3.5],
+["mail","Пошта","Нові заявки (7)","",3.85]];
+const ns=document.getElementById('ns');
+N.forEach((x,i)=>{const d=document.createElement('div');d.className='n';d.id='n'+i;d.innerHTML=`<div class="ic" style="background:${C[x[0]]}">${x[1][0]}</div><div class="tx"><div class="hd"><span>${x[1]}</span><span>зараз</span></div><b>${x[2]}</b>${x[3]?`<span>${x[3]}</span>`:''}</div>`;ns.appendChild(d);});
+const ai=document.createElement('div');ai.className='n ai';ai.id='ai';
+const R=["3 заявки внесено в таблицю","Звіт надіслано вам у Telegram","5 клієнтам відповіли","Новини галузі зібрано"];
+ai.innerHTML=`<div class="ic" style="background:#190F09"><img src="crest_light.svg" style="height:46px"></div><div class="tx"><div class="hd"><span>AI-асистент</span><span>09:00</span></div><b>Доброго ранку! Усе готово:</b>${R.map((r,i)=>`<div class="chk" id="k${i}"><i>✓</i>${r}</div>`).join('')}</div>`;ns.appendChild(ai);
+const fmt=m=>{const h=9+Math.floor(m/60),mm=Math.floor(m%60);return h+':'+String(mm).padStart(2,'0');};
+window.render=function(t){
+ // headlines
+ const hv=(id,a,b)=>{const e=document.getElementById(id);const p=Math.min(eo((t-a)/.4),1-eo((t-b)/.3));e.style.opacity=p;e.style.transform=`translateY(${30*(1-eo((t-a)/.4))}px)`;};
+ hv('h1',0.05,4.9);hv('h2',5.0,T2-0.05);hv('h3',T2+0.25,T3);
+ // clock
+ let m=t<T2?Math.pow(cl((t-0.3)/5.2),1.3)*167:Math.min(5,cl((t-T2)/3)*5);document.getElementById('clk').textContent=fmt(m);
+ document.getElementById('clk').style.color=(t<T2&&m>120)?'#F0A47A':'#F4EDE5';
+ // notifications: smooth stack
+ N.forEach((x,i)=>{const e=document.getElementById('n'+i);const a=eb((t-x[4])/.38);let y=TOP;
+  for(let j=i+1;j<N.length;j++) y+=H*eo((t-N[j][4])/.35);
+  const out=eio((t-T2+0.05-(N.length-1-i)*0.04)/.45);
+  e.style.opacity=(t>=x[4]?1:0)*(1-cl((y-1150)/150))*(1-out);
+  e.style.transform=`translate(${-900*out}px,${y-50*(1-a)}px) scale(${0.92+0.08*a})`;});
+ // AI notification
+ const ta=t-T2-0.6;const ap=eb(ta/.45);ai.style.opacity=ta>0?1:0;ai.style.transform=`translateY(${TOP-60*(1-ap)}px) scale(${0.92+0.08*ap})`;
+ R.forEach((r,i)=>{const k=document.getElementById('k'+i);const p=eo((ta-0.7-i*0.55)/.35);k.style.opacity=p;k.style.maxHeight=(56*p)+'px';k.style.marginTop=(14*p)+'px';k.style.transform=`translateX(${-30*(1-p)}px)`;});
+ // phone subtle zoom at end of chaos
+ const ph=document.getElementById('phone');const sh=(t>4.2&&t<T2)?Math.sin(t*50)*3*cl((t-4.2)/1.5):0;ph.style.transform=`translateX(${sh}px)`;
+ // end
+ const te=t-T3,E=document.getElementById('end');E.style.opacity=eo(te/.35);
+ const f=(id,d)=>{const e=document.getElementById(id),p=eo((te-d)/.45);e.style.opacity=p;e.style.transform=`translateY(${40*(1-p)}px)`;};
+ f('e1',.1);f('e2',.4);f('e3',.7);f('e4',.95);
+ const gp=eb((te-.2)/.8);document.getElementById('g').style.transform=`translateY(${200*(1-gp)}px) rotate(${-20*(1-gp)+Math.sin(te*1.4)*3}deg)`;
+};
+render(0);
+</script>
