@@ -32,7 +32,7 @@ h1 em{{font-style:normal;color:#A16E3B}}
 # 3: routine wall of Ctrl+C/V, centered question, poll bottom
 rows=''.join(f'<div style="opacity:{o}">Ctrl+C → Ctrl+V &nbsp;·&nbsp; звіт_фінал_2.xlsx &nbsp;·&nbsp; «А скільки коштує?»</div>' for o in [.05,.09,.13,.09,.05])
 S['3_time']=f'''<!doctype html><meta charset="utf-8"><style>{BASE}
-body{{background:#24170E;color:#EFE7DF}}
+body{{background:#140E08;color:#EFE7DF}}
 .k{{position:absolute;left:80px;top:430px;font:500 28px/1 J;color:#C9935E;letter-spacing:.04em}}
 .n{{position:absolute;left:72px;top:470px;font-weight:800;font-size:300px;line-height:.85;letter-spacing:-.06em;color:#C9935E}}
 h1{{position:absolute;left:80px;right:80px;top:740px;font-weight:700;font-size:78px;line-height:1.02;letter-spacing:-.035em;color:#EFE7DF}}
