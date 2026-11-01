@@ -32,14 +32,17 @@ h1 em{{font-style:normal;color:#A16E3B}}
 # 3: routine wall of Ctrl+C/V, centered question, poll bottom
 rows=''.join(f'<div style="opacity:{o}">Ctrl+C → Ctrl+V &nbsp;·&nbsp; звіт_фінал_2.xlsx &nbsp;·&nbsp; «А скільки коштує?»</div>' for o in [.05,.09,.13,.09,.05])
 S['3_time']=f'''<!doctype html><meta charset="utf-8"><style>{BASE}
-body{{{DARK}}}
-.wall{{position:absolute;left:-80px;top:1180px;width:1400px;font:600 40px/1.9 J;color:#D2A26C;white-space:nowrap;transform:rotate(-6deg)}}
-.k{{position:absolute;left:80px;top:420px;font:500 30px/1 J;color:#D2A26C}}
-h1{{position:absolute;left:80px;right:80px;top:470px;font-weight:800;font-size:112px;line-height:.98;letter-spacing:-.045em;color:#EFE7DF}}
-h1 em{{font-style:normal;{GOLD}}}
-p{{position:absolute;left:82px;right:120px;top:850px;font:500 38px/1.4 M;color:#C9B8A6}}
-</style>{DOTS}<div class="wall">{rows}</div>{logo()}
-<div class="k">// тільки чесно</div>
-<h1>Скільки годин<br>на тиждень<br><em>з'їдає рутина?</em></h1>
+body{{background:#24170E;color:#EFE7DF}}
+.k{{position:absolute;left:80px;top:430px;font:500 28px/1 J;color:#C9935E;letter-spacing:.04em}}
+.n{{position:absolute;left:72px;top:470px;font-weight:800;font-size:300px;line-height:.85;letter-spacing:-.06em;color:#C9935E}}
+h1{{position:absolute;left:80px;right:80px;top:740px;font-weight:700;font-size:78px;line-height:1.02;letter-spacing:-.035em;color:#EFE7DF}}
+h1 em{{font-style:normal;color:#C9935E}}
+.line{{position:absolute;left:80px;width:120px;top:980px;height:3px;background:#C9935E}}
+p{{position:absolute;left:80px;right:140px;top:1015px;font:400 34px/1.45 M;color:#BFAE9C}}
+</style>{logo()}
+<div class="k">тільки чесно</div>
+<div class="n">?&nbsp;год</div>
+<h1>на тиждень у вас<br><em>з'їдає рутина</em></h1>
+<div class="line"></div>
 <p>Ті самі звіти, ті самі листи і «а можеш ще раз скинути той файл?»</p>'''
 for k,v in S.items(): open(f'story_{k}.html','w').write(v)
