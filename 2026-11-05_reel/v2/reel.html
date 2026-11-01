@@ -1,0 +1,79 @@
+<!doctype html><meta charset="utf-8"><style>
+@font-face{font-family:M;src:url(Montserrat.ttf)}@font-face{font-family:J;src:url(JetBrainsMono.ttf)}
+*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;position:relative;overflow:hidden;font-family:M;background:#0e0905;color:#EFE7DF}
+.sc{position:absolute;inset:0;overflow:hidden}
+.site{background:radial-gradient(70% 40% at 50% 40%,#3d2c1a 0%,#24190f 45%,#140e08 80%,#0e0905 100%)}
+.dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(217,180,140,.55) 1.8px,transparent 2.4px);background-size:48px 48px;-webkit-mask:radial-gradient(70% 45% at 50% 40%,#000 0%,rgba(0,0,0,.45) 60%,rgba(0,0,0,.12) 100%)}
+.gold{background:linear-gradient(180deg,#F2D29A 0%,#C99662 55%,#8E5F33 100%);-webkit-background-clip:text;color:transparent}
+.logo{position:absolute;top:250px;left:80px;display:flex;align-items:center;gap:14px;z-index:4}
+.logo .w{display:flex;flex-direction:column;align-items:flex-end}.logo small{font:700 13px/1 M;letter-spacing:.2em;margin-top:7px;margin-right:-.2em;color:#C9935E}
+.tag{position:absolute;left:80px;top:380px;font:500 30px/1 J;color:#C9935E}
+.clock{position:absolute;left:74px;top:420px;font-weight:800;font-size:220px;letter-spacing:-.05em;line-height:1}
+.cap{position:absolute;left:80px;top:650px;font:600 48px/1.12 M;letter-spacing:-.02em}
+.card{position:absolute;width:760px;background:rgba(36,25,15,.92);border:1.5px solid rgba(201,147,94,.45);border-radius:22px;padding:24px 30px;box-shadow:0 30px 60px rgba(0,0,0,.55)}
+.card i{display:block;font:500 22px/1 J;font-style:normal;color:#C9935E;margin-bottom:12px}
+.card b{display:block;font-weight:700;font-size:38px;line-height:1.2}.card small{display:block;font:500 26px/1.3 M;color:#B9A897;margin-top:6px}
+.ok{position:absolute;left:80px;right:80px;display:flex;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid rgba(239,231,223,.14)}
+.ok .c{width:64px;height:64px;border-radius:50%;background:linear-gradient(180deg,#F2D29A,#C99662 55%,#8E5F33);color:#140e08;display:flex;align-items:center;justify-content:center;font:800 34px/1 M;flex:none}
+.ok b{display:block;font-weight:800;font-size:40px;letter-spacing:-.02em}.ok span{display:block;font:500 26px/1.2 J;color:#B9A897;margin-top:8px}
+.hk{position:absolute;left:60px;right:60px;top:270px;text-align:center;font-weight:800;font-size:76px;line-height:1.05;letter-spacing:-.03em;color:#fff;text-shadow:0 4px 0 #000,0 0 24px rgba(0,0,0,.8)}
+.flash{position:absolute;inset:0;background:#F2D29A;pointer-events:none;opacity:0}
+</style>
+<div class="sc" id="hook"><div id="ph" style="position:absolute;inset:0;background:url(hook.jpg) center top/cover"></div>
+ <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.65) 0%,rgba(0,0,0,0) 35%)"></div>
+ <div class="hk" id="hk1">Я в понеділок:<br>«тільки швиденько<br>гляну пошту»</div></div>
+<div class="sc site" id="before"><div class="dots"></div>
+ <div class="logo"><img src="crest_light.svg" style="height:60px"><div class="w"><img src="letters_light.svg" style="height:25px"><small>AI академія</small></div></div>
+ <div class="tag">// ваш ранок зараз</div><div class="clock" id="c1">09:00</div>
+ <div class="cap" id="cap1">а до своєї роботи<br><span class="gold">ще навіть не дійшли</span></div><div id="cards"></div></div>
+<div class="sc site" id="after"><div class="dots"></div>
+ <img src="glyph_hash.png" id="gh" style="position:absolute;right:-140px;top:1420px;height:440px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))">
+ <div class="logo"><img src="crest_light.svg" style="height:60px"><div class="w"><img src="letters_light.svg" style="height:25px"><small>AI академія</small></div></div>
+ <div class="tag">// з AI-асистентом</div><div class="clock gold" id="c2">09:00</div>
+ <div class="cap" id="cap2">і все вже <span class="gold">зроблено</span></div>
+ <div id="oks" style="position:absolute;left:0;right:0;top:820px;border-top:2px solid rgba(201,147,94,.55);margin:0 80px"></div></div>
+<div class="sc site" id="end"><div class="dots"></div>
+ <img src="glyph_O.png" id="g" style="position:absolute;right:-160px;top:980px;height:640px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))">
+ <div class="logo"><img src="crest_light.svg" style="height:60px"><div class="w"><img src="letters_light.svg" style="height:25px"><small>AI академія</small></div></div>
+ <div class="tag" id="e0">// як так зробити</div>
+ <div id="e1" style="position:absolute;left:80px;top:440px;font-weight:800;font-size:190px;letter-spacing:-.05em;line-height:.92">Найми<br><span class="gold">AI</span></div>
+ <div id="e2" style="position:absolute;left:80px;right:300px;top:860px;font:500 44px/1.35 M;color:#E4D8CB">Інтенсив, де за 7 днів ви налаштуєте свого асистента</div>
+ <div id="e3" style="position:absolute;left:80px;top:1130px;display:flex;gap:16px">
+  <span style="font:600 30px/1 J;padding:16px 22px;border:2px solid rgba(201,147,94,.7);border-radius:999px">старт 9.11</span>
+  <span style="font:600 30px/1 J;padding:16px 22px;border:2px solid rgba(201,147,94,.7);border-radius:999px">1 490 ₴ до 8.11</span></div>
+ <div id="e4" style="position:absolute;left:80px;top:1300px;font:600 40px/1 J;color:#C9935E">najmy-ai.djun.com.ua</div></div>
+<div class="flash" id="fl"></div>
+<script>
+const cl=x=>Math.max(0,Math.min(1,x)),eo=x=>1-Math.pow(1-cl(x),3),eb=x=>{x=cl(x);const c=1.6;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const H=2.6,A=6.8,E=11.6;
+const W=[["пошта","Нові заявки (12)","перенести в таблицю"],["excel","звіт_фінал_2.xlsx","а ще є звіт_фінал_ОСТАННІЙ"],["месенджер","«А скільки коштує?»","вже вчетверте за ранок"],["буфер обміну","Ctrl+C → Ctrl+V","і так 40 разів"],["пошта","«Скинь той файл ще раз?»",""],["календар","Звіт до 12:00!",""]];
+const pos=[[80,860,-3],[240,1000,2.5],[60,1140,-2],[250,1280,3],[90,1420,-2.5],[230,1560,2]];
+const cards=document.getElementById('cards');
+W.forEach((w,i)=>{const d=document.createElement('div');d.className='card';d.id='w'+i;d.innerHTML=`<i>// ${w[0]}</i><b>${w[1]}</b>${w[2]?`<small>${w[2]}</small>`:''}`;cards.appendChild(d);});
+const O=[["3 заявки в таблиці","09:00 · AI-асистент"],["Звіт надіслано в Telegram","09:00"],["Відповіли 5 клієнтам","09:01 · типові питання"],["Новини галузі зібрано","09:01"]];
+const oks=document.getElementById('oks');
+O.forEach((o,i)=>{const d=document.createElement('div');d.className='ok';d.id='o'+i;d.style.position='relative';d.style.left='0';d.style.right='0';d.innerHTML=`<div class="c">✓</div><div><b>${o[0]}</b><span>${o[1]}</span></div>`;oks.appendChild(d);});
+const fmt=m=>{const h=9+Math.floor(m/60),mm=Math.floor(m%60);return String(h).padStart(2,'0')+':'+String(mm).padStart(2,'0');};
+window.render=function(t){
+ const sh=(id,a,b)=>document.getElementById(id).style.display=(t>=a&&t<b)?'block':'none';
+ sh('hook',0,H);sh('before',H,A);sh('after',A,E);sh('end',E,99);
+ // hook
+ document.getElementById('ph').style.transform=`scale(${1.12-0.08*cl(t/H)})`;
+ const hp=eb(t/0.35);document.getElementById('hk1').style.transform=`scale(${0.7+0.3*hp})`;document.getElementById('hk1').style.opacity=cl(t/0.15);
+ // before
+ const tb=t-H;const m=Math.min(167,Math.pow(cl((tb-0.2)/3.8),1.5)*167);const c1=document.getElementById('c1');c1.textContent=fmt(m);c1.style.color=m>120?'#E5996A':'#EFE7DF';
+ document.getElementById('cap1').style.opacity=eo((tb-3.0)/0.5);
+ W.forEach((w,i)=>{const e=document.getElementById('w'+i),t0=0.3+i*0.5,p=eb((tb-t0)/0.4);const [x,y,r]=pos[i];const s=tb>2.9?Math.sin(t*55+i*2)*5*cl((tb-2.9)/1):0;
+  e.style.opacity=tb>=t0?1:0;e.style.transform=`translate(${x+s}px,${y+70*(1-p)}px) rotate(${r}deg) scale(${.85+.15*p})`;});
+ // after
+ const ta=t-A;const c2=document.getElementById('c2');c2.textContent=fmt(Math.min(5,cl(ta/3.2)*5));
+ document.getElementById('cap2').style.opacity=eo((ta-3.0)/0.5);
+ O.forEach((o,i)=>{const e=document.getElementById('o'+i),p=eo((ta-0.7-i*0.7)/0.45);e.style.opacity=p;e.style.transform=`translateX(${-70*(1-p)}px)`;});
+ const ghp=eb((ta-0.2)/0.9);document.getElementById('gh').style.transform=`translateY(${-160*(1-ghp)}px) rotate(${15*(1-ghp)+Math.sin(ta*1.3)*3}deg)`;
+ // end
+ const te=t-E;[['e0',0],['e1',.1],['e2',.4],['e3',.7],['e4',1.0]].forEach(([id,d])=>{const p=eo((te-d)/.5),e=document.getElementById(id);e.style.opacity=p;e.style.transform=`translateY(${40*(1-p)}px)`;});
+ const gp=eb((te-.2)/.8);document.getElementById('g').style.transform=`translateY(${200*(1-gp)}px) rotate(${-20*(1-gp)+Math.sin(te*1.4)*3}deg)`;
+ const f=document.getElementById('fl');let fo=Math.max(1-cl(Math.abs(t-A)/0.2),0.6*(1-cl(Math.abs(t-E)/0.15)));f.style.opacity=fo*0.85;
+};
+render(0);
+</script>
