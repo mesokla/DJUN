@@ -2,9 +2,9 @@
 @font-face{font-family:M;src:url(Montserrat.ttf)}@font-face{font-family:J;src:url(JetBrainsMono.ttf)}
 *{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;position:relative;overflow:hidden;font-family:M;background:#EFE7DF;color:#190F09}
 .gold{background:linear-gradient(180deg,#F2D29A 0%,#C99662 55%,#8E5F33 100%);-webkit-background-clip:text;color:transparent}
-#head{position:absolute;left:0;right:0;top:250px;height:250px;text-align:center}
-#head div{position:absolute;left:0;right:0;font-weight:800;font-size:84px;line-height:1.02;letter-spacing:-.04em}
-#phone{position:absolute;left:150px;width:780px;top:560px;height:1500px;border-radius:90px;background:#0e0905;padding:22px;box-shadow:0 40px 90px rgba(25,15,9,.35)}
+#head{position:absolute;left:0;right:0;top:270px;height:280px;text-align:center}
+#head div{position:absolute;left:0;right:0;text-align:center}#head b{display:block;font-weight:800;font-size:112px;line-height:1;letter-spacing:-.05em;color:#190F09}#head i{display:block;font-style:normal;font-weight:600;font-size:52px;line-height:1.15;letter-spacing:-.02em;margin-top:18px}
+#phone{position:absolute;left:150px;width:780px;top:600px;height:1500px;border-radius:90px;background:#0e0905;padding:22px;box-shadow:0 40px 90px rgba(25,15,9,.35)}
 #scr{position:relative;width:100%;height:100%;border-radius:70px;overflow:hidden;background:radial-gradient(90% 60% at 50% 30%,#4a3420 0%,#24190f 55%,#120c07 100%)}
 #crestbg{position:absolute;left:50%;top:740px;width:520px;transform:translateX(-50%);opacity:.12}
 #lt{position:absolute;left:0;right:0;top:120px;text-align:center;color:#F4EDE5}
@@ -23,9 +23,9 @@
 .logo .w{display:flex;flex-direction:column;align-items:flex-end}.logo small{font:700 13px/1 M;letter-spacing:.2em;margin-top:7px;margin-right:-.2em;color:#C9935E}
 .ln{position:absolute;left:0;right:0;text-align:center;font-weight:800;letter-spacing:-.04em;line-height:1}
 </style>
-<div id="head"><div id="h1">Понеділок, 9:00.<br><span style="color:#A16E3B">Ви відкриваєте пошту</span></div>
-<div id="h2">11:47.<br><span style="color:#B4532A">А роботу ще не почали</span></div>
-<div id="h3">А з AI-асистентом<br><span style="color:#A16E3B">ваш ранок такий</span></div></div>
+<div id="head"><div id="h1"><b>Понеділок, 9:00</b><i style="color:#A16E3B">«тільки швиденько гляну пошту»</i></div>
+<div id="h2"><b style="color:#B4532A">Минуло 3 години</b><i style="color:#190F09">а до своєї роботи ще не дійшли</i></div>
+<div id="h3"><b>Той самий ранок</b><i style="color:#A16E3B">але з AI-асистентом</i></div></div>
 <div id="phone"><div id="scr"><img id="crestbg" src="crest_light.svg"><div id="lt"><small>понеділок, 2 листопада</small><b id="clk">9:00</b></div><div id="ns"></div></div></div>
 <div id="end">
  <img src="glyph_O.png" id="g" style="position:absolute;right:-170px;top:1180px;height:600px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))">
@@ -55,7 +55,7 @@ ai.innerHTML=`<div class="ic" style="background:#190F09"><img src="crest_light.s
 const fmt=m=>{const h=9+Math.floor(m/60),mm=Math.floor(m%60);return h+':'+String(mm).padStart(2,'0');};
 window.render=function(t){
  // headlines
- const hv=(id,a,b)=>{const e=document.getElementById(id);const p=Math.min(eo((t-a)/.4),1-eo((t-b)/.3));e.style.opacity=p;e.style.transform=`translateY(${30*(1-eo((t-a)/.4))}px)`;};
+ const hv=(id,a,b)=>{const e=document.getElementById(id);const p=Math.min(eo((t-a)/.4),1-eo((t-b)/.3));e.style.opacity=p;e.style.filter=`blur(${8*(1-p)}px)`;e.style.transform=`translateY(${30*(1-eo((t-a)/.4))}px)`;};
  hv('h1',0.05,4.9);hv('h2',5.0,T2-0.05);hv('h3',T2+0.25,T3);
  // clock
  let m=t<T2?Math.pow(cl((t-0.3)/5.2),1.3)*167:Math.min(5,cl((t-T2)/3)*5);document.getElementById('clk').textContent=fmt(m);
