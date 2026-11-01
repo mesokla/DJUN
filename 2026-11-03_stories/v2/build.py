@@ -12,15 +12,12 @@ def logo(light=True):
 S={}
 # 1: giant centered type + floating role chips; quiz bottom
 S['1_who']=f'''<!doctype html><meta charset="utf-8"><style>{BASE}
-body{{background:#0e0905;color:#EFE7DF}}
-.ph{{position:absolute;left:0;right:0;top:330px;height:760px;background:url(meme_monkey.jpg) center 45%/cover}}
-.fade{{position:absolute;left:0;right:0;top:330px;height:770px;background:linear-gradient(180deg,#0e0905 0%,rgba(14,9,5,0) 18%,rgba(14,9,5,0) 70%,#0e0905 100%)}}
-.k{{position:absolute;left:80px;top:1040px;font:500 30px/1 J;color:#D2A26C}}
-h1{{position:absolute;left:80px;right:80px;top:1090px;font-weight:800;font-size:112px;line-height:.95;letter-spacing:-.05em}}
-h1 em{{font-style:normal;{GOLD}}}
-.mini{{position:absolute;left:80px;top:1330px;font:500 30px/1.35 J;color:#B9A897}}
-</style><div class="ph"></div><div class="fade"></div>{logo()}
-<div class="k">// це ми зранку з таблицями</div><h1>А ким<br><em>працюєте ви?</em></h1>
+body{{background:url(meme_monkey.jpg) 38% center/cover;color:#fff}}
+.dim{{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,6,3,.82) 0%,rgba(10,6,3,.55) 32%,rgba(10,6,3,.3) 55%,rgba(10,6,3,.55) 100%)}}
+h1{{position:absolute;left:80px;right:80px;top:400px;font-weight:800;font-size:124px;line-height:.95;letter-spacing:-.05em;text-shadow:0 6px 30px rgba(0,0,0,.5)}}
+.mini{{position:absolute;left:82px;top:680px;font:500 32px/1.35 J;color:#fff;opacity:.9}}
+</style><div class="dim"></div>{logo()}
+<h1>А ким<br>працюєте ви?</h1>
 <div class="mini">оберіть свій варіант ↓</div>'''
 # 2: sticker on top half, giant 3D brace, text anchored bottom
 S['2_other']=f'''<!doctype html><meta charset="utf-8"><style>{BASE}
