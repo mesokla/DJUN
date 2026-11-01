@@ -1,0 +1,72 @@
+<!doctype html><meta charset="utf-8"><style>
+@font-face{font-family:M;src:url(Montserrat.ttf)}@font-face{font-family:J;src:url(JetBrainsMono.ttf)}
+*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;position:relative;overflow:hidden;font-family:M}
+.sc{position:absolute;inset:0;overflow:hidden}
+.dark{background:radial-gradient(80% 50% at 50% 45%,#2a1d12 0%,#160f09 60%,#0e0905 100%);color:#EFE7DF}
+.gold{background:linear-gradient(180deg,#F2D29A 0%,#C99662 55%,#8E5F33 100%);-webkit-background-clip:text;color:transparent}
+.logo{position:absolute;top:250px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;z-index:4}
+.logo .w{display:flex;flex-direction:column;align-items:flex-end}.logo small{font:700 13px/1 M;letter-spacing:.2em;margin-top:7px;margin-right:-.2em;color:#C9935E}
+.ln{position:absolute;left:0;right:0;text-align:center;font-weight:800;letter-spacing:-.04em;line-height:1}
+/* chaos */
+#chaos{background:#EFE7DF;color:#190F09}
+#clk{position:absolute;left:0;right:0;top:330px;text-align:center;font-weight:800;font-size:250px;letter-spacing:-.06em;line-height:1}
+.n{position:absolute;left:110px;right:110px;height:150px;background:#fff;border-radius:34px;box-shadow:0 16px 40px rgba(25,15,9,.12);display:flex;align-items:center;gap:26px;padding:0 34px}
+.n .ic{width:84px;height:84px;border-radius:22px;background:#190F09;color:#EFE7DF;display:flex;align-items:center;justify-content:center;font:800 40px/1 M;flex:none}
+.n b{display:block;font-weight:800;font-size:38px;letter-spacing:-.02em;white-space:nowrap}.n span{display:block;font:500 28px/1.2 M;color:#8a7f73;margin-top:6px;white-space:nowrap}
+#over{position:absolute;inset:0;background:rgba(239,231,223,.0);display:flex;align-items:center;justify-content:center}
+#over div{font-weight:800;font-size:96px;line-height:1.02;letter-spacing:-.04em;text-align:center;color:#190F09}
+/* after */
+#bigc{position:absolute;left:0;right:0;top:420px;text-align:center;font-weight:800;font-size:300px;letter-spacing:-.06em;line-height:1}
+.row{position:absolute;left:130px;right:130px;display:flex;align-items:center;gap:30px}
+.row .c{width:70px;height:70px;border-radius:50%;background:linear-gradient(180deg,#F2D29A,#C99662 55%,#8E5F33);color:#140e08;display:flex;align-items:center;justify-content:center;font:800 38px/1 M;flex:none}
+.row b{font-weight:700;font-size:48px;letter-spacing:-.02em}
+</style>
+<div class="sc dark" id="s1">
+ <div class="ln" id="h1" style="top:700px;font-size:120px">Понеділок,<br><span class="gold">9:00.</span></div>
+ <div class="ln" id="h2" style="top:1010px;font-size:64px;font-weight:600;color:#C9B8A6">Ви відкриваєте пошту…</div>
+</div>
+<div class="sc" id="chaos"><div id="clk">09:00</div><div id="stack"></div><div id="over"><div>11:47.<br><span style="color:#A16E3B">А роботу ще<br>не почали</span></div></div></div>
+<div class="sc dark" id="after">
+ <div class="ln" id="a0" style="top:300px;font-size:52px;font-weight:600;color:#C9B8A6">А з AI-асистентом</div>
+ <div id="bigc" class="gold">09:05</div>
+ <div id="rows"></div>
+ <div class="ln" id="a9" style="top:1560px;font-size:64px">Усе зроблено. <span class="gold">Без вас.</span></div>
+</div>
+<div class="sc dark" id="end">
+ <img src="glyph_O.png" id="g" style="position:absolute;right:-170px;top:1180px;height:600px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))">
+ <div class="logo"><img src="crest_light.svg" style="height:60px"><div class="w"><img src="letters_light.svg" style="height:25px"><small>AI академія</small></div></div>
+ <div class="ln" id="e1" style="top:470px;font-size:220px;line-height:.9">Найми<br><span class="gold">AI</span></div>
+ <div class="ln" id="e2" style="top:930px;font-size:50px;font-weight:600;line-height:1.3;color:#E4D8CB;padding:0 120px">Налаштуйте свого асистента<br>за 7 днів</div>
+ <div class="ln" id="e3" style="top:1130px;font-size:56px">Старт 9 листопада</div>
+ <div class="ln" id="e4" style="top:1220px;font:600 40px/1 J;color:#C9935E">najmy-ai.djun.com.ua</div>
+</div>
+<script>
+const cl=x=>Math.max(0,Math.min(1,x)),eo=x=>1-Math.pow(1-cl(x),3),eb=x=>{x=cl(x);const c=1.5;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const T1=2.4,T2=6.8,T3=11.6;
+const N=[["@","Нові заявки (12)","перенести в таблицю"],["⌘","Звіт до 12:00","ще не почали"],["?","«А скільки коштує?»","вже вчетверте"],["@","«Скинь той файл ще раз»","пошта"],["⌘","звіт_фінал_2.xlsx","або ОСТАННІЙ?"],["?","«А доставка є?»","месенджер"],["@","Нові заявки (7)","знову"]];
+const st=document.getElementById('stack');
+N.forEach((x,i)=>{const d=document.createElement('div');d.className='n';d.id='n'+i;d.innerHTML=`<div class="ic">${x[0]}</div><div><b>${x[1]}</b><span>${x[2]}</span></div>`;st.appendChild(d);});
+const R=["3 заявки в таблиці","Звіт уже в Telegram","5 клієнтам відповіли","Новини галузі зібрано"];
+const rw=document.getElementById('rows');
+R.forEach((r,i)=>{const d=document.createElement('div');d.className='row';d.id='r'+i;d.style.top=(820+i*150)+'px';d.innerHTML=`<div class="c">✓</div><b>${r}</b>`;rw.appendChild(d);});
+const fmt=m=>{const h=9+Math.floor(m/60),mm=Math.floor(m%60);return String(h).padStart(2,'0')+':'+String(mm).padStart(2,'0');};
+const fade=(id,t,d=.45,y=40)=>{const e=document.getElementById(id),p=eo(t/d);e.style.opacity=p;e.style.transform=`translateY(${y*(1-p)}px)`;};
+window.render=function(t){
+ const vis=(id,a,b)=>document.getElementById(id).style.display=(t>=a&&t<b)?'block':'none';
+ vis('s1',0,T1);vis('chaos',T1,T2);vis('after',T2,T3);vis('end',T3,99);
+ fade('h1',t-0.1);fade('h2',t-0.9);
+ // chaos
+ const tc=t-T1;const m=Math.min(167,Math.pow(cl(tc/3.3),1.4)*167);const c=document.getElementById('clk');c.textContent=fmt(m);c.style.color=m>120?'#B4532A':'#190F09';
+ const step=0.42;N.forEach((x,i)=>{const e=document.getElementById('n'+i);const t0=0.15+i*step;const k=Math.max(0,Math.floor((tc-0.15)/step)-i);const p=eb((tc-t0)/0.35);
+  const y=680+Math.min(k,6)*0+ (k)*165 ; e.style.opacity=tc>=t0?(k>4?0:1-k*0.12):0; e.style.transform=`translateY(${y-80*(1-p)}px) scale(${(1-k*0.03)*(0.9+0.1*p)})`; e.style.zIndex=100-k;});
+ const ov=document.getElementById('over');const op=eo((tc-3.5)/0.35);ov.style.background=`rgba(239,231,223,${0.93*op})`;ov.firstElementChild.style.opacity=op;ov.firstElementChild.style.transform=`scale(${0.92+0.08*op})`;
+ // after
+ const ta=t-T2;fade('a0',ta-0.1);const bc=document.getElementById('bigc');bc.textContent=fmt(Math.min(5,cl(ta/3)*5));const bp=eb(ta/0.5);bc.style.transform=`scale(${0.8+0.2*bp})`;bc.style.opacity=cl(ta/0.2);
+ R.forEach((r,i)=>fade('r'+i,ta-0.8-i*0.7,.4,0)||(document.getElementById('r'+i).style.transform=`translateX(${-60*(1-eo((ta-0.8-i*0.7)/.4))}px)`));
+ fade('a9',ta-3.8);
+ // end
+ const te=t-T3;fade('e1',te-0.05);fade('e2',te-0.4);fade('e3',te-0.7);fade('e4',te-0.95);
+ const gp=eb((te-.2)/.8);document.getElementById('g').style.transform=`translateY(${200*(1-gp)}px) rotate(${-20*(1-gp)+Math.sin(te*1.4)*3}deg)`;
+};
+render(0);
+</script>
