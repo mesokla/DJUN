@@ -30,16 +30,16 @@ h1 em{{font-style:normal;color:#A16E3B}}
 <h1>Не знайшли<br>себе? <em>Впишіть<br>свій варіант</em></h1>
 '''
 # 3: routine wall of Ctrl+C/V, centered question, poll bottom
-rows=''.join(f'<div style="opacity:{o}">Ctrl+C → Ctrl+V &nbsp;·&nbsp; звіт_фінал_2.xlsx &nbsp;·&nbsp; «А скільки коштує?»</div>' for o in [.1,.16,.22,.3,.3,.22,.16,.1])
+rows=''.join(f'<div style="opacity:{o}">Ctrl+C → Ctrl+V &nbsp;·&nbsp; звіт_фінал_2.xlsx &nbsp;·&nbsp; «А скільки коштує?»</div>' for o in [.05,.09,.13,.09,.05])
 S['3_time']=f'''<!doctype html><meta charset="utf-8"><style>{BASE}
 body{{{DARK}}}
-.wall{{position:absolute;left:-80px;top:380px;width:1400px;font:600 44px/1.9 J;color:#D2A26C;white-space:nowrap;transform:rotate(-6deg)}}
-.box{{position:absolute;left:70px;right:70px;top:560px;background:#EFE7DF;color:#190F09;border-radius:36px;padding:60px 56px;box-shadow:0 40px 90px rgba(0,0,0,.6)}}
-.box i{{display:block;font:600 28px/1 J;font-style:normal;color:#A16E3B;margin-bottom:24px}}
-.box b{{display:block;font-weight:800;font-size:78px;line-height:1.02;letter-spacing:-.04em}}
-.box b em{{font-style:normal;color:#A16E3B}}
-.mini{{position:absolute;left:0;right:0;top:1020px;text-align:center;font:500 30px/1 J;color:#B9A897}}
+.wall{{position:absolute;left:-80px;top:1180px;width:1400px;font:600 40px/1.9 J;color:#D2A26C;white-space:nowrap;transform:rotate(-6deg)}}
+.k{{position:absolute;left:80px;top:420px;font:500 30px/1 J;color:#D2A26C}}
+h1{{position:absolute;left:80px;right:80px;top:470px;font-weight:800;font-size:112px;line-height:.98;letter-spacing:-.045em;color:#EFE7DF}}
+h1 em{{font-style:normal;{GOLD}}}
+p{{position:absolute;left:82px;right:120px;top:850px;font:500 38px/1.4 M;color:#C9B8A6}}
 </style>{DOTS}<div class="wall">{rows}</div>{logo()}
-<div class="box"><i>// тільки чесно</i><b>Скільки годин на тиждень <em>з'їдає рутина?</em></b><p style="font:500 32px/1.35 M;color:#6E5F52;margin-top:22px">Ті самі звіти, ті самі листи і «а можеш ще раз скинути той файл?»</p></div>
-'''
+<div class="k">// тільки чесно</div>
+<h1>Скільки годин<br>на тиждень<br><em>з'їдає рутина?</em></h1>
+<p>Ті самі звіти, ті самі листи і «а можеш ще раз скинути той файл?»</p>'''
 for k,v in S.items(): open(f'story_{k}.html','w').write(v)
