@@ -1,0 +1,80 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+.s{width:1080px;height:1440px;position:relative;overflow:hidden;background:#0A0A10;color:#fff}
+.s::before{content:"";position:absolute;inset:0;
+ background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+ background-size:180px 180px;background-position:-2px -2px}
+.glow1{position:absolute;right:-260px;top:-300px;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(112,64,230,.42),transparent 65%)}
+.glow2{position:absolute;left:-300px;bottom:-320px;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(112,64,230,.35),transparent 65%)}
+.hdr{position:absolute;left:96px;right:96px;top:84px;display:flex;align-items:center;font-size:27px;color:#9a98a8}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:600;font-size:44px;letter-spacing:-1.5px}
+.pro{background:#fff;color:#0A0A10;font-size:24px;font-weight:800;padding:3px 9px;border-radius:7px;letter-spacing:.5px}
+.tag{margin-left:34px}.num{margin-left:auto}
+.cg{position:absolute;left:96px;top:205px;display:flex;align-items:center;gap:16px}
+.cgbadge{display:flex;align-items:center;gap:14px;background:rgba(140,198,63,.12);border:1.5px solid rgba(140,198,63,.55);border-radius:100px;padding:12px 26px 12px 14px;font-size:30px;font-weight:600;color:#c9ef8f}
+.dot{width:40px;height:40px;border-radius:50%;background:#8DC63F;display:grid;place-items:center;color:#0A0A10;font-weight:800;font-size:20px}
+.date{font-size:26px;color:#8e8c9c}
+h1{position:absolute;left:96px;right:96px;top:300px;font-weight:500;font-size:76px;line-height:1.06;letter-spacing:-2.5px}
+h1 span{color:#B18CFF}
+.foot{position:absolute;left:96px;right:96px;bottom:70px;font-size:21px;color:#5f5d6c;display:flex;justify-content:space-between}
+/* table */
+.tbl{position:absolute;left:96px;right:96px;top:520px;border:1.5px solid rgba(255,255,255,.10);border-radius:28px;background:rgba(20,19,30,.82);overflow:hidden}
+.th,.tr{display:grid;grid-template-columns:110px 1fr 200px;align-items:center;padding:0 34px}
+.th{height:76px;font-size:23px;color:#8e8c9c;border-bottom:1px solid rgba(255,255,255,.08);letter-spacing:.3px}
+.th div:last-child,.tr div:last-child{text-align:right}
+.tr{height:132px;border-bottom:1px solid rgba(255,255,255,.07);font-size:38px;font-weight:500}
+.tr:last-child{border-bottom:0}
+.tr.first{background:linear-gradient(90deg,rgba(124,82,255,.30),rgba(124,82,255,.06));box-shadow:inset 4px 0 0 #9B6BFF}
+.rk{font-size:36px;color:#cfcdd9;font-weight:500}
+.ex{display:flex;align-items:center;gap:24px}
+.ex svg{width:62px;height:62px;flex:none}
+.pill{display:inline-block;background:rgba(140,198,63,.16);color:#b9ea78;border:1.5px solid rgba(140,198,63,.4);border-radius:14px;padding:10px 20px;font-size:32px;font-weight:600}
+.src{position:absolute;left:96px;right:96px;top:1290px;font-size:23px;color:#77758a}
+/* slide 2 */
+.card{overflow:hidden;position:absolute;left:76px;right:76px;top:560px;background:#fff;border-radius:26px;padding:26px 0 8px;box-shadow:0 30px 90px rgba(90,50,220,.35),0 0 0 1.5px rgba(177,140,255,.35)}
+.crop{position:relative;overflow:hidden;margin-left:12px}
+.crop img{position:absolute;display:block}
+.hl{position:absolute;left:8px;right:8px;border:3px solid #8A5CFF;border-radius:14px;box-shadow:0 0 0 6px rgba(138,92,255,.18)}
+</style></head><body>
+
+<!-- SLIDE 1 -->
+<div class="s" id="s1"><div class="glow1"></div><div class="glow2"></div>
+ <div class="hdr"><div class="logo">kraken<span class="pro">PRO</span></div><div class="tag">Довіра · Trust Score</div><div class="num">1 / 2</div></div>
+ <div class="cg"><div class="cgbadge"><div class="dot">CG</div>Рейтинг CoinGecko</div><div class="date">станом на 02.11.2026</div></div>
+ <h1>Найкращі біржі<br><span>за Trust Score</span></h1>
+ <div class="tbl">
+  <div class="th"><div>Місце</div><div>Біржа</div><div>Trust Score</div></div>
+  <div class="tr first"><div class="rk">1</div><div class="ex">
+   <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#7132F5"/><path d="M15 42V31a17 17 0 0 1 34 0v11a3 3 0 0 1-6 0V32a2.5 2.5 0 0 0-5 0v10a3 3 0 0 1-6 0V32a2.5 2.5 0 0 0-5 0v10a3 3 0 0 1-6 0z" fill="#fff"/></svg>Kraken</div><div><span class="pill">10/10</span></div></div>
+  <div class="tr"><div class="rk">2</div><div class="ex">
+   <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#0052FF"/><path d="M44 25.5A14 14 0 1 0 44 38.5" fill="none" stroke="#fff" stroke-width="9"/></svg>Coinbase Exchange</div><div><span class="pill">10/10</span></div></div>
+  <div class="tr"><div class="rk">3</div><div class="ex">
+   <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#fff"/><g fill="#000"><rect x="12" y="12" width="13" height="13"/><rect x="39" y="12" width="13" height="13"/><rect x="25.5" y="25.5" width="13" height="13"/><rect x="12" y="39" width="13" height="13"/><rect x="39" y="39" width="13" height="13"/></g></svg>OKX</div><div><span class="pill">10/10</span></div></div>
+  <div class="tr"><div class="rk">4</div><div class="ex">
+   <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#1E2026"/><g fill="#F3BA2F" transform="rotate(45 32 32)"><rect x="27" y="27" width="10" height="10"/><rect x="27" y="13" width="10" height="10"/><rect x="27" y="41" width="10" height="10"/><rect x="13" y="27" width="10" height="10"/><rect x="41" y="27" width="10" height="10"/></g></svg>Binance</div><div><span class="pill">10/10</span></div></div>
+  <div class="tr"><div class="rk">5</div><div class="ex">
+   <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#fff"/><path d="M12 44l10-22 10 14 10-14 10 22h-8l-5-11-7 10-7-10-5 11z" fill="#1972E2"/></svg>MEXC</div><div><span class="pill">10/10</span></div></div>
+ </div>
+ <div class="src">Джерело: coingecko.com · рейтинг криптовалютних бірж за Trust Score</div>
+ <div class="foot"><div>Не є інвестиційною порадою. Торгівля пов’язана з ризиком.</div></div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="s" id="s2"><div class="glow1"></div><div class="glow2"></div>
+ <div class="hdr"><div class="logo">kraken<span class="pro">PRO</span></div><div class="tag">Довіра · Trust Score</div><div class="num">2 / 2</div></div>
+ <div class="cg"><div class="cgbadge"><div class="dot">CG</div>Скриншот з CoinGecko</div><div class="date">02.11.2026</div></div>
+ <h1>Kraken — <span>№1</span><br>у рейтингу довіри</h1>
+ <div class="card">
+  <!-- title strip: src x0-520, y0-42 -->
+  <div class="crop" style="width:916px;height:50px"><img src="coingecko-source.jpg" style="width:1856px;left:-6px;top:0"></div>
+  <!-- table: src x0-632, y150-509 ; scale 1.45 -->
+  <div class="crop" style="width:916px;height:521px;margin-top:10px">
+   <img src="coingecko-source.jpg" style="width:1856px;left:-6px;top:-217px">
+   <div class="hl" style="top:44px;height:100px"></div>
+  </div>
+ </div>
+ <div class="src" style="top:1255px">Фрагмент сторінки coingecko.com: біржі, Trust Score 10/10</div>
+ <div class="foot"><div>Не є інвестиційною порадою. Торгівля пов’язана з ризиком.</div></div>
+</div>
+</body></html>
