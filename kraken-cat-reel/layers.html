@@ -1,37 +1,19 @@
 <!doctype html><html><head><meta charset="utf-8"><style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{background:transparent;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
-.L{width:1080px;height:1920px;position:relative;overflow:hidden}
-#bg{background:#0A0A10}
-#bg::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:180px 180px}
-.g1{position:absolute;right:-300px;top:-300px;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(112,64,230,.45),transparent 65%)}
-.g2{position:absolute;left:-300px;bottom:-300px;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(112,64,230,.4),transparent 65%)}
-.logo{position:absolute;left:96px;top:150px;display:flex;align-items:center;gap:12px;color:#fff;font-weight:600;font-size:52px;letter-spacing:-1.8px}
-.pro{background:#fff;color:#0A0A10;font-size:28px;font-weight:800;padding:4px 10px;border-radius:8px;letter-spacing:.5px}
-.tag{position:absolute;display:inline-flex;align-items:center;gap:14px;background:rgba(10,10,16,.78);border:2px solid rgba(177,140,255,.7);color:#fff;border-radius:22px;padding:16px 28px;font-weight:600;letter-spacing:-1px;box-shadow:0 10px 40px rgba(0,0,0,.45)}
+.tag{display:inline-flex;flex-direction:column;align-items:flex-start;background:rgba(10,10,16,.80);border:2px solid rgba(177,140,255,.8);color:#fff;border-radius:18px;font-weight:600;letter-spacing:-.8px;box-shadow:0 8px 30px rgba(0,0,0,.4)}
 .tag b{color:#B18CFF;font-weight:700}
-svg.a{position:absolute;overflow:visible}
-svg.a path{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 2px 6px rgba(0,0,0,.6))}
-#dark{background:rgba(6,5,12,.88)}
-.fin{position:absolute;left:96px;right:96px;top:760px;color:#fff}
-.fin h2{font-weight:500;font-size:96px;line-height:1.05;letter-spacing:-3.5px}
-.fin h2 span{color:#B18CFF}
-.fin p{margin-top:36px;font-size:40px;color:#c4c2d0;line-height:1.3;font-weight:400}
+#ya{position:absolute;left:0;top:0;width:96px;height:96px;padding:8px}
+#ya .tag{width:80px;height:80px;align-items:center;justify-content:center;font-size:48px}
+#man{position:absolute;left:0;top:0;width:1280px;height:720px}
+#man .tag{position:absolute;left:880px;top:34px;font-size:36px;padding:12px 22px;line-height:1.12}
+svg path{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
+#fin{position:absolute;left:0;top:0;width:1280px;height:720px;background:rgba(6,5,12,.86);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
+#fin h2{font-weight:500;font-size:84px;letter-spacing:-3px;line-height:1.08}
+#fin h2 span{color:#B18CFF}
 </style></head><body>
-<div class="L" id="bg"><div class="g1"></div><div class="g2"></div></div>
-<div class="L" id="logo"><div class="logo">kraken<span class="pro">PRO</span></div></div>
-<div class="L" id="catA">
- <div class="tag" style="left:770px;top:400px;font-size:64px;padding:12px 34px">Я</div>
- <svg class="a" style="left:0;top:0" width="1080" height="1920"><path d="M840 510 C 830 580, 790 620, 720 650"/><path d="M745 625 L718 651 L752 662"/></svg>
-</div>
-<div class="L" id="catB">
- <div class="tag" style="left:110px;top:880px;font-size:56px;padding:10px 30px">Я</div>
- <svg class="a" width="1080" height="1920"><path d="M175 980 C 180 1010, 185 1030, 190 1060"/><path d="M172 1040 L190 1063 L206 1038"/></svg>
-</div>
-<div class="L" id="man">
- <div class="tag" style="left:60px;top:400px;font-size:50px;flex-direction:column;align-items:flex-start;gap:2px;line-height:1.1">Мій акаунт<b>Kraken</b></div>
- <svg class="a" width="1080" height="1920"><path d="M440 470 C 500 470, 540 500, 575 545"/><path d="M548 538 L577 548 L578 516"/></svg>
-</div>
-<div class="L" id="dark"></div>
-<div class="L" id="fin"><div class="fin"><h2>Твій акаунт<br>у безпеці.<br><span>Хакери<br>не пройдуть.</span></h2><p>Kraken охороняє твої активи,<br>навіть коли ти спиш.</p></div></div>
+<div id="ya"><div class="tag">Я</div></div>
+<div id="man"><div class="tag">Мій акаунт<b>на Kraken</b></div>
+ <svg width="1280" height="720" style="position:absolute;left:0;top:0"><path d="M875 100 C 860 105, 850 110, 842 118"/><path d="M842 100 L841 119 L860 120"/></svg></div>
+<div id="fin"><h2>Твій акаунт у безпеці.<br><span>Вхід через Passkey.</span></h2></div>
 </body></html>
