@@ -1,19 +1,14 @@
 <!doctype html><html><head><meta charset="utf-8"><style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{background:transparent;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
-.tag{display:inline-flex;flex-direction:column;align-items:flex-start;background:rgba(10,10,16,.80);border:2px solid rgba(177,140,255,.8);color:#fff;border-radius:18px;font-weight:600;letter-spacing:-.8px;box-shadow:0 8px 30px rgba(0,0,0,.4)}
-.tag b{color:#B18CFF;font-weight:700}
-#ya{position:absolute;left:0;top:0;width:96px;height:96px;padding:8px}
-#ya .tag{width:80px;height:80px;align-items:center;justify-content:center;font-size:48px}
-#man{position:absolute;left:0;top:0;width:1280px;height:720px}
-#man .tag{position:absolute;left:880px;top:34px;font-size:36px;padding:12px 22px;line-height:1.12}
-svg path{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
-#fin{position:absolute;left:0;top:0;width:1280px;height:720px;background:rgba(6,5,12,.86);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
-#fin h2{font-weight:500;font-size:84px;letter-spacing:-3px;line-height:1.08}
-#fin h2 span{color:#B18CFF}
+.L{position:absolute;left:0;top:0;width:1280px;height:720px}
+.cap{position:absolute;color:#fff;font-weight:500;letter-spacing:.2px;white-space:nowrap;background:rgba(12,10,20,.42);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 14px;line-height:1.2}
+#fin{background:rgba(6,5,12,.86);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
+#fin h2{font-weight:500;font-size:76px;letter-spacing:-2.6px;line-height:1.1}
+#fin p{margin-top:18px;font-size:38px;color:#B18CFF;font-weight:500;letter-spacing:-.8px}
 </style></head><body>
-<div id="ya"><div class="tag">Я</div></div>
-<div id="man"><div class="tag">Мій акаунт<b>на Kraken</b></div>
- <svg width="1280" height="720" style="position:absolute;left:0;top:0"><path d="M875 100 C 860 105, 850 110, 842 118"/><path d="M842 100 L841 119 L860 120"/></svg></div>
-<div id="fin"><h2>Твій акаунт у безпеці.<br><span>Вхід через Passkey.</span></h2></div>
+<div class="L" id="ya1"><div class="cap" style="left:800px;top:70px;font-size:24px">Я</div></div>
+<div class="L" id="ya2"><div class="cap" style="left:513px;top:370px;font-size:20px;padding:4px 11px">Я</div></div>
+<div class="L" id="man"><div class="cap" style="left:850px;top:68px;font-size:20px">Мій акаунт Kraken</div></div>
+<div class="L" id="fin"><h2>Твій акаунт у безпеці</h2><p>Kraken Pro охороняє твої фінанси</p></div>
 </body></html>
