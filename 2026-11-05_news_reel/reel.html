@@ -1,0 +1,109 @@
+<!doctype html><meta charset="utf-8"><style>
+@font-face{font-family:M;src:url(Montserrat.ttf)}@font-face{font-family:J;src:url(JetBrainsMono.ttf)}
+*{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;position:relative;overflow:hidden;font-family:M;background:#0e0905;color:#EFE7DF}
+.sc{position:absolute;inset:0;overflow:hidden;display:none}
+.dark{background:radial-gradient(80% 50% at 50% 45%,#2a1d12 0%,#160f09 60%,#0e0905 100%)}
+.gold{background:linear-gradient(180deg,#F2D29A 0%,#C99662 55%,#8E5F33 100%);-webkit-background-clip:text;color:transparent}
+.tag{position:absolute;left:110px;top:300px;font:500 30px/1 J;color:#C9935E;letter-spacing:.03em}
+.w{position:absolute;left:110px;font-weight:800;letter-spacing:-.05em;line-height:1}
+.cap{position:absolute;left:110px;right:110px;font-weight:800;font-size:76px;line-height:1.02;letter-spacing:-.04em}
+.sub{position:absolute;left:110px;right:110px;font:500 40px/1.3 M;color:#C9B8A6}
+/* input */
+#s2{background:#F7F5F2}
+.bar{position:absolute;left:90px;right:90px;top:900px;height:150px;background:#fff;border-radius:75px;box-shadow:0 20px 60px rgba(0,0,0,.12);display:flex;align-items:center;padding:0 30px;gap:24px}
+.bar .plus{font:300 70px/1 M;color:#222;width:60px;text-align:center}
+.bar .tx{flex:1;font:500 44px/1 M;color:#111;white-space:nowrap;overflow:hidden}
+.bar .tx i{display:inline-block;width:3px;height:48px;background:#111;vertical-align:middle;margin-left:4px}
+.bar .send{width:96px;height:96px;border-radius:50%;background:#3E8BE0;color:#fff;display:flex;align-items:center;justify-content:center;font:700 52px/1 M}
+/* image frames */
+.img{position:absolute;overflow:hidden;border-radius:36px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.img img{position:absolute;left:0;top:0;transform-origin:0 0}
+.hl{position:absolute;background:rgba(242,210,154,.45);border-radius:10px;mix-blend-mode:multiply}
+.chip{position:absolute;left:110px;right:110px;padding:34px 40px;border-radius:28px;background:rgba(36,25,15,.9);border:2px solid rgba(201,147,94,.5);font:700 46px/1.2 M}
+.chip span{color:#C9935E}
+.logo{position:absolute;top:300px;left:110px;display:flex;align-items:center;gap:14px}
+.logo .w2{display:flex;flex-direction:column;align-items:flex-end}.logo small{font:700 13px/1 M;letter-spacing:.2em;margin-top:7px;margin-right:-.2em;color:#C9935E}
+</style>
+<!-- S1 hook -->
+<div class="sc dark" id="s1">
+ <div class="tag" id="t1">// новина тижня</div>
+ <div class="w" id="w1" style="top:620px;font-size:150px">ChatGPT</div>
+ <div class="w" id="w2" style="top:790px;font-size:150px">тепер</div>
+ <div class="w" id="w3" style="top:960px;font-size:150px">робить</div>
+ <div class="w gold" id="w4" style="top:1130px;font-size:210px">гіфки</div>
+</div>
+<!-- S2 prompt -->
+<div class="sc" id="s2">
+ <div class="cap" id="c2" style="top:560px;color:#190F09">Просто пишете в чат</div>
+ <div class="bar"><div class="plus">+</div><div class="tx" id="typ"></div><div class="send" id="snd">↑</div></div>
+</div>
+<!-- S3 phones -->
+<div class="sc dark" id="s3">
+ <div class="cap" id="c3" style="top:330px">GIF прямо<br><span class="gold">в чаті</span></div>
+ <div class="img" id="f3" style="left:90px;right:90px;top:680px;height:1050px"><img id="i3" src="phones.jpg"></div>
+ <div class="sub" id="u3" style="top:1770px;font-size:34px">швидкість від 0.5× до 2× і одразу поділитись</div>
+</div>
+<!-- S4 notes -->
+<div class="sc dark" id="s4">
+ <div class="cap" id="c4a" style="top:330px">Images 2.6<br><span class="gold">від 4 листопада</span></div>
+ <div class="cap" id="c4b" style="top:330px">Генерує <span class="gold">швидше</span><br>і тримає деталі</div>
+ <div class="cap" id="c4c" style="top:330px">Фото зберігаєте<br><span class="gold">один раз</span></div>
+ <div class="img" id="f4" style="left:90px;right:90px;top:680px;height:1000px;background:#fff"><img id="i4" src="notes.png"><div class="hl" id="hl4"></div></div>
+</div>
+<!-- S5 use -->
+<div class="sc dark" id="s5">
+ <div class="tag">// як використати в роботі</div>
+ <div class="cap" id="c5" style="top:360px">А тепер<br><span class="gold">для бізнесу</span></div>
+ <div class="chip" id="k1" style="top:760px">Фото товару <span>→</span> анімація для сторіс</div>
+ <div class="chip" id="k2" style="top:940px">Логотип <span>→</span> банер за хвилину</div>
+ <div class="chip" id="k3" style="top:1120px">Без дизайнера <span>і окремих програм</span></div>
+</div>
+<!-- S6 end -->
+<div class="sc dark" id="s6">
+ <div class="logo"><img src="crest_light.svg" style="height:60px"><div class="w2"><img src="letters_light.svg" style="height:25px"><small>AI академія</small></div></div>
+ <div class="cap" id="e1" style="top:600px;font-size:84px">А якщо доручати AI<br><span class="gold">не лише картинки?</span></div>
+ <div class="sub" id="e2" style="top:1010px">Вчимо передавати AI цілі процеси: заявки, звіти, відповіді клієнтам</div>
+ <div class="cap" id="e3" style="top:1300px;font-size:64px">Підписуйтесь <span class="gold">на Джун</span></div>
+</div>
+<script>
+const cl=x=>Math.max(0,Math.min(1,x)),eo=x=>1-Math.pow(1-cl(x),3),eb=x=>{x=cl(x);const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const S=[['s1',0,2.5],['s2',2.5,5],['s3',5,8],['s4',8,12],['s5',12,15],['s6',15,99]];
+const pop=(id,t,d=.3,y=50)=>{const e=document.getElementById(id),p=eb(t/d);e.style.opacity=cl(t/.12);e.style.transform=`translateY(${y*(1-eo(t/d))}px) scale(${.85+.15*p})`;};
+const fadeOut=(id,t,d=.2)=>{const e=document.getElementById(id);e.style.opacity=Math.min(+e.style.opacity||1,1-cl(t/d));};
+const PROMPT='зроби гіфку, де кіт танцює';
+window.render=function(t){
+ S.forEach(([id,a,b])=>document.getElementById(id).style.display=(t>=a&&t<b)?'block':'none');
+ // S1 beats 0.5
+ pop('t1',t);pop('w1',t-0.0);pop('w2',t-0.5);pop('w3',t-1.0);pop('w4',t-1.5,.35,80);
+ // S2
+ const t2=t-2.5;pop('c2',t2);const n=Math.floor(cl((t2-0.3)/1.4)*PROMPT.length);
+ document.getElementById('typ').innerHTML=PROMPT.slice(0,n)+(t2<1.9&&Math.floor(t2*4)%2==0?'<i></i>':'');
+ const sp=eb((t2-1.9)/.3);document.getElementById('snd').style.transform=`scale(${t2>1.9&&t2<2.3?1+0.25*Math.sin(cl((t2-1.9)/.3)*Math.PI):1})`;
+ // S3 phones zoom: whole -> phone1 -> phone2 speeds
+ const t3=t-5;pop('c3',t3);pop('u3',t3-1.0,.3,20);
+ const F3={w:900,h:1050};const img3={w:1079,h:607};
+ const views=[[0,0,1079],[120,40,260],[410,40,260]]; // x,y,width of region
+ let k=t3<1?0:(t3<2?1:2);const tt=t3<1?t3:(t3<2?t3-1:t3-2);const prev=views[Math.max(0,k-1)],cur=views[k];const p3=k==0?1:eo(tt/.45);
+ const vx=prev[0]+(cur[0]-prev[0])*p3,vy=prev[1]+(cur[1]-prev[1])*p3,vw=prev[2]+(cur[2]-prev[2])*p3;
+ const sc3=Math.max(F3.w/vw, k==0?F3.h/img3.h*0+F3.w/vw:0);const s3=F3.w/vw; const vh=F3.h/s3;
+ const yy=k==0? -(F3.h-img3.h*s3)/2/s3 : vy;
+ document.getElementById('i3').style.transform=`scale(${s3}) translate(${-vx}px,${-yy}px)`;
+ document.getElementById('f3').style.background='#F4B6A8';
+ // S4 notes: head -> para -> saved ref
+ const t4=t-8;const segs=[[0,'c4a',[100,690,620,210],[105,700,440,75]],[1.4,'c4b',[100,890,560,140],[440,900,230,38]],[2.7,'c4c',[150,1160,560,110],[158,1162,260,38]]];
+ let si=t4<1.4?0:(t4<2.7?1:2);['c4a','c4b','c4c'].forEach((id,i)=>{const e=document.getElementById(id);if(i!==si){e.style.opacity=0;}});
+ pop(segs[si][1],t4-segs[si][0]);
+ const v=segs[si][2],pv=segs[Math.max(0,si-1)][2],pp=si==0?1:eo((t4-segs[si][0])/.45);
+ const zx=pv[0]+(v[0]-pv[0])*pp,zy=pv[1]+(v[1]-pv[1])*pp,zw=pv[2]+(v[2]-pv[2])*pp;const s4=900/zw;
+ const cy=zy+ (pv[3]+(v[3]-pv[3])*pp)/2 - 1000/s4/2;
+ document.getElementById('i4').style.transform=`scale(${s4}) translate(${-zx}px,${-cy}px)`;
+ const h=segs[si][3];const hp=eo((t4-segs[si][0]-0.35)/.4);const hl=document.getElementById('hl4');
+ hl.style.left=((h[0]-zx)*s4)+'px';hl.style.top=((h[1]-cy)*s4)+'px';hl.style.height=(h[3]*s4)+'px';hl.style.width=(h[2]*s4*hp)+'px';
+ // S5
+ const t5=t-12;pop('c5',t5);pop('k1',t5-0.5,.3,0);pop('k2',t5-1.0,.3,0);pop('k3',t5-1.5,.3,0);
+ ['k1','k2','k3'].forEach((id,i)=>{const e=document.getElementById(id);e.style.transform+=` translateX(${-80*(1-eo((t5-0.5-i*.5)/.3))}px)`;});
+ // S6
+ const t6=t-15;pop('e1',t6);pop('e2',t6-0.5,.35,30);pop('e3',t6-1.0,.35,30);
+};
+render(0);
+</script>
