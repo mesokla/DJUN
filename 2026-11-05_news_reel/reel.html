@@ -38,7 +38,7 @@
 <!-- S3 phones -->
 <div class="sc dark" id="s3">
  <div class="cap" id="c3" style="top:330px">GIF прямо<br><span class="gold">в чаті</span></div>
- <div class="img" id="f3" style="left:90px;right:90px;top:680px;height:1050px"><img id="i3" src="phones.jpg"></div>
+ <div class="img" id="f3" style="left:90px;right:90px;top:640px;height:840px"><img id="i3" src="phones.jpg"></div>
  <div class="sub" id="u3" style="top:1770px;font-size:34px">швидкість від 0.5× до 2× і одразу поділитись</div>
 </div>
 <!-- S4 notes -->
@@ -46,7 +46,7 @@
  <div class="cap" id="c4a" style="top:330px">Images 2.6<br><span class="gold">від 4 листопада</span></div>
  <div class="cap" id="c4b" style="top:330px">Генерує <span class="gold">швидше</span><br>і тримає деталі</div>
  <div class="cap" id="c4c" style="top:330px">Фото зберігаєте<br><span class="gold">один раз</span></div>
- <div class="img" id="f4" style="left:90px;right:90px;top:680px;height:1000px;background:#fff"><img id="i4" src="notes.png"><div class="hl" id="hl4"></div></div>
+ <div class="img" id="f4" style="left:90px;right:90px;top:640px;height:840px;background:#fff"><img id="i4" src="notes.png"><div class="hl" id="hl4"></div></div>
 </div>
 <!-- S5 use -->
 <div class="sc dark" id="s5">
@@ -62,45 +62,50 @@
  <div class="sub" id="e2" style="top:1010px">Вчимо передавати AI цілі процеси: заявки, звіти, відповіді клієнтам</div>
  <div class="cap" id="e3" style="top:1300px;font-size:64px">Підписуйтесь <span class="gold">на Джун</span></div>
 </div>
+<div id="subs" style="position:absolute;left:90px;right:90px;top:1560px;text-align:center;font:800 54px/1.2 M;letter-spacing:-.02em;color:#190F09;z-index:20"></div>
+<script src="timing.js"></script>
 <script>
 const cl=x=>Math.max(0,Math.min(1,x)),eo=x=>1-Math.pow(1-cl(x),3),eb=x=>{x=cl(x);const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
-const S=[['s1',0,2.5],['s2',2.5,5],['s3',5,8],['s4',8,12],['s5',12,15],['s6',15,99]];
+const K=TM.K;const S=[['s1',0,K.s2],['s2',K.s2,K.s3],['s3',K.s3,K.s4],['s4',K.s4,K.s5],['s5',K.s5,K.s6],['s6',K.s6,99]];
 const pop=(id,t,d=.3,y=50)=>{const e=document.getElementById(id),p=eb(t/d);e.style.opacity=cl(t/.12);e.style.transform=`translateY(${y*(1-eo(t/d))}px) scale(${.85+.15*p})`;};
 const fadeOut=(id,t,d=.2)=>{const e=document.getElementById(id);e.style.opacity=Math.min(+e.style.opacity||1,1-cl(t/d));};
 const PROMPT='зроби гіфку, де кіт танцює';
-window.render=function(t){
+const G=[];{let cur=[];TM.W.forEach((w,i)=>{cur.push(w);if(cur.length>=3||/[.,:]$/.test(w[2])){G.push(cur);cur=[];}});if(cur.length)G.push(cur);}
+function subs(t){const el=document.getElementById('subs');const g=G.find(g=>t>=g[0][0]-0.05&&t<(G[G.indexOf(g)+1]?G[G.indexOf(g)+1][0][0]-0.05:g[g.length-1][1]+0.4));
+ if(!g){el.innerHTML='';return;}el.innerHTML=g.map(w=>`<span style="color:${t>=w[0]-0.03?'#A16E3B':'#190F09'};opacity:${t>=w[0]-0.03?1:.35}">${w[2].replace(/[.,:]$/,'')}</span>`).join(' ');}
+window.render=function(t){subs(t);
  S.forEach(([id,a,b])=>document.getElementById(id).style.display=(t>=a&&t<b)?'block':'none');
  // S1 beats 0.5
- const cp=eb(t/.45);const ce=document.getElementById('cat');ce.style.transform=`scale(${0.6+0.4*cp}) rotate(${(1-cp)*-6+Math.sin(t*9)*1.5}deg)`;ce.style.opacity=cl(t/.1);document.querySelector('#cat img').style.transform=`scale(${1+0.04*Math.sin(t*12)})`;pop('gif',t-0.3,.25,0);pop('w1',t-0.5);pop('w2',t-1.0,.35,60);
+ const cp=eb(t/.45);const ce=document.getElementById('cat');ce.style.transform=`scale(${0.6+0.4*cp}) rotate(${(1-cp)*-6+Math.sin(t*9)*1.5}deg)`;ce.style.opacity=cl(t/.1);document.querySelector('#cat img').style.transform=`scale(${1+0.04*Math.sin(t*12)})`;pop('gif',t-0.3,.25,0);pop('w1',t-0.05);pop('w2',t-0.9,.35,60);
  // S2
- const t2=t-2.5;pop('c2',t2);const n=Math.floor(cl((t2-0.3)/1.4)*PROMPT.length);
+ const t2=t-K.s2;pop('c2',t2);const n=Math.floor(cl((t2-0.3)/1.4)*PROMPT.length);
  document.getElementById('typ').innerHTML=PROMPT.slice(0,n)+(t2<1.9&&Math.floor(t2*4)%2==0?'<i></i>':'');
  const sp=eb((t2-1.9)/.3);document.getElementById('snd').style.transform=`scale(${t2>1.9&&t2<2.3?1+0.25*Math.sin(cl((t2-1.9)/.3)*Math.PI):1})`;
  // S3 phones zoom: whole -> phone1 -> phone2 speeds
- const t3=t-5;pop('c3',t3);pop('u3',t3-1.0,.3,20);
- const F3={w:900,h:1050};const img3={w:1079,h:607};
+ const t3=t-K.s3;pop('c3',t3);document.getElementById('u3').style.display='none';
+ const F3={w:900,h:840};const img3={w:1079,h:607};
  const views=[[0,0,1079],[120,40,260],[410,40,260]]; // x,y,width of region
- let k=t3<1?0:(t3<2?1:2);const tt=t3<1?t3:(t3<2?t3-1:t3-2);const prev=views[Math.max(0,k-1)],cur=views[k];const p3=k==0?1:eo(tt/.45);
+ let k=t3<0.9?0:(t3<1.8?1:2);const tt=t3<0.9?t3:(t3<1.8?t3-0.9:t3-1.8);const prev=views[Math.max(0,k-1)],cur=views[k];const p3=k==0?1:eo(tt/.45);
  const vx=prev[0]+(cur[0]-prev[0])*p3,vy=prev[1]+(cur[1]-prev[1])*p3,vw=prev[2]+(cur[2]-prev[2])*p3;
  const sc3=Math.max(F3.w/vw, k==0?F3.h/img3.h*0+F3.w/vw:0);const s3=F3.w/vw; const vh=F3.h/s3;
  const yy=k==0? -(F3.h-img3.h*s3)/2/s3 : vy;
  document.getElementById('i3').style.transform=`scale(${s3}) translate(${-vx}px,${-yy}px)`;
  document.getElementById('f3').style.background='#F6C9BE';
  // S4 notes: head -> para -> saved ref
- const t4=t-8;const segs=[[0,'c4a',[100,690,620,210],[105,700,440,75]],[1.4,'c4b',[100,890,560,140],[440,900,230,38]],[2.7,'c4c',[150,1160,560,110],[158,1162,260,38]]];
- let si=t4<1.4?0:(t4<2.7?1:2);['c4a','c4b','c4c'].forEach((id,i)=>{const e=document.getElementById(id);if(i!==si){e.style.opacity=0;}});
+ const t4=t-K.s4;const B1=K.s4b-K.s4,B2=K.s4c-K.s4;const segs=[[0,'c4a',[100,690,620,210],[105,700,440,75]],[B1,'c4b',[100,890,560,140],[440,900,230,38]],[B2,'c4c',[150,1160,560,110],[158,1162,260,38]]];
+ let si=t4<B1?0:(t4<B2?1:2);['c4a','c4b','c4c'].forEach((id,i)=>{const e=document.getElementById(id);if(i!==si){e.style.opacity=0;}});
  pop(segs[si][1],t4-segs[si][0]);
  const v=segs[si][2],pv=segs[Math.max(0,si-1)][2],pp=si==0?1:eo((t4-segs[si][0])/.45);
  const zx=pv[0]+(v[0]-pv[0])*pp,zy=pv[1]+(v[1]-pv[1])*pp,zw=pv[2]+(v[2]-pv[2])*pp;const s4=900/zw;
- const cy=zy+ (pv[3]+(v[3]-pv[3])*pp)/2 - 1000/s4/2;
+ const cy=zy+ (pv[3]+(v[3]-pv[3])*pp)/2 - 840/s4/2;
  document.getElementById('i4').style.transform=`scale(${s4}) translate(${-zx}px,${-cy}px)`;
  const h=segs[si][3];const hp=eo((t4-segs[si][0]-0.35)/.4);const hl=document.getElementById('hl4');
  hl.style.left=((h[0]-zx)*s4)+'px';hl.style.top=((h[1]-cy)*s4)+'px';hl.style.height=(h[3]*s4)+'px';hl.style.width=(h[2]*s4*hp)+'px';
  // S5
- const t5=t-12;pop('c5',t5);pop('k1',t5-0.5,.3,0);pop('k2',t5-1.0,.3,0);pop('k3',t5-1.5,.3,0);
- ['k1','k2','k3'].forEach((id,i)=>{const e=document.getElementById(id);e.style.transform+=` translateX(${-80*(1-eo((t5-0.5-i*.5)/.3))}px)`;});
+ const t5=t-K.s5;const d1=K.k1-K.s5,d2=K.k2-K.s5,d3=K.k3-K.s5;pop('c5',t5);pop('k1',t5-d1,.3,0);pop('k2',t5-d2,.3,0);pop('k3',t5-d3,.3,0);
+ [['k1',d1],['k2',d2],['k3',d3]].forEach(([id,d])=>{const e=document.getElementById(id);e.style.transform+=` translateX(${-80*(1-eo((t5-d)/.3))}px)`;});
  // S6
- const t6=t-15;pop('e1',t6);pop('e2',t6-0.5,.35,30);pop('e3',t6-1.0,.35,30);
+ const t6=t-K.s6;pop('e1',t6);pop('e2',t6-1.2,.35,30);pop('e3',t6-3.0,.35,30);
 };
 render(0);
 </script>
