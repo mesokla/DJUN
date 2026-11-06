@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+#c{width:1080px;height:1920px;position:relative;overflow:hidden;background:#0A0A10;color:#fff}
+.photo{position:absolute;left:0;top:560px;width:1080px;height:1296px;background:url(frame.png) center/cover}
+.fade{position:absolute;inset:0;background:linear-gradient(180deg,#0A0A10 0%,#0A0A10 29%,rgba(10,10,16,.55) 37%,rgba(10,10,16,0) 46%,rgba(10,10,16,0) 80%,rgba(10,10,16,.85) 92%,#0A0A10 100%)}
+.glow{position:absolute;right:-280px;top:-260px;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(112,64,230,.45),transparent 65%)}
+.grid{position:absolute;left:0;right:0;top:0;height:720px;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:180px 180px;-webkit-mask:linear-gradient(#000 60%,transparent)}
+.logo{position:absolute;left:96px;top:290px;width:250px}
+h1{position:absolute;left:96px;right:60px;top:370px;font-weight:500;font-size:96px;line-height:1.04;letter-spacing:-3.5px}
+h1 span{color:#B18CFF}
+.cap{position:absolute;color:#fff;font-weight:500;font-size:30px;background:rgba(12,10,20,.5);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 20px;white-space:nowrap}
+#ya{left:207px;top:1296px}#mn{left:330px;top:745px}
+</style></head><body><div id="c">
+<div class="photo"></div><div class="fade"></div><div class="grid"></div><div class="glow"></div>
+<img class="logo" src="logo.svg">
+<h1>Хто охороняє<br><span>твій акаунт?</span></h1>
+<div class="cap" id="ya">Я</div><div class="cap" id="mn">Мій акаунт Kraken</div>
+</div></body></html>
