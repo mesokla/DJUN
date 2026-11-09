@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+#c{width:1080px;height:1350px;position:relative;overflow:hidden;background:#0b0816 url(bg.png) center/cover;color:#fff}
+.glow{position:absolute;left:50%;top:560px;width:1100px;height:700px;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(124,82,255,.55),rgba(124,82,255,0) 70%)}
+.shade{position:absolute;left:0;right:0;bottom:0;height:520px;background:linear-gradient(180deg,rgba(8,6,16,0),rgba(8,6,16,.85) 55%,rgba(8,6,16,.95))}
+.logo{position:absolute;left:72px;top:70px;width:350px}
+.laptop{position:absolute;left:50%;top:225px;transform:translateX(-50%);width:900px}
+.lid{position:relative;background:linear-gradient(180deg,#2a2833,#15141b);border-radius:30px 30px 10px 10px;padding:22px 22px 26px;box-shadow:0 0 0 2px #3b3946 inset,0 40px 90px rgba(0,0,0,.6),0 0 120px rgba(124,82,255,.35)}
+.cam{position:absolute;top:8px;left:50%;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:#0d0d12;box-shadow:0 0 0 2px #24232c}
+.screen{width:856px;height:627px;border-radius:8px;overflow:hidden;background:#0d0c14 url(screen.png) top center/cover;box-shadow:0 0 0 1px #000}
+.screen::after{content:"";position:absolute;inset:22px 22px 26px;border-radius:8px;background:linear-gradient(125deg,rgba(255,255,255,.07),rgba(255,255,255,0) 40%)}
+.base{position:relative;margin:0 -70px;height:30px;background:linear-gradient(180deg,#8c8a98,#4a4855 45%,#24232b);border-radius:4px 4px 26px 26px;box-shadow:0 30px 50px rgba(0,0,0,.6)}
+.base::before{content:"";position:absolute;left:50%;top:0;width:160px;height:12px;margin-left:-80px;background:#2a2932;border-radius:0 0 14px 14px}
+.eyebrow{position:absolute;left:72px;top:1010px;font-size:30px;font-weight:400;color:#d9d6e6;letter-spacing:-.4px}
+h1{position:absolute;left:72px;top:1058px;font-weight:400;font-size:82px;line-height:1.02;letter-spacing:-3px}
+h1 span{color:#A989FF}
+.disc{position:absolute;left:72px;top:1296px;font-size:18px;color:#bdb9cc}
+</style></head><body><div id="c">
+<div class="glow"></div>
+<img class="logo" src="logo.svg">
+<div class="laptop"><div class="lid"><div class="cam"></div><div class="screen"></div></div><div class="base"></div></div>
+<div class="shade"></div>
+<div class="eyebrow">Веб-версія Kraken Pro</div>
+<h1>Інтерфейс Kraken<br><span>за 40 секунд</span></h1>
+<div class="disc">Не є інвестиційною порадою. Торгівля пов’язана з ризиком.</div>
+</div></body></html>
