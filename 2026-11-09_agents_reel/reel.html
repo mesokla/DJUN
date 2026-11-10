@@ -1,41 +1,52 @@
 <!doctype html><meta charset="utf-8"><style>
 @font-face{font-family:M;src:url(Montserrat.ttf)}@font-face{font-family:J;src:url(JetBrainsMono.ttf)}
 *{margin:0;box-sizing:border-box}body{width:1080px;height:1920px;position:relative;overflow:hidden;font-family:M;color:#190F09;background:radial-gradient(80% 50% at 50% 40%,#FFFFFF 0%,#F4EEE7 60%,#ECE3D8 100%)}
-.sc{position:absolute;inset:0;display:none}
+.sc{position:absolute;inset:0;display:none;transform-origin:50% 45%}
 .b{color:#A16E3B}
 .ttl{position:absolute;left:110px;right:110px;top:300px;font-weight:800;font-size:84px;line-height:1.02;letter-spacing:-.04em}
-.pill{display:inline-block;font:700 34px/1 M;color:#fff;background:#A16E3B;padding:18px 28px;border-radius:999px}
+.pill{display:inline-block;font:700 36px/1 M;color:#fff;background:#A16E3B;padding:20px 30px;border-radius:999px}
+.hc{position:absolute;top:620px;width:420px;height:600px;border-radius:44px;padding:50px 40px;display:flex;flex-direction:column;justify-content:space-between}
+.hc .ic{width:110px;height:110px;border-radius:30px;display:flex;align-items:center;justify-content:center;font:800 54px/1 M}
+.hc small{display:block;font:600 34px/1 M;margin-bottom:14px}.hc b{font:800 62px/1 M;letter-spacing:-.04em}
+.vs{position:absolute;left:490px;top:870px;width:100px;height:100px;border-radius:50%;background:#A16E3B;color:#fff;font:800 38px/100px M;text-align:center}
 .bub{position:absolute;max-width:640px;padding:30px 36px;border-radius:36px;font:600 44px/1.25 M;box-shadow:0 16px 40px rgba(25,15,9,.1)}
 .me{right:110px;background:#190F09;color:#EFE7DF;border-bottom-right-radius:10px}
 .ai{left:110px;background:#fff;border-bottom-left-radius:10px}
+.todo{position:absolute;left:110px;right:110px;top:1120px;padding:34px 40px;border-radius:30px;border:4px dashed #C9A27A;font:700 42px/1.3 M;color:#6E5F52}
 .node{position:absolute;width:250px;height:250px;margin:-125px 0 0 -125px;border-radius:50%;background:#fff;box-shadow:0 16px 40px rgba(25,15,9,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .node b{font:800 40px/1.1 M}.node i{font:500 26px/1.2 M;font-style:normal;color:#6E5F52;margin-top:6px}
 .core{position:absolute;left:540px;top:1020px;width:330px;height:330px;margin:-165px 0 0 -165px;border-radius:50%;background:#190F09;color:#EFE7DF;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .core small{font:600 28px/1 M;color:#C9935E}.core b{font:800 48px/1.1 M;margin-top:10px}
 .tool{position:absolute;padding:20px 28px;border-radius:24px;background:#fff;box-shadow:0 12px 30px rgba(25,15,9,.1);font:700 36px/1 M}
 .tool span{color:#A16E3B}
-.inp{position:absolute;left:90px;right:90px;top:520px;height:150px;background:#fff;border-radius:75px;box-shadow:0 20px 50px rgba(25,15,9,.12);display:flex;align-items:center;padding:0 40px;font:600 42px/1 M;white-space:nowrap;overflow:hidden}
+.inp{position:absolute;left:90px;right:90px;top:500px;height:140px;background:#fff;border-radius:70px;box-shadow:0 20px 50px rgba(25,15,9,.12);display:flex;align-items:center;padding:0 40px;font:600 40px/1 M;white-space:nowrap;overflow:hidden}
 .step{position:absolute;left:150px;right:110px;display:flex;align-items:center;gap:34px}
-.step .ic{width:110px;height:110px;border-radius:28px;background:#fff;box-shadow:0 12px 30px rgba(25,15,9,.1);display:flex;align-items:center;justify-content:center;font:800 50px/1 M;flex:none;transition:none}
+.step .ic{width:110px;height:110px;border-radius:28px;background:#fff;box-shadow:0 12px 30px rgba(25,15,9,.1);display:flex;align-items:center;justify-content:center;font:800 50px/1 M;flex:none}
 .step b{display:block;font:800 46px/1.1 M;letter-spacing:-.02em}.step i{display:block;font:500 32px/1.2 M;font-style:normal;color:#6E5F52;margin-top:6px}
+.fly{position:absolute;width:90px;height:64px;border-radius:12px;background:#A16E3B;color:#fff;font:800 30px/64px M;text-align:center;box-shadow:0 10px 24px rgba(161,110,59,.35)}
+.tg{position:absolute;left:90px;right:90px;top:300px;padding:30px 34px;border-radius:30px;background:#fff;box-shadow:0 20px 50px rgba(25,15,9,.18);display:flex;gap:24px;align-items:center}
+.tg .a{width:84px;height:84px;border-radius:50%;background:#2AA0DA;color:#fff;font:800 40px/84px M;text-align:center;flex:none}
+.tg b{display:block;font:800 36px/1.1 M}.tg span{display:block;font:500 32px/1.2 M;color:#5d5248;margin-top:6px}
 .card{position:absolute;top:640px;width:400px;height:560px;border-radius:40px;padding:50px 40px;display:flex;flex-direction:column;justify-content:space-between}
 .card small{font:600 34px/1 M}.card b{font:800 70px/1.02 M;letter-spacing:-.04em}
 .logo{position:absolute;top:300px;left:110px;display:flex;align-items:center;gap:14px}
 .logo .w2{display:flex;flex-direction:column;align-items:flex-end}.logo small{font:700 13px/1 M;letter-spacing:.2em;margin-top:7px;margin-right:-.2em;color:#A16E3B}
+#flash{position:absolute;inset:0;background:#fff;pointer-events:none;opacity:0;z-index:30}
+#subs{position:absolute;left:90px;right:90px;top:1640px;text-align:center;font:800 54px/1.2 M;letter-spacing:-.02em;z-index:20}
 </style>
-<!-- S1 -->
+<!-- S1 hook -->
 <div class="sc" id="s1">
- <div id="h0" style="position:absolute;left:0;right:0;top:560px;text-align:center"><span class="pill">пояснюю за 30 секунд</span></div>
- <div id="h1" style="position:absolute;left:0;right:0;top:720px;text-align:center;font:800 170px/1 M;letter-spacing:-.05em">AI-агент</div>
- <div id="h2" style="position:absolute;left:0;right:0;top:920px;text-align:center;font:800 88px/1 M;letter-spacing:-.04em" class="b">чи просто чат?</div>
+ <div class="hc" id="hA" style="left:70px;background:#fff;box-shadow:0 20px 50px rgba(25,15,9,.12)"><div class="ic" style="background:#F2E8DD;color:#A16E3B">?</div><div><small style="color:#6E5F52">AI-чат</small><b>порадник</b></div></div>
+ <div class="hc" id="hB" style="right:70px;background:#190F09;color:#EFE7DF;box-shadow:0 20px 50px rgba(25,15,9,.3)"><div class="ic" style="background:#A16E3B;color:#fff">✓</div><div><small style="color:#C9935E">AI-агент</small><b>працівник</b></div></div>
+ <div class="vs" id="vs">vs</div>
+ <div id="h3" style="position:absolute;left:0;right:0;top:1330px;text-align:center"><span class="pill">різниця за 30 секунд</span></div>
 </div>
 <!-- S2 chat -->
 <div class="sc" id="s2">
- <div class="ttl" id="t2">Звичайний <span class="b">чат</span></div>
- <div class="bub me" id="bu" style="top:640px">Як зробити звіт?</div>
- <div class="bub ai" id="ba" style="top:860px">Ось 5 кроків, як його зібрати…</div>
- <div id="st" style="position:absolute;left:0;right:0;top:1190px;text-align:center;font:800 96px/1 M;letter-spacing:-.04em">і все<span class="b">.</span></div>
- <div id="stl" style="position:absolute;left:300px;right:300px;top:1320px;height:6px;background:#A16E3B;border-radius:3px;transform-origin:left"></div>
+ <div class="ttl" id="t2">Звичайний <span class="b">AI-чат</span></div>
+ <div class="bub me" id="bu" style="top:600px">Як зробити звіт?</div>
+ <div class="bub ai" id="ba" style="top:820px">Ось 5 кроків, як його зібрати…</div>
+ <div class="todo" id="td">А далі всі 5 кроків робите <span style="color:#190F09">ви</span></div>
 </div>
 <!-- S3 agent loop -->
 <div class="sc" id="s3">
@@ -45,20 +56,25 @@
  <div class="node" id="n1" style="left:540px;top:720px"><b>План</b><i>розбиває на кроки</i></div>
  <div class="node" id="n2" style="left:800px;top:1170px"><b>Дія</b><i>інструменти</i></div>
  <div class="node" id="n3" style="left:280px;top:1170px"><b>Перевірка</b><i>чи все вірно</i></div>
- <div class="tool" id="o1" style="left:110px;top:1480px"><span>@</span> Пошта</div>
- <div class="tool" id="o2" style="left:410px;top:1480px"><span>▦</span> Таблиці</div>
- <div class="tool" id="o3" style="left:110px;top:1590px"><span>◷</span> Календар</div>
- <div class="tool" id="o4" style="left:440px;top:1590px"><span>➤</span> Telegram</div>
+ <div class="tool" id="o1" style="left:110px;top:1440px"><span>@</span> Пошта</div>
+ <div class="tool" id="o2" style="left:410px;top:1440px"><span>▦</span> Таблиці</div>
+ <div class="tool" id="o3" style="left:700px;top:1440px"><span>➤</span> Telegram</div>
 </div>
 <!-- S5 example -->
 <div class="sc" id="s5">
  <div class="ttl" id="t5">Наприклад</div>
  <div class="inp" id="inp"><span id="typ"></span></div>
- <div id="line" style="position:absolute;left:205px;top:820px;width:6px;height:0;background:#A16E3B;border-radius:3px"></div>
- <div class="step" id="p1" style="top:800px"><div class="ic">@</div><div><b>Відкриває пошту</b><i>3 нові заявки</i></div></div>
- <div class="step" id="p2" style="top:1000px"><div class="ic">▦</div><div><b>Вносить у таблицю</b><i>+3 рядки</i></div></div>
- <div class="step" id="p3" style="top:1200px"><div class="ic">Σ</div><div><b>Рахує підсумок</b><i>сума за тиждень</i></div></div>
- <div class="step" id="p4" style="top:1400px"><div class="ic">➤</div><div><b>Пише вам у Telegram</b><i>«Звіт готовий»</i></div></div>
+ <div id="line" style="position:absolute;left:205px;top:800px;width:6px;height:0;background:#A16E3B;border-radius:3px"></div>
+ <div class="step" id="p1" style="top:760px"><div class="ic">@</div><div><b>Відкриває пошту</b><i id="q1">нові заявки: 0</i></div></div>
+ <div class="step" id="p2" style="top:950px"><div class="ic">▦</div><div><b>Вносить у таблицю</b><i id="q2">+0 рядків</i></div></div>
+ <div class="step" id="p3" style="top:1140px"><div class="ic">Σ</div><div><b>Рахує підсумок</b><i>за тиждень</i></div></div>
+ <div class="step" id="p4" style="top:1330px"><div class="ic">➤</div><div><b>Надсилає в Telegram</b><i>«Звіт готовий»</i></div></div>
+ <div class="fly" id="f1">3</div>
+ <div class="tg" id="tgn"><div class="a">А</div><div><b>AI-агент · зараз</b><span>Звіт за тиждень готовий ✓</span></div></div>
+ <div id="cup" style="position:absolute;left:0;right:0;top:620px;height:900px;display:flex;flex-direction:column;align-items:center">
+  <svg width="420" height="460" viewBox="0 0 420 460"><path id="st1" d="M150 120 C130 90 170 70 150 40" stroke="#C9A27A" stroke-width="10" fill="none" stroke-linecap="round"/><path id="st2" d="M210 120 C190 90 230 70 210 40" stroke="#C9A27A" stroke-width="10" fill="none" stroke-linecap="round"/><path id="st3" d="M270 120 C250 90 290 70 270 40" stroke="#C9A27A" stroke-width="10" fill="none" stroke-linecap="round"/><rect x="90" y="160" width="240" height="230" rx="40" fill="#190F09"/><path d="M330 210 h30 a45 45 0 0 1 0 90 h-30" stroke="#190F09" stroke-width="22" fill="none"/><rect x="60" y="400" width="300" height="24" rx="12" fill="#A16E3B"/></svg>
+  <div id="cupt" style="font:800 72px/1.1 M;letter-spacing:-.03em;text-align:center;margin-top:30px">А ви п'єте <span class="b">каву</span></div>
+ </div>
 </div>
 <!-- S6 compare -->
 <div class="sc" id="s6">
@@ -72,39 +88,62 @@
  <div id="e1" style="position:absolute;left:110px;right:110px;top:640px;font:800 92px/1.02 M;letter-spacing:-.04em">Навчимо ставити<br>задачі <span class="b">агентам</span></div>
  <div id="e2" style="position:absolute;left:110px;top:1000px;font:800 64px/1 M;letter-spacing:-.03em">Підписуйтесь <span class="b">на Джун</span></div>
 </div>
+<div id="subs"></div><div id="flash"></div>
 <script src="timing.js"></script>
 <script>
-const cl=x=>Math.max(0,Math.min(1,x)),eo=x=>1-Math.pow(1-cl(x),3),eb=x=>{x=cl(x);const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const cl=x=>Math.max(0,Math.min(1,x)),eo=x=>1-Math.pow(1-cl(x),3),eio=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2},eb=x=>{x=cl(x);const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
 const K=TM.K;const S=[['s1',0,K.s2],['s2',K.s2,K.s3],['s3',K.s3,K.s5],['s5',K.s5,K.s6],['s6',K.s6,K.s7],['s7',K.s7,99]];
 const $=id=>document.getElementById(id);
-const pop=(id,t,d=.32,y=50,extra='')=>{const e=$(id),p=eb(t/d);e.style.opacity=cl(t/.12);e.style.transform=`translateY(${y*(1-eo(t/d))}px) scale(${.85+.15*p}) ${extra}`;};
+const pop=(id,t,d=.3,y=50)=>{const e=$(id),p=eb(t/d);e.style.opacity=cl(t/.1);e.style.transform=`translateY(${y*(1-eo(t/d))}px) scale(${.85+.15*p})`;};
+const G=[];{let cur=[];TM.W.forEach(w=>{cur.push(w);if(cur.length>=3||/[.,:?»]$/.test(w[2])){G.push(cur);cur=[];}});if(cur.length)G.push(cur);}
+function subs(t){const el=$('subs');let gi=-1;for(let i=0;i<G.length;i++){const nx=G[i+1]?G[i+1][0][0]:G[i][G[i].length-1][1]+0.4;if(t>=G[i][0][0]-0.05&&t<nx-0.05){gi=i;break;}}
+ if(gi<0){el.innerHTML='';return;}const g=G[gi];el.innerHTML=g.map(w=>`<span style="color:${t>=w[0]-0.03?'#A16E3B':'#190F09'};opacity:${t>=w[0]-0.03?1:.35}">${w[2].replace(/[.,:?«»]/g,'')}</span>`).join(' ');}
 const PROMPT='Збери нові заявки й надішли звіт';
 window.render=function(t){
- S.forEach(([id,a,b])=>$(id).style.display=(t>=a&&t<b)?'block':'none');
- // S1
- pop('h0',t-0.0);pop('h1',t-0.25,.35,80);pop('h2',t-1.3);
+ // scenes + transitions + camera drift
+ let fl=0;
+ S.forEach(([id,a,b],i)=>{const e=$(id);const on=t>=a&&t<b;e.style.display=on?'block':'none';if(!on)return;
+  const p=eio((t-a)/.38);const dir=i%2?-1:1;const drift=1+0.035*cl((t-a)/(b-a));
+  e.style.transform=`translateX(${dir*140*(1-p)}px) scale(${(1.06-0.06*p)*drift})`;e.style.opacity=cl((t-a)/.18);
+  if(i>0) fl=Math.max(fl,1-cl((t-a)/.22));});
+ $('flash').style.opacity=fl*0.7;
+ // S1 hook
+ const a=eb(t/.35);$('hA').style.transform=`translateX(${-600*(1-eo(t/.35))}px) rotate(${-8*(1-a)-2}deg)`;$('hA').style.opacity=cl(t/.1);
+ const b=eb((t-K.h2)/.35);$('hB').style.transform=`translateX(${600*(1-eo((t-K.h2)/.35))}px) rotate(${8*(1-b)+2}deg) scale(${1+0.04*Math.max(0,1-Math.abs(t-K.h2-0.35)*6)})`;$('hB').style.opacity=t>=K.h2?1:0;
+ const hit=t>K.h2+0.3?Math.max(0,1-(t-K.h2-0.3)*5):0;$('hA').style.transform+=` translateX(${-26*hit}px)`;
+ pop('vs',t-K.h2-0.3,.3,0);pop('h3',t-K.h3,.3,40);
  // S2
- const t2=t-K.s2;pop('t2',t2);pop('bu',t-K.u1,.3,30);pop('ba',t-K.a1,.3,30);pop('st',t-K.stop,.3,30);
- $('stl').style.transform=`scaleX(${eo((t-K.stop-0.2)/.35)})`;
+ pop('t2',t-K.s2);pop('bu',t-K.s2-0.25,.3,30);pop('ba',t-K.a1,.3,30);pop('td',t-K.stop,.3,30);
+ $('td').style.transform+=` rotate(${Math.sin((t-K.stop)*18)*1.5*Math.max(0,1-(t-K.stop))}deg)`;
  // S3
- const t3=t-K.s3;pop('t3',t3);pop('core',t3-0.3,.4,0);
- [['n1',K.plan],['n2',K.plan+0.4],['n3',K.check]].forEach(([id,k])=>pop(id,t-k,.35,0));
- const ang=(t-K.plan)*2.2;const dot=$('dot');dot.setAttribute('cx',350+300*Math.sin(ang));dot.setAttribute('cy',350-300*Math.cos(ang));dot.style.opacity=t>K.plan?1:0;
+ const t3=t-K.s3;pop('t3',t3);pop('core',t3-0.25,.4,0);
+ [['n1',K.plan],['n2',K.tools],['n3',K.check]].forEach(([id,k])=>pop(id,t-k,.35,0));
+ const ang=(t-K.plan)*2.4;$('dot').setAttribute('cx',350+300*Math.sin(ang));$('dot').setAttribute('cy',350-300*Math.cos(ang));$('dot').style.opacity=t>K.plan?1:0;
  $('ring').style.opacity=eo((t-K.plan+0.3)/.4);
- ['o1','o2','o3','o4'].forEach((id,i)=>pop(id,t-K.tools-i*0.18,.3,40));
- // highlight active node
+ ['o1','o2','o3'].forEach((id,i)=>pop(id,t-K.tools-0.2-i*0.15,.3,40));
  const act=t<K.tools?'n1':(t<K.check?'n2':'n3');['n1','n2','n3'].forEach(id=>{$(id).style.background=(id==act&&t>K.plan)?'#F2D29A':'#fff';});
+ $('core').style.transform+=` scale(${1+0.03*Math.sin(t*5)})`;
  // S5
- const t5=t-K.s5;pop('t5',t5);pop('inp',t5-0.2,.3,30);
- $('typ').textContent=PROMPT.slice(0,Math.floor(cl((t5-0.4)/1.6)*PROMPT.length));
- const ps=[K.p1,K.p2,K.p3,K.p4];ps.forEach((k,i)=>{pop('p'+i==='p'+i?'p'+(i+1):'',t-k,.3,0);const e=$('p'+(i+1));e.style.transform+=` translateX(${-60*(1-eo((t-k)/.3))}px)`;
-   const ic=e.querySelector('.ic');const done=t>k+0.6;ic.style.background=done?'#190F09':'#fff';ic.style.color=done?'#F2D29A':'#190F09';});
- const lp=cl((t-K.p1)/(K.p4-K.p1+0.4));$('line').style.height=(600*lp)+'px';
+ const t5=t-K.s5;const cupOn=t>=K.cof;
+ ['t5','inp','line','p1','p2','p3','p4'].forEach(id=>$(id).style.visibility=cupOn?'hidden':'visible');
+ pop('t5',t5);pop('inp',t5-0.1,.3,30);
+ $('typ').innerHTML=PROMPT.slice(0,Math.floor(cl((t5-0.25)/1.6)*PROMPT.length))+(t5<2&&Math.floor(t5*4)%2==0?'<span style="color:#A16E3B">|</span>':'');
+ [K.p1,K.p2,K.p3,K.p4].forEach((k,i)=>{const id='p'+(i+1);pop(id,t-k,.3,0);const e=$(id);e.style.transform+=` translateX(${-60*(1-eo((t-k)/.3))}px)`;
+   const ic=e.querySelector('.ic');const done=t>k+0.5;ic.style.background=done?'#190F09':'#fff';ic.style.color=done?'#F2D29A':'#190F09';});
+ $('line').style.height=(570*cl((t-K.p1)/(K.p4-K.p1+0.4)))+'px';
+ $('q1').textContent='нові заявки: '+Math.round(3*cl((t-K.p1-0.2)/.6));
+ $('q2').textContent='+'+Math.round(3*cl((t-K.p2-0.2)/.6))+' рядки';
+ const fp=eio((t-K.p2+0.15)/.6);const f1=$('f1');f1.style.left=(250+40*fp)+'px';f1.style.top=(860+90*fp-120*Math.sin(fp*Math.PI))+'px';f1.style.opacity=(fp>0&&fp<1)?1:0;
+ const tp=eb((t-K.p4-0.4)/.35);const tg=$('tgn');tg.style.opacity=(t>K.p4+0.4&&!cupOn)?1:0;tg.style.transform=`translateY(${-200*(1-eo((t-K.p4-0.4)/.35))}px) scale(${.9+.1*tp})`;
+ const cu=$('cup');cu.style.display=cupOn?'flex':'none';const cp=eb((t-K.cof)/.4);cu.style.transform=`scale(${.7+.3*cp})`;
+ ['st1','st2','st3'].forEach((id,i)=>{const s=$(id);s.style.transform=`translateY(${-((t*40+i*20)%40)}px)`;s.style.opacity=0.4+0.6*Math.abs(Math.sin(t*2+i));});
+ pop('cupt',t-K.cof-0.3,.3,30);
  // S6
- const t6=t-K.s6;pop('cc',t6,.35,40);pop('ca',t-K.c2,.35,40);pop('dec',t-K.c3,.35,30);
- $('cc').style.opacity=Math.min(+$('cc').style.opacity, t>K.c2? 0.55:1);
+ pop('cc',t-K.s6,.35,40);pop('ca',t-K.c2,.35,40);pop('dec',t-K.c3,.35,30);
+ if(t>K.c2){$('cc').style.opacity=0.5;$('cc').style.transform+=' scale(.95)';$('ca').style.transform+=` scale(${1+0.04*Math.max(0,1-(t-K.c2-0.3)*4)})`;}
  // S7
- const t7=t-K.s7;pop('e1',t7);pop('e2',t7-1.4);
+ pop('e1',t-K.s7);pop('e2',t-K.e2,.35,40);
+ subs(t);
 };
 render(0);
 </script>
