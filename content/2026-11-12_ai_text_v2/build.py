@@ -66,32 +66,32 @@ def slide1(x):
     cols = "".join(f'<div class="col">{" ".join((sent[i*2:] + sent[:i*2]) * 4)}</div>' for i in range(4))
     return (f'<div class="mast" style="left:{x+80}px;top:196px;width:920px">'
             f'<div class="mast-row"><span>№ 404</span><span>четвер</span><span>ціна: ваша увага</span></div>'
-            f'<div class="mast-title">Щоденний AI-вісник</div></div>'
-            f'<div class="news" style="left:{x+80}px;top:360px;width:920px">{cols}</div>'
+            f'</div>'
+            f'<div class="news" style="left:{x+80}px;top:262px;width:920px">{cols}</div>'
             f'<div class="cover-h" style="left:{x+56}px;top:590px;width:968px">Як зробити, щоб ніхто не&nbsp;здогадався,<br><span class="it">що текст писав</span> <span class="ai">AI</span></div>'
             f'<svg class="pen" style="left:0;top:0" width="{W}" height="{H}"><path id="aicircle" d=""/></svg>'
             f'<div class="hand" style="left:{x+80}px;top:1150px;transform:rotate(-3deg)">гортайте, тут 4 кроки →</div>')
 
 def slide2(x):
-    phrases = [("«Давайте розберемося»", 560), ("«Це не просто X, а Y»", 690), ("«Відіграє ключову роль»", 820)]
+    phrases = [("«Давайте розберемося»", 650), ("«Це не просто X, а Y»", 750), ("«Відіграє ключову роль»", 850)]
     out = [f'<div class="kick" style="left:{x+80}px;top:220px">крок 1</div>',
-           f'<div class="h2" style="left:{x+80}px;top:280px;width:880px">Викресліть фрази, <span class="it">які видають AI</span></div>']
+           f'<div class="h2" style="left:{x+80}px;top:280px;width:880px">Працюєте в Claude? <span class="it">Додайте скіл Humanizer</span></div>',
+           f'<div class="body" style="left:{x+80}px;top:470px;width:860px">Він прибирає з тексту AI-тон. В інших AI стежте самі, щоб не було таких фраз:</div>']
     paths = []
     for i, (t, y) in enumerate(phrases):
-        out.append(f'<div class="phrase" style="left:{x+80}px;top:{y}px">{t}</div>')
-        wpx = {0: 640, 1: 600, 2: 700}[i]
-        paths.append(f'<path class="strike s{i}" d="{scribble(90, y + 46, wpx, i + 3)}"/>')
-    out.append(f'<svg class="pen" style="left:{x}px;top:0" width="{W}" height="{H}">{"".join(paths)}'
-               f'<path d="M 300,1010 C 250,1000 200,970 190,925"/><path d="M 172,945 L 190,920 L 208,948"/></svg>')
-    out.append(f'<div class="hand" style="left:{x+320}px;top:990px;width:520px;transform:rotate(-3deg)">скіл Humanizer для Claude прибирає їх сам</div>')
+        out.append(f'<div class="phrase sm" style="left:{x+80}px;top:{y}px">{t}</div>')
+        wpx = {0: 560, 1: 520, 2: 610}[i]
+        paths.append(f'<path class="strike s{i}" d="{scribble(88, y + 40, wpx, i + 3, amp=11)}"/>')
+    out.append(f'<svg class="pen" style="left:{x}px;top:0" width="{W}" height="{H}">{"".join(paths)}</svg>')
+    out.append(f'<div class="hand" style="left:{x+80}px;top:1010px;width:820px;transform:rotate(-2deg)">але ідеально людським текст це ще не зробить, тому далі →</div>')
     return "".join(out)
 
 def slide3(x):
     return (f'<div class="kick light" style="left:{x+80}px;top:220px">крок 2</div>'
             f'<div class="h2 light" style="left:{x+80}px;top:280px;width:920px">Покажіть AI, <span class="it tan">як пишете саме ви</span></div>'
-            f'<div class="card" style="left:{x+110}px;top:610px;width:780px;transform:rotate(-3deg)"><div class="tape"></div>'
-            f'«Ось 3 мої пости. Розбери мій стиль: довжину речень, тон, слова, як я починаю й закінчую текст. Далі пиши так само.»</div>'
-            f'<div class="hand tan" style="left:{x+110}px;top:1040px;width:820px;transform:rotate(-2deg)">збережіть у налаштуваннях: ChatGPT → Персоналізація, Claude → Стилі</div>')
+            f'<div class="card" style="left:{x+110}px;top:590px;width:780px;transform:rotate(-3deg)"><div class="tape"></div>'
+            f'«Ось 10 моїх постів. Зроби детальний розбір: мій тон, як я звертаюся до людей, довжина речень, улюблені слова, як я починаю й закінчую текст. Далі пиши в моєму стилі.»</div>'
+            f'<div class="hand tan" style="left:{x+110}px;top:1070px;width:820px;transform:rotate(-2deg)">збережіть у налаштуваннях: ChatGPT → Персоналізація, Claude → Стилі</div>')
 
 def slide4(x):
     items = ["що ви продаєте і кому", "ціни та умови", "3–5 текстів, які вам подобаються", "слова, яких не можна вживати"]
@@ -120,7 +120,7 @@ css = f"""
 *{{margin:0;padding:0;box-sizing:border-box}}
 body{{width:{W*N}px;height:{H}px;position:relative;overflow:hidden;background:{PAPER};font-family:Mont,sans-serif;color:{INK}}}
 .bg{{position:absolute;top:0;width:{W}px;height:{H}px}}
-.news{{position:absolute;height:960px;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;-webkit-mask-image:linear-gradient(#000 70%,transparent)}}
+.news{{position:absolute;height:1060px;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;-webkit-mask-image:linear-gradient(#000 70%,transparent)}}
 .col{{font:italic 400 19px/1.45 Serif;color:#CDBFB0;padding:0 14px;border-left:1.5px solid #D9CCBE;text-align:justify;hyphens:auto}}
 .col:first-child{{border-left:none;padding-left:0}}
 .mast{{position:absolute;border-top:3px solid #B9A897;border-bottom:1.5px solid #B9A897;padding:12px 0 14px}}
@@ -144,9 +144,10 @@ body{{width:{W*N}px;height:{H}px;position:relative;overflow:hidden;background:{P
 .h1 .ai{{font:italic 400 1.04em/1 Serif;color:{BROWN}}}
 .kick{{position:absolute;font:600 44px/1 Hand;color:{BROWN};transform:rotate(-3deg)}}
 .phrase{{position:absolute;font:italic 400 66px/1.2 Serif;color:{INK}}}
+.phrase.sm{{font-size:56px}}
 .hand{{position:absolute;font:600 46px/1.08 Hand;color:{BROWN}}}
 .hand.light{{color:{BROWN}}}
-.card{{position:absolute;background:{BEIGE};padding:56px 60px;font:italic 400 44px/1.35 Serif;color:{INK}}}
+.card{{position:absolute;background:{BEIGE};padding:52px 56px;font:italic 400 39px/1.36 Serif;color:{INK}}}
 .body{{position:absolute;font:500 36px/1.4 Mont;color:{INK}}}
 .list{{position:absolute;font:600 44px/1 Mont;letter-spacing:-.02em}}
 .row{{height:96px;display:flex;align-items:center;gap:30px}}
