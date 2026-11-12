@@ -1,0 +1,291 @@
+{
+ "art": [
+  {
+   "shape": "bar",
+   "x": 0,
+   "y": 1294,
+   "size": 5400,
+   "h": 6,
+   "color": "brown"
+  },
+  {
+   "shape": "square",
+   "x": 80,
+   "y": 1284,
+   "size": 26,
+   "h": 26,
+   "color": "brown"
+  },
+  {
+   "shape": "square",
+   "x": 1160,
+   "y": 1284,
+   "size": 26,
+   "h": 26,
+   "color": "brown"
+  },
+  {
+   "shape": "square",
+   "x": 2240,
+   "y": 1284,
+   "size": 26,
+   "h": 26,
+   "color": "brown"
+  },
+  {
+   "shape": "square",
+   "x": 3320,
+   "y": 1284,
+   "size": 26,
+   "h": 26,
+   "color": "brown"
+  },
+  {
+   "shape": "square",
+   "x": 4400,
+   "y": 1284,
+   "size": 26,
+   "h": 26,
+   "color": "brown"
+  }
+ ],
+ "frames": [
+  {
+   "out": "out/slide_1.png",
+   "theme": "dark",
+   "logo": "header",
+   "art": [
+    {
+     "shape": "chevron",
+     "x": 770,
+     "y": 270,
+     "size": 600,
+     "color": "brown"
+    }
+   ],
+   "blocks": [
+    {
+     "type": "mono",
+     "text": "// 4 налаштування для Claude і ChatGPT",
+     "accent": true
+    },
+    {
+     "type": "spacer"
+    },
+    {
+     "type": "headline",
+     "size": "l",
+     "text": "Як зробити,\nщоб ніхто\nне здогадався,\n*що текст*\n*писав AI*"
+    },
+    {
+     "type": "gap",
+     "h": 24
+    },
+    {
+     "type": "text",
+     "text": "Від найпростішого до найсильнішого. Гортайте →"
+    }
+   ]
+  },
+  {
+   "out": "out/slide_2.png",
+   "theme": "white",
+   "logo": "header",
+   "blocks": [
+    {
+     "type": "mono",
+     "text": "// 01 приберіть AI-фрази",
+     "accent": true
+    },
+    {
+     "type": "headline",
+     "size": "m",
+     "text": "Ці фрази видають AI\n*з першого речення*"
+    },
+    {
+     "type": "gap",
+     "h": 60
+    },
+    {
+     "type": "headline",
+     "size": "s",
+     "text": "~~«Давайте розберемося»~~"
+    },
+    {
+     "type": "headline",
+     "size": "s",
+     "text": "~~«Це не просто X, а Y»~~"
+    },
+    {
+     "type": "headline",
+     "size": "s",
+     "text": "~~«Відіграє ключову роль»~~"
+    },
+    {
+     "type": "spacer"
+    },
+    {
+     "type": "lead",
+     "text": "Скіл **Humanizer** для Claude прибирає їх сам. Додайте його один раз у налаштуваннях і пишіть: «прожени текст через humanizer»."
+    }
+   ]
+  },
+  {
+   "out": "out/slide_3.png",
+   "theme": "beige",
+   "logo": "header",
+   "blocks": [
+    {
+     "type": "mono",
+     "text": "// 02 навчіть AI свого стилю",
+     "accent": true
+    },
+    {
+     "type": "headline",
+     "size": "m",
+     "text": "AI пише шаблонно,\n*коли не знає,*\n*як пишете ви*"
+    },
+    {
+     "type": "spacer"
+    },
+    {
+     "type": "chat",
+     "items": [
+      [
+       "Ви",
+       "Ось 3 мої пости. Розбери мій стиль: довжину речень, тон, слова, як я починаю й закінчую текст. Далі пиши так само."
+      ]
+     ]
+    },
+    {
+     "type": "gap",
+     "h": 24
+    },
+    {
+     "type": "text",
+     "text": "Збережіть це в постійних налаштуваннях: ChatGPT → Персоналізація, Claude → Стилі."
+    }
+   ]
+  },
+  {
+   "out": "out/slide_4.png",
+   "theme": "dark",
+   "logo": "header",
+   "art": [
+    {
+     "shape": "ring",
+     "x": 760,
+     "y": -200,
+     "size": 520,
+     "color": "brown"
+    }
+   ],
+   "blocks": [
+    {
+     "type": "mono",
+     "text": "// 03 дайте контекст про бізнес",
+     "accent": true
+    },
+    {
+     "type": "headline",
+     "size": "m",
+     "text": "Без контексту\nAI пише\n*для всіх*\n*і ні для кого*"
+    },
+    {
+     "type": "spacer"
+    },
+    {
+     "type": "lead",
+     "text": "Створіть «Проєкт» у ChatGPT або Claude і завантажте туди:"
+    },
+    {
+     "type": "list",
+     "style": "square",
+     "items": [
+      "Що продаєте і кому",
+      "Ціни та умови",
+      "3–5 текстів, які вам подобаються",
+      "Слова, яких не можна вживати"
+     ]
+    }
+   ]
+  },
+  {
+   "out": "out/slide_5.png",
+   "theme": "white",
+   "logo": "header",
+   "blocks": [
+    {
+     "type": "mono",
+     "text": "// 04 зробіть з AI редактора",
+     "accent": true
+    },
+    {
+     "type": "headline",
+     "size": "m",
+     "text": "Спершу чернетка,\n*потім сувора*\n*редактура*"
+    },
+    {
+     "type": "spacer"
+    },
+    {
+     "type": "lead",
+     "text": "«Перечитай текст як суворий редактор. Знайди фрази, які звучать як AI: канцелярит, пафос, повтори, зайві вступи. Перепиши простіше. Нових фактів не додавай.»"
+    },
+    {
+     "type": "gap",
+     "h": 20
+    },
+    {
+     "type": "note",
+     "text": "Попросіть окремо *список змін*, щоб бачити, що саме виправлено."
+    }
+   ]
+  },
+  {
+   "out": "out/slide_6.png",
+   "theme": "accent",
+   "logo": "header",
+   "pattern": 0.1,
+   "art": [
+    {
+     "shape": "bar",
+     "x": 0,
+     "y": 1294,
+     "size": 760,
+     "h": 6,
+     "color": "ink"
+    },
+    {
+     "shape": "chevron",
+     "x": 760,
+     "y": 1262,
+     "size": 70,
+     "color": "ink"
+    }
+   ],
+   "blocks": [
+    {
+     "type": "spacer"
+    },
+    {
+     "type": "headline",
+     "size": "xl",
+     "text": "AI пише так,\n*як ви його*\n*налаштуєте*"
+    },
+    {
+     "type": "lead",
+     "text": "Спробуйте хоча б одне налаштування сьогодні. Різницю побачите з першого тексту."
+    },
+    {
+     "type": "gap",
+     "h": 24
+    },
+    {
+     "type": "note",
+     "text": "Збережіть, щоб не загубити, і підписуйтесь"
+    }
+   ]
+  }
+ ]
+}
