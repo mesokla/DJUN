@@ -136,10 +136,9 @@ FRAMES = {
  "03_publish": case("03", "Публікація <span class='it'>без вичитки</span>", books, "04_suntimes_headline", "CBS Chicago · травень 2025", "все, що йде назовні, вичитує людина", t0=3.2),
  "04_access": case("04", "Повний доступ <span class='it'>до робочих систем</span>", toggles, "05_replit_headline", "Fortune · липень 2025", "AI отримує права тільки на читання", t0=4.2),
  "05_end": page(f'''{logo(True)}
-   <div class="hand abs a" style="left:80px;top:470px;font-size:58px;{D(.1)}">запам'ятайте:</div>
-   <div class="big a" style="top:560px;font-size:100px;color:{BEIGE};{D(.3)}">AI ваш найкращий помічник, <span class="it">коли ви вмієте ним користуватися</span></div>
+      <div class="big a" style="top:560px;font-size:100px;color:{BEIGE};{D(.3)}">AI ваш найкращий помічник, <span class="it">але важливо вміти ним користуватися</span></div>
    <svg class="d" style="left:80px;top:1080px" width="640" height="120"><path class="b dr" pathLength="1" style="{D(1.6)}" d="M10,60 C150,20 300,95 630,50"/></svg>
-   <div class="abs a" style="left:80px;top:1190px;width:900px;font:500 40px/1.35 Mont;color:#C9B8A6;{D(2.4)}">У рілсі приклади, як робити не треба. Але сам AI один з найкращих інструментів, які зараз є.</div>
+   <div class="abs a" style="left:80px;top:1190px;width:900px;font:500 40px/1.35 Mont;color:#C9B8A6;{D(2.4)}">Ми показали, як робити не треба. Решта за вами 😉</div>
    <div class="hand abs a" style="left:80px;top:1440px;font-size:56px;{D(3.6)}">збережіть і перешліть колезі</div>''', dark=True),
 }
 out = HERE / "html"; out.mkdir(exist_ok=True)
