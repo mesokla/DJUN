@@ -1,6 +1,6 @@
 // Renders the animated reel: each scene HTML is stepped frame by frame via window.setT(t).
 const { chromium } = require('playwright'); const fs = require('fs'); const path = require('path');
-const SCENES = [["00_hook",4],["00_list",3],["01_clients",7],["02_reports",9],["03_publish",6],["04_access",7],["05_end",4]];
+const SCENES = [["00_hook",4],["00_list",3],["01_clients",7],["02_reports",9],["03_publish",6],["04_access",7],["05_end",7]];
 const FPS = 30, out = process.argv[2];
 (async () => {
   fs.mkdirSync(out, { recursive: true });
