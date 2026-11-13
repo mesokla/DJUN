@@ -1,7 +1,7 @@
 // Renders the animated reel: each scene HTML is stepped frame by frame via window.setT(t).
 const { chromium } = require('playwright'); const fs = require('fs'); const path = require('path');
 // Scene cut points (seconds) taken from the pauses in audio/voiceover.mp3
-const CUTS = [0, 7.6, 10.5, 18.8, 28.55, 34.5, 41.5, 48.0];
+const CUTS = [0, 3.55, 6.55, 15.0, 24.9, 30.95, 38.25, 44.8];
 const NAMES = ["00_hook","00_list","01_clients","02_reports","03_publish","04_access","05_end"];
 const FPS = 30, out = process.argv[2];
 (async () => {

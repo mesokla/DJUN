@@ -2,7 +2,7 @@
 # 100 BPM, A minor: piano arpeggios + bass + soft pad + a simple lead motif; resolves to C major at the end.
 # Also renders the message notification sounds as a separate stem.
 import numpy as np, wave, pathlib
-SR = 44100; DUR = 48.0; N = int(SR * DUR)
+SR = 44100; DUR = 44.8; N = int(SR * DUR)
 BEAT = 0.6; BAR = BEAT * 4
 HERE = pathlib.Path(__file__).parent
 mus = np.zeros((N, 2)); sfx = np.zeros((N, 2))
@@ -86,8 +86,8 @@ def notif(m1, m2):
     b = np.zeros(len(t)); o = int(0.09 * SR); tb = t[: len(t) - o]
     b[o:] = np.sin(2 * np.pi * hz(m2) * tb) * np.exp(-tb * 12)
     return (a + b) * 0.6
-put(sfx, notif(84, 88), 10.5 + 0.8, 0.9)    # client message
-put(sfx, notif(88, 91), 10.5 + 1.9, 0.9)    # bot reply
+put(sfx, notif(84, 88), 6.55 + 1.6, 0.9)    # client message
+put(sfx, notif(88, 91), 6.55 + 2.9, 0.9)    # bot reply
 
 def save(buf, name, fade=True):
     b = buf / max(1e-9, np.max(np.abs(buf))) * 0.89
