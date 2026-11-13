@@ -48,7 +48,7 @@ def board():
 
 
 def dep():
-    return '<div class="dep"><small>мій депозит</small>$100</div>'
+    return '<div class="dep"><small>торгую своїми</small>$100</div>'
 
 
 def walletres(amount, plan):
@@ -82,39 +82,39 @@ def stockres(t, tks):
     return f'<div class="res card"><div class="tks">{c}</div><b>{t}</b></div>'
 
 
-def slideA(item):
-    return (f'<section class="s a"><h2 class="ce">ЦЕ</h2><div class="row">{item}{item}{item}</div>'
+def slideA(item, tag=''):
+    return (f'<section class="s a"><div class="tag">{tag}</div><h2 class="ce">ЦЕ</h2><div class="row">{item}{item}{item}</div>'
             f'<h2 class="sk">СКУЧНО…</h2><img class="lg" src="logo.svg"></section>')
 
 
-def slideB(ings, res, disc=''):
+def slideB(ings, res, disc='', tag=''):
     d = f'<p class="disc">{disc}</p>' if disc else ''
-    return (f'<section class="s b"><h2 class="bz">БЕЗ ЦЬОГО:</h2><div class="grid">{"".join(ings)}</div>'
+    return (f'<section class="s b"><div class="tag">{tag}</div><h2 class="bz">БЕЗ ЦЬОГО:</h2><div class="grid">{"".join(ings)}</div>'
             f'<div class="rrow">{"".join(res)}</div>{d}<img class="lg" src="logo.svg"></section>')
 
 
 S = [
-    slideA(sticky()),
+    slideA(sticky(), 'Безпека акаунта'),
     slideB([chip('key', 'Passkey'), chip('phone', '2FA'), chip('lock', 'Блокування налаштувань'),
             chip('list', 'Білий список адрес'), chip('bell', 'Сповіщення про вхід'), chip('shield', 'Підтвердження виводу')],
            [shieldres('Базовий', 'Passkey + 2FA', 2), shieldres('Посилений', '+ блокування', 3),
-            shieldres('Максимум', '+ білий список', 4)]),
-    slideA(mbtn()),
+            shieldres('Максимум', '+ білий список', 4)], tag='Безпека акаунта'),
+    slideA(mbtn(), 'Ордери в Kraken Pro'),
     slideB([chip('limit', 'Лімітний ордер'), chip('stop', 'Стоп-лосс'), chip('take', 'Тейк-профіт'),
             chip('trail', 'Трейлінг-стоп'), chip('trigger', 'Тригер-ордер'), chip('chart', 'Індикатори')],
            [chartres('Ліміт + стоп', ['lim', 'sl']), chartres('Стоп + тейк', ['sl', 'tp']),
-            chartres('Трейлінг-стоп', ['trail'])]),
-    slideA(board()),
+            chartres('Трейлінг-стоп', ['trail'])], tag='Ордери в Kraken Pro'),
+    slideA(board(), 'Токенізовані акції xStocks'),
     slideB([chip('clock', 'Торгівля 24/5'), chip('pie', 'Частки акцій'), chip('', 'NVIDIA', 'NVDAx'),
             chip('', 'Apple', 'AAPLx'), chip('', 'Tesla', 'TSLAx'), chip('', 'S&amp;P 500', 'SPYx')],
            [stockres('Технології', ['NVDAx', 'AAPLx']), stockres('Індекс', ['SPYx']),
             stockres('Мікс', ['TSLAx', 'SPYx', 'NVDAx'])],
-           'Не є інвестиційною порадою. Торгівля пов’язана з ризиком. Доступність залежить від регіону.'),
-    slideA(dep()),
+           'Не є інвестиційною порадою. Торгівля пов’язана з ризиком. Доступність залежить від регіону.', tag='Токенізовані акції xStocks'),
+    slideA(dep(), 'Kraken Prop'),
     slideB([chip('cash', 'Капітал до $200&nbsp;000'), chip('pct', 'До 90% прибутку'), chip('inf', 'Без обмежень за часом'),
             chip('coins', '60+ криптопар'), chip('flag', 'Демо-челендж'), chip('out', 'Виплати на акаунт')],
            [walletres('$10 000', 'Старт'), walletres('$50 000', 'Більше'), walletres('$200 000', 'Максимум')],
-           'Kraken Prop не є регульованою послугою. Більшість учасників не проходять оцінювання з першої спроби. Плата за оцінювання не повертається.'),
+           'Kraken Prop не є регульованою послугою. Більшість учасників не проходять оцінювання з першої спроби. Плата за оцінювання не повертається.', tag='Kraken Prop'),
 ]
 
 CSS = '''*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased;background:#222}
@@ -150,6 +150,7 @@ h2{position:absolute;font-weight:300;letter-spacing:-2px;line-height:1}
 .dep{width:290px;height:200px;border-radius:28px;background:#16141F;border:1.5px solid rgba(255,255,255,.12);display:flex;flex-direction:column;justify-content:center;padding:0 32px;font-size:84px;font-weight:600;letter-spacing:-3px;line-height:1}
 .dep small{font-size:26px;font-weight:400;color:#9b98aa;letter-spacing:0;margin-bottom:14px}
 .wal{height:260px;justify-content:center;gap:6px}.wal small{font-size:24px;color:#9b98aa}.wal .amt{font-size:52px;font-weight:600;letter-spacing:-2px;color:#B7A3FF}
+.tag{position:absolute;left:90px;top:66px;padding:12px 26px;border:1.5px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.06);font-size:28px;font-weight:500;color:#fff}
 .disc{position:absolute;left:90px;right:90px;bottom:96px;text-align:center;font-size:19px;line-height:1.4;color:#77738a}
 '''
 
