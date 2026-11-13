@@ -4,8 +4,8 @@ HERE = pathlib.Path(__file__).parent
 SP = pathlib.Path("/tmp/claude-0/-home-user-DJUN/777dd743-7ffe-5505-9410-2959c9da1eb7/scratchpad/fonts")
 SK = pathlib.Path("/root/.claude/skills/synced/1eb15ba8-9e80-49cb-a1e0-90964f7bdb55_9f9c214f-933c-41c1-8626-dc01b4556c28/djun-design/assets")
 PH = lambda n: (SK / "photos" / n).as_uri()
-INK, BEIGE, PAPER, MUTED = "#190F09", "#EFE7DF", "#F4EEE7", "#8C7B6B"
-BROWN = INK  # no mustard: accents are ink
+INK, BEIGE, PAPER, MUTED = "#190F09", "#EFE7DF", "#EFE7DF", "#6E5F52"
+BROWN = "#A16E3B"  # Djun brand palette: ink, beige, white, brown accent
 def ff(n, p, w="400", s="normal"): return f'@font-face{{font-family:"{n}";src:url("{p.as_uri()}");font-weight:{w};font-style:{s}}}'
 F = "".join([ff("Mont", SK/"fonts/Montserrat.ttf", "100 900"),
     ff("Hand", SP/"fontsource-caveat/files/caveat-cyrillic-600-normal.woff2", "600"),
@@ -24,16 +24,16 @@ body.dark{{background:{INK};color:#fff}} body.light{{background:{PAPER};color:{I
 .ttl{{position:absolute;left:70px;top:170px;font:300 92px/1 Mont;text-transform:uppercase;letter-spacing:.01em;color:{INK}}}
 .card{{position:absolute;background:#fff;border-radius:26px;color:{INK};box-shadow:0 18px 30px rgba(25,15,9,.16)}}
 .bub{{background:{BEIGE};border-radius:20px 20px 4px 20px;padding:16px 18px;font:600 26px/1.2 Mont;color:{INK}}}
-.ln{{height:12px;border-radius:6px;background:#D9D2CA;margin-top:12px}}
+.ln{{height:12px;border-radius:6px;background:#E3D8CC;margin-top:12px}}
 .ing{{position:absolute;width:300px;text-align:center}}
 .ing .ic{{width:132px;height:132px;margin:0 auto;border-radius:50%;background:{INK};display:flex;align-items:center;justify-content:center;box-shadow:0 12px 22px rgba(25,15,9,.18)}}
 .ing .lb{{font:500 30px/1.1 Mont;margin-top:10px;color:{INK}}}
 .res{{position:absolute;width:300px;height:360px;background:#fff;border-radius:26px;color:{INK};padding:26px;box-shadow:0 18px 30px rgba(25,15,9,.16)}}
-.res .k{{font:700 18px/1 Mont;letter-spacing:.14em;text-transform:uppercase;color:{MUTED}}}
+.res .k{{font:700 18px/1 Mont;letter-spacing:.14em;text-transform:uppercase;color:{BROWN}}}
 .res .t{{font:700 30px/1.15 Mont;margin-top:12px;letter-spacing:-.01em}}
 .chip{{display:inline-block;padding:8px 14px;border-radius:999px;background:{BEIGE};font:700 18px/1 Mont;margin:4px 4px 0 0}}
 .hand{{position:absolute;font:600 50px/1 Hand}}
-svg.pen{{position:absolute;overflow:visible}} svg.pen path{{fill:none;stroke:{INK};stroke-width:6;stroke-linecap:round;filter:url(#rough)}}
+svg.pen{{position:absolute;overflow:visible}} svg.pen path{{fill:none;stroke:{BROWN};stroke-width:6;stroke-linecap:round;filter:url(#rough)}}
 svg.i path,svg.i rect,svg.i circle,svg.i line,svg.i polyline{{fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}}
 """
 ROUGH = '<svg width="0" height="0" style="position:absolute"><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter></svg>'
@@ -68,13 +68,13 @@ IC = {
 
 def boring(objects_html, note=""):
     return page(f'<div class="thin" style="left:150px;top:170px">це</div>{objects_html}<div class="thin" style="left:230px;top:960px;font-size:150px">нудно…</div>'
-                f'<div class="hand" style="left:760px;top:250px;color:#9b9087;transform:rotate(-8deg)">{note}</div>', True)
+                f'<div class="hand" style="left:760px;top:250px;color:#C9B8A6;transform:rotate(-8deg)">{note}</div>', True)
 
 def trio(inner, w=300, h=380, top=470):
     return "".join(f'<div class="card" style="left:{50+i*335}px;top:{top}px;width:{w}px;height:{h}px;padding:24px;transform:rotate({(-2,1,-1)[i]}deg)">{inner}</div>' for i in range(3))
 
 def ingredients(title, items, results, ttl_size=84):
-    cols = 3; out = [f'<div class="ttl" style="font-size:{ttl_size}px">{title}</div>', UNDER(70, 168 + ttl_size, 420), f'<div class="hand" style="left:70px;top:{758 if len(items)>3 else 590}px;color:{MUTED};transform:rotate(-2deg)">і отримаєте ↓</div>']
+    cols = 3; out = [f'<div class="ttl" style="font-size:{ttl_size}px">{title}</div>', UNDER(70, 168 + ttl_size, 420), f'<div class="hand" style="left:70px;top:{758 if len(items)>3 else 590}px;color:{BROWN};transform:rotate(-2deg)">і отримаєте ↓</div>']
     for k, name in enumerate(items):
         r, c = divmod(k, cols)
         out.append(f'<div class="ing" style="left:{40+c*340}px;top:{320+r*215}px"><div class="ic">{icon(IC[name])}</div><div class="lb">{name}</div></div>')
@@ -89,10 +89,10 @@ S["02"] = ingredients("додайте в промпт:", ["роль", "ауди�
    ("Instagram", "Карусель для власниць кав'ярень", f'<div style="margin-top:18px;height:150px;border-radius:12px;background:url({PH("bb_students_laptops.jpg")}) center/cover"></div>'),
    ("Лист", "Відповідь клієнту без канцеляриту", '<div style="margin-top:16px">' + lines + '</div>'),
    ("Реклама", "Текст оголошення на 3 рядки", f'<div style="margin-top:14px;height:100px;border-radius:12px;background:url({PH("bb_laptop_sofa.jpg")}) center/cover"></div><div style="margin-top:12px;font:700 20px/1.2 Mont">-20% на перший курс</div><div style="margin-top:14px;display:inline-block;padding:10px 18px;border-radius:10px;background:{INK};color:#fff;font:700 18px Mont">Записатися</div>')])
-grid = "".join(f'<div style="height:30px;border-bottom:2px solid #E3DCD4;display:flex">' + "".join('<div style="flex:1;border-right:2px solid #E3DCD4"></div>' for _ in range(4)) + '</div>' for _ in range(5))
-S["03"] = boring(trio(f'<div style="border:2px solid #E3DCD4;border-radius:8px;overflow:hidden">{grid}</div><div style="text-align:center;font:800 40px/1 Mont;margin:18px 0 8px;color:{BROWN}">↓</div><div class="bub" style="text-align:center">Ctrl+C<br>Ctrl+V</div>'), "знову…")
+grid = "".join(f'<div style="height:30px;border-bottom:2px solid #E3D8CC;display:flex">' + "".join('<div style="flex:1;border-right:2px solid #E3D8CC"></div>' for _ in range(4)) + '</div>' for _ in range(5))
+S["03"] = boring(trio(f'<div style="border:2px solid #E3D8CC;border-radius:8px;overflow:hidden">{grid}</div><div style="text-align:center;font:800 40px/1 Mont;margin:18px 0 8px;color:{BROWN}">↓</div><div class="bub" style="text-align:center">Ctrl+C<br>Ctrl+V</div>'), "знову…")
 S["04"] = ingredients("підключіть:", ["Google Drive", "Gmail", "Календар", "Notion", "Slack", "Telegram-бот"], [
-   ("Звіти", "Звіт з таблиць збирається сам", f'<div style="display:flex;align-items:flex-end;gap:10px;height:120px;margin-top:20px">' + "".join(f'<div style="flex:1;height:{h}%;background:{c};border-radius:6px 6px 0 0"></div>' for h, c in ((40, BEIGE), (65, "#CFC6BC"), (55, BEIGE), (90, BROWN))) + '</div>'),
+   ("Звіти", "Звіт з таблиць збирається сам", f'<div style="display:flex;align-items:flex-end;gap:10px;height:120px;margin-top:20px">' + "".join(f'<div style="flex:1;height:{h}%;background:{c};border-radius:6px 6px 0 0"></div>' for h, c in ((40, BEIGE), (65, "#D9C9B8"), (55, BEIGE), (90, BROWN))) + '</div>'),
    ("Пошта", "Чернетки відповідей на листи", '<div style="margin-top:16px">' + lines + '</div>'),
    ("День", "План дня з календаря", "".join(f'<div style="margin-top:12px;display:flex;gap:10px;font:600 20px Mont"><span style="color:{BROWN}">{t}</span><span>{x}</span></div>' for t, x in (("09:00", "дзвінок"), ("12:00", "звіт"), ("16:00", "пости"))))], ttl_size=110)
 S["05"] = boring(trio('<div class="bub" style="font-size:24px">Нагадую: у мене кав\'ярня, пиши коротко, без емодзі, тон дружній…</div>', h=330, top=500), "вдесяте")
@@ -108,9 +108,9 @@ b6.append(f'''<div class="card" style="left:70px;top:700px;width:940px;height:44
   <div style="margin-top:26px;font:600 34px/1 Hand;color:{BROWN}">AI вже знає ваш бренд з першого повідомлення</div></div>''')
 S["06"] = page("".join(b6))
 S["07"] = page(f'''<div class="thin" style="left:70px;top:300px;font-size:120px;line-height:1.05;color:{INK}">AI нудний,</div>{UNDER(70, 740, 600)}
-  <div class="abs" style="left:70px;top:450px;width:940px;font:italic 400 118px/1.02 Serif;color:{INK}">поки ви його не налаштуєте</div>
+  <div class="abs" style="left:70px;top:450px;width:940px;font:italic 400 118px/1.02 Serif;color:{BROWN}">поки ви його не налаштуєте</div>
   <div class="abs" style="left:70px;top:820px;width:900px;font:400 36px/1.4 Mont;color:{INK}">Промпт з контекстом, підключені сервіси і збережені налаштування. Три кроки, і AI працює на вас.</div>
-  <div class="abs" style="left:70px;top:1100px;font:600 54px/1 Hand;color:{INK};transform:rotate(-2deg)">збережіть, щоб спробувати →</div>''')
+  <div class="abs" style="left:70px;top:1100px;font:600 54px/1 Hand;color:{BROWN};transform:rotate(-2deg)">збережіть, щоб спробувати →</div>''')
 out = HERE / "html"; out.mkdir(exist_ok=True)
 for k, v in S.items(): (out / f"slide_{k}.html").write_text(v, encoding="utf-8")
 print("ok")
