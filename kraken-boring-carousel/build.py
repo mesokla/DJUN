@@ -15,11 +15,17 @@ I = {  # simple stroke icons, viewBox 0 0 48 48
     'trigger': '<path d="M27 4L12 27h11l-2 17 15-23H25z"/>',
     'chart': '<path d="M10 8v32M30 6v28"/><rect x="7" y="14" width="6" height="16" rx="1"/><rect x="27" y="12" width="6" height="14" rx="1"/><path d="M20 12v24M40 16v18"/>',
     'clock': '<circle cx="24" cy="24" r="17"/><path d="M24 14v10l7 5"/>',
+    'cash': '<rect x="5" y="13" width="38" height="22" rx="3"/><circle cx="24" cy="24" r="5"/><path d="M11 19v10M37 19v10"/>',
+    'pct': '<path d="M12 38L36 10"/><circle cx="14" cy="14" r="5"/><circle cx="34" cy="34" r="5"/>',
+    'inf': '<path d="M24 24c-4-5-7-8-11-8a8 8 0 0 0 0 16c4 0 7-3 11-8s7-8 11-8a8 8 0 0 1 0 16c-4 0-7-3-11-8z"/>',
+    'coins': '<ellipse cx="19" cy="14" rx="11" ry="5"/><path d="M8 14v8c0 3 5 5 11 5s11-2 11-5v-8"/><ellipse cx="29" cy="30" rx="11" ry="5"/><path d="M18 30v6c0 3 5 5 11 5s11-2 11-5v-6"/>',
+    'flag': '<path d="M12 43V6"/><path d="M12 8h24l-5 8 5 8H12"/>',
+    'out': '<rect x="6" y="16" width="36" height="26" rx="4"/><path d="M24 4v20M17 11l7-7 7 7"/>',
     'pie': '<path d="M22 8a16 16 0 1 0 18 18H22z"/><path d="M27 4v17h17A17 17 0 0 0 27 4z"/>',
 }
 
 
-def ic(n, c='#6B3FF5', s=60):
+def ic(n, c='#B7A3FF', s=60):
     return (f'<svg viewBox="0 0 48 48" width="{s}" height="{s}" fill="none" stroke="{c}" stroke-width="3" '
             f'stroke-linecap="round" stroke-linejoin="round">{I[n]}</svg>')
 
@@ -39,6 +45,14 @@ def mbtn():
 
 def board():
     return f'<div class="board">{ic("clock", "#FF6B6B", 64)}<b>Ринок<br>закрито</b><small>відкриється вранці</small></div>'
+
+
+def dep():
+    return '<div class="dep"><small>мій депозит</small>$100</div>'
+
+
+def walletres(amount, plan):
+    return f'<div class="res card wal"><small>гаманець</small><b class="amt">{amount}</b><b>{plan}</b></div>'
 
 
 def shieldres(t, sub, n):
@@ -96,39 +110,47 @@ S = [
            [stockres('Технології', ['NVDAx', 'AAPLx']), stockres('Індекс', ['SPYx']),
             stockres('Мікс', ['TSLAx', 'SPYx', 'NVDAx'])],
            'Не є інвестиційною порадою. Торгівля пов’язана з ризиком. Доступність залежить від регіону.'),
+    slideA(dep()),
+    slideB([chip('cash', 'Капітал до $200&nbsp;000'), chip('pct', 'До 90% прибутку'), chip('inf', 'Без обмежень за часом'),
+            chip('coins', '60+ криптопар'), chip('flag', 'Демо-челендж'), chip('out', 'Виплати на акаунт')],
+           [walletres('$10 000', 'Старт'), walletres('$50 000', 'Більше'), walletres('$200 000', 'Максимум')],
+           'Kraken Prop не є регульованою послугою. Більшість учасників не проходять оцінювання з першої спроби. Плата за оцінювання не повертається.'),
 ]
 
 CSS = '''*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased;background:#222}
-.s{width:1080px;height:1350px;position:relative;overflow:hidden;background:#7B5CF0;color:#fff}
+.s{width:1080px;height:1350px;position:relative;overflow:hidden;background:#0C0A12;color:#fff}
 .lg{position:absolute;left:50%;transform:translateX(-50%);bottom:42px;width:180px;opacity:.9}
 h2{position:absolute;font-weight:300;letter-spacing:-2px;line-height:1}
-.ce{left:150px;top:190px;font-size:230px}.sk{left:220px;top:930px;font-size:150px}
+.ce{left:150px;top:190px;font-size:230px}.sk{left:220px;top:930px;font-size:150px;color:#B7A3FF}
 .row{position:absolute;left:0;right:0;top:470px;height:400px;display:flex;justify-content:center;align-items:center;gap:40px}
-.sticky{width:290px;height:290px;background:#FFE26A;color:#2b2410;transform:rotate(-4deg);box-shadow:0 30px 50px rgba(30,10,80,.35);display:flex;flex-direction:column;justify-content:center;padding:0 30px;font-weight:600;font-size:60px;line-height:1;letter-spacing:-2px}
+.sticky{width:290px;height:290px;background:#FFE26A;color:#2b2410;transform:rotate(-4deg);box-shadow:0 30px 50px rgba(0,0,0,.5);display:flex;flex-direction:column;justify-content:center;padding:0 30px;font-weight:600;font-size:60px;line-height:1;letter-spacing:-2px}
 .sticky span{font-size:30px;font-weight:500;margin-bottom:14px;opacity:.7;letter-spacing:0}
 .row .sticky:nth-child(2){transform:rotate(3deg)}.row .sticky:nth-child(3){transform:rotate(-2deg)}
-.mbtn{width:290px;height:160px;border-radius:30px;background:#2FBF71;box-shadow:0 30px 50px rgba(30,10,80,.35),inset 0 -8px 0 rgba(0,0,0,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:600;font-size:62px;line-height:1;letter-spacing:-1.5px}
+.mbtn{width:290px;height:160px;border-radius:30px;background:#2FBF71;box-shadow:0 30px 50px rgba(0,0,0,.5),inset 0 -8px 0 rgba(0,0,0,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:600;font-size:62px;line-height:1;letter-spacing:-1.5px}
 .mbtn i{font-style:normal;font-size:26px;font-weight:500;opacity:.85;margin-bottom:10px;letter-spacing:0}
-.board{width:300px;height:330px;border-radius:30px;background:#17151f;box-shadow:0 30px 50px rgba(30,10,80,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center}
+.board{width:300px;height:330px;border-radius:30px;background:#16141F;border:1.5px solid rgba(255,255,255,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center}
 .board b{font-size:50px;font-weight:600;letter-spacing:-1.5px;line-height:1.05;color:#FF6B6B}.board small{font-size:24px;color:#9b98aa}
 .bz{left:90px;top:150px;font-size:128px}
 .grid{position:absolute;left:70px;right:70px;top:350px;display:grid;grid-template-columns:repeat(3,1fr);row-gap:40px}
 .ing{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
-.ball{width:136px;height:136px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 18px 34px rgba(30,10,80,.3)}
-.tk{font-size:30px;font-weight:700;color:#6B3FF5;letter-spacing:-.5px}
-.ing span{font-size:32px;font-weight:400;line-height:1.15;max-width:290px}
+.ball{width:136px;height:136px;border-radius:50%;background:#1A1724;border:1.5px solid rgba(183,163,255,.28);display:grid;place-items:center}
+.tk{font-size:30px;font-weight:700;color:#B7A3FF;letter-spacing:-.5px}
+.ing span{font-size:32px;font-weight:400;color:#e9e6f2;line-height:1.15;max-width:290px}
 .rrow{position:absolute;left:50px;right:50px;top:905px;display:flex;justify-content:space-between}
 .res{width:300px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
 .res b{font-size:36px;font-weight:500;letter-spacing:-.5px}.res small{font-size:26px;opacity:.8}
-.rsh{width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center}
-.rdots{display:flex;gap:10px}.rdots i{width:14px;height:14px;border-radius:50%;background:#fff}
-.card{background:#17151f;border-radius:28px;padding:22px 18px 24px;box-shadow:0 24px 44px rgba(30,10,80,.35)}
+.rsh{width:160px;height:160px;border-radius:50%;background:rgba(183,163,255,.12);border:1.5px solid rgba(183,163,255,.3);display:grid;place-items:center}
+.rdots{display:flex;gap:10px}.rdots i{width:14px;height:14px;border-radius:50%;background:#B7A3FF}
+.card{background:#16141F;border:1.5px solid rgba(255,255,255,.1);border-radius:28px;padding:22px 18px 24px}
 .px{fill:none;stroke:#fff;stroke-width:4;stroke-linejoin:round}
 .tp{stroke:#2FBF71;stroke-width:3;stroke-dasharray:8 7}.sl{stroke:#FF6B6B;stroke-width:3;stroke-dasharray:8 7}.lim{stroke:#B7A3FF;stroke-width:3;stroke-dasharray:8 7}
 .trl{fill:none;stroke:#FF9F5A;stroke-width:3;stroke-dasharray:8 7}.lt{fill:#cfcbe0;font-weight:600;font-size:18px;font-family:Inter}
 .tks{height:200px;display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:12px}
-.tks span{background:#fff;color:#6B3FF5;border-radius:999px;padding:10px 18px;font-size:28px;font-weight:700}
-.disc{position:absolute;left:70px;right:70px;bottom:96px;text-align:center;font-size:19px;color:rgba(255,255,255,.75)}
+.tks span{background:rgba(183,163,255,.16);border:1.5px solid rgba(183,163,255,.45);color:#D9CCFF;border-radius:999px;padding:10px 18px;font-size:28px;font-weight:700}
+.dep{width:290px;height:200px;border-radius:28px;background:#16141F;border:1.5px solid rgba(255,255,255,.12);display:flex;flex-direction:column;justify-content:center;padding:0 32px;font-size:84px;font-weight:600;letter-spacing:-3px;line-height:1}
+.dep small{font-size:26px;font-weight:400;color:#9b98aa;letter-spacing:0;margin-bottom:14px}
+.wal{height:260px;justify-content:center;gap:6px}.wal small{font-size:24px;color:#9b98aa}.wal .amt{font-size:52px;font-weight:600;letter-spacing:-2px;color:#B7A3FF}
+.disc{position:absolute;left:90px;right:90px;bottom:96px;text-align:center;font-size:19px;line-height:1.4;color:#77738a}
 '''
 
 with open(OUT, 'w', encoding='utf8') as f:
