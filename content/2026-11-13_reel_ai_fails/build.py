@@ -32,7 +32,8 @@ body.dark{{background:{INK};color:#EFE7DF}}
 .big .it{{font:italic 400 1.04em/1 Serif;color:{BROWN}}}
 svg.pen{{position:absolute;left:0;top:0;overflow:visible}}
 svg.pen path{{fill:none;stroke:{BROWN};stroke-width:7;stroke-linecap:round;stroke-linejoin:round;filter:url(#rough)}}
-.stamp{{position:absolute;font:800 130px/1 Mont;color:#A16E3B;border:12px solid #A16E3B;padding:10px 34px;transform:rotate(-12deg);opacity:.88;white-space:nowrap;mix-blend-mode:multiply}}
+.tip{{position:absolute;left:80px;top:1570px;width:900px;font:600 54px/1.05 Hand;color:{INK};transform:rotate(-2deg)}}
+.stamp{{position:absolute;font:800 100px/1 Mont;color:#A16E3B;border:10px solid #A16E3B;padding:10px 34px;transform:rotate(-12deg);opacity:.88;white-space:nowrap;mix-blend-mode:multiply}}
 """
 DEFS = ('<svg width="0" height="0" style="position:absolute"><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="2" seed="4"/>'
         '<feDisplacementMap in="SourceGraphic" scale="5"/></filter></svg>'
@@ -47,12 +48,13 @@ def logo(light=False):
 def page(body, dark=False):
     return f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body class="{"dark" if dark else ""}">{DEFS}{body}</body></html>'
 
-def case(n, title, head, quote, src, stamp=None):
-    st = f'<div class="stamp" style="left:470px;top:1440px">{stamp}</div>' if stamp else ""
+def case(n, title, head, quote, src, stamp=None, tip=""):
+    st = f'<div class="stamp" style="left:600px;top:1440px">{stamp}</div>' if stamp else ""
     return page(f'''{logo()}<div class="num">{n}</div><div class="title">{title}</div>
       <div class="card" style="left:70px;top:960px;width:940px;transform:rotate(-1.5deg)"><img src="{S(head)}"></div>
       <div class="card" style="left:110px;top:1210px;width:880px;transform:rotate(1deg)"><img src="{S(quote)}"></div>
-      <div class="src" style="top:1500px;transform:rotate(-2deg)">{src}</div>{st}''')
+      <div class="src" style="top:1500px;transform:rotate(-2deg);font-size:38px;opacity:.8">{src}</div>{st}
+      <div class="tip">{tip}</div>''')
 
 FRAMES = {
  "00_hook": page(f'''{logo()}
@@ -60,11 +62,11 @@ FRAMES = {
    <div class="big" style="top:800px">AI видалив базу компанії.<br><span class="it">А потім вибачився</span></div>
    <div class="src" style="top:1420px;transform:rotate(-2deg)">Fortune · липень 2025</div>'''),
  "00_list": page(f'''{logo()}<div class="big" style="top:620px;font-size:150px"><span class="it" style="font-size:420px;line-height:.8">5</span><br>задач, які я б <span class="it">поки</span> не довіряв AI</div>'''),
- "01_legal": case("01", "Юридичні <span class='it'>документи</span>", "01_avianca_headline", "01_avianca_quote", "Bloomberg Law · червень 2023", "$5 000"),
- "02_clients": case("02", "Відповіді клієнтам <span class='it'>без контролю</span>", "02_aircanada_headline", "02_aircanada_quote", "CBS News · лютий 2024"),
- "03_reports": case("03", "Звіти <span class='it'>без перевірки джерел</span>", "03_deloitte_headline", "03_deloitte_quote", "CTV News / AP · жовтень 2025"),
- "04_publish": case("04", "Публікація <span class='it'>без вичитки</span>", "04_suntimes_headline", "04_suntimes_quote", "CBS Chicago · травень 2025", "10 з 15"),
- "05_access": case("05", "Повний доступ <span class='it'>до робочих систем</span>", "05_replit_headline", "05_replit_quote", "Fortune · липень 2025"),
+ "01_legal": case("01", "Юридичні <span class='it'>документи</span>", "01_avianca_headline", "01_avianca_quote", "Bloomberg Law · червень 2023", "$5 000", "чернетку пише AI, кожне посилання перевіряє юрист"),
+ "02_clients": case("02", "Відповіді клієнтам <span class='it'>без контролю</span>", "02_aircanada_headline", "02_aircanada_quote", "CBS News · лютий 2024", tip="боту чіткі правила, складні питання людині"),
+ "03_reports": case("03", "Звіти <span class='it'>без перевірки джерел</span>", "03_deloitte_headline", "03_deloitte_quote", "CTV News / AP · жовтень 2025", tip="звіти з AI робимо, але кожну цифру й джерело перевіряємо"),
+ "04_publish": case("04", "Публікація <span class='it'>без вичитки</span>", "04_suntimes_headline", "04_suntimes_quote", "CBS Chicago · травень 2025", "10 з 15", "все, що йде назовні, вичитує людина"),
+ "05_access": case("05", "Повний доступ <span class='it'>до робочих систем</span>", "05_replit_headline", "05_replit_quote", "Fortune · липень 2025", tip="AI отримує права тільки на читання, зміни після вашого підтвердження"),
  "06_cta": page(f'''{logo(True)}<div class="big" style="top:640px;color:#EFE7DF">Останнє слово <span class="it">за людиною</span></div>
    <div class="src" style="top:1180px;font-size:60px">збережіть і перешліть колезі</div>''', dark=True),
 }
