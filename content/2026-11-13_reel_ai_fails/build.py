@@ -62,11 +62,11 @@ FRAMES = {
  "00_list": page(f'''{logo()}<div class="big" style="top:620px;font-size:150px"><span class="it" style="font-size:420px;line-height:.8">5</span><br>задач, які я б <span class="it">поки</span> не довіряв AI</div>'''),
  "01_legal": case("01", "Юридичні <span class='it'>документи</span>", "01_avianca_headline", "01_avianca_quote", "Bloomberg Law · червень 2023", "$5 000"),
  "02_clients": case("02", "Відповіді клієнтам <span class='it'>без контролю</span>", "02_aircanada_headline", "02_aircanada_quote", "CBS News · лютий 2024"),
- "03_reports": case("03", "Звіти з цифрами <span class='it'>і джерелами</span>", "03_deloitte_headline", "03_deloitte_quote", "CTV News / AP · жовтень 2025"),
+ "03_reports": case("03", "Звіти <span class='it'>без перевірки джерел</span>", "03_deloitte_headline", "03_deloitte_quote", "CTV News / AP · жовтень 2025"),
  "04_publish": case("04", "Публікація <span class='it'>без вичитки</span>", "04_suntimes_headline", "04_suntimes_quote", "CBS Chicago · травень 2025", "10 з 15"),
- "05_access": case("05", "Доступ до <span class='it'>робочих систем</span>", "05_replit_headline", "05_replit_quote", "Fortune · липень 2025"),
+ "05_access": case("05", "Повний доступ <span class='it'>до робочих систем</span>", "05_replit_headline", "05_replit_quote", "Fortune · липень 2025"),
  "06_cta": page(f'''{logo(True)}<div class="big" style="top:640px;color:#EFE7DF">Останнє слово <span class="it">за людиною</span></div>
-   <div class="src" style="top:1180px;font-size:60px">напишіть ПЕРЕВІРКА ↓</div>''', dark=True),
+   <div class="src" style="top:1180px;font-size:60px">збережіть і перешліть колезі</div>''', dark=True),
 }
 out = HERE / "html"; out.mkdir(exist_ok=True)
 for k, v in FRAMES.items():
