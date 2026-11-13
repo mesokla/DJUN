@@ -138,7 +138,7 @@ FRAMES = {
  "05_end": page(f'''{logo(True)}
       <div class="big a" style="top:560px;font-size:100px;color:{BEIGE};{D(.3)}">AI ваш найкращий помічник, <span class="it">але важливо вміти ним користуватися</span></div>
    <svg class="d" style="left:80px;top:1080px" width="640" height="120"><path class="b dr" pathLength="1" style="{D(1.6)}" d="M10,60 C150,20 300,95 630,50"/></svg>
-   <div class="abs a" style="left:80px;top:1190px;width:900px;font:500 40px/1.35 Mont;color:#C9B8A6;{D(2.4)}">Ми показали, як робити не треба. Решта за вами 😉</div>
+   <div class="abs a" style="left:80px;top:1190px;width:900px;font:500 40px/1.35 Mont;color:#C9B8A6;{D(2.4)}">Ми показали, як робити не треба. Решта за вами.</div>
    <div class="hand abs a" style="left:80px;top:1440px;font-size:56px;{D(3.6)}">збережіть і перешліть колезі</div>''', dark=True),
 }
 out = HERE / "html"; out.mkdir(exist_ok=True)
