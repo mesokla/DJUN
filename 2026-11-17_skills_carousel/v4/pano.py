@@ -3,7 +3,7 @@ NOCAR=os.environ.get('NOCAR')=='1'
 FG=os.environ.get('FG')=='1'
 W,H,N=1080,1350,7
 def yat(x): return 1060+38*math.sin(x/520+.6)+18*math.sin(x/210)
-LX=2*W+820; R=88
+LX=2*W+820; R=130
 pts=[(x,yat(x)) for x in range(-1200,LX,8)]
 y0=yat(LX); cy=y0-R
 pts+=[(LX+R*math.sin(t/60*2*math.pi), cy+R*math.cos(t/60*2*math.pi)) for t in range(61)]
@@ -41,10 +41,10 @@ S.append('''<div class="h" style="top:230px;font-size:84px">GitHub.<br><span cla
 <div class="p" style="top:460px;width:500px">Більшість цих мільйонів зібрали саме звідти, а викласти на GitHub може будь-хто. Разом зі скілом легко завантажити шкідливий код.</div>
 <div class="sticky" style="left:620px;top:450px"><div class="cv" style="position:static;font-size:48px;line-height:1.25">перед тим як<br>встановити:<br><br>✓ хто автор?<br>✓ що всередині?<br>✗ просить паролі?<br>&nbsp;&nbsp;&nbsp;не беремо</div></div>''')
 S.append('''<div class="h" style="top:230px;font-size:84px">Скіл під<br><span class="itx">ваш процес</span></div>
-<div class="p" style="top:460px;width:470px">Його можна створити разом з Claude, без коду. Як саме, покажемо в наступному пості.</div>
+<div class="p" style="top:460px;width:470px">Створіть його самі, без коду: Skills → Додати → Створити з Claude. Опишіть задачу, а Claude сам складе файл скіла.</div>
 <img class="ui" src="ui_add.png" style="left:600px;top:470px;width:400px;transform:rotate(-2deg)">
 <div class="ring" style="left:618px;top:665px;width:330px;height:66px;transform:rotate(-3deg)"></div>
-<div class="h" style="top:1180px;font-size:40px;line-height:1">Підпишіться, <span class="itx" style="font-size:44px">щоб не пропустити</span></div>''')
+<div class="h" style="top:1180px;font-size:40px;line-height:1">Збережіть, <span class="itx" style="font-size:44px">щоб не загубити</span></div>''')
 body=''.join(f'<section style="left:{i*W}px'+(';background:#A16E3B url(grain.png)' if i==0 else '')+f'">{s}</section>' for i,s in enumerate(S))
 html=f'''<!doctype html><meta charset="utf-8"><style>
 @font-face{{font-family:M;src:url(Montserrat.ttf)}}@font-face{{font-family:J;src:url(JetBrainsMono.ttf)}}
