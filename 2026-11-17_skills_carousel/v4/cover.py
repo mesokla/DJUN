@@ -1,7 +1,7 @@
 import numpy as np
 from PIL import Image, ImageFilter, ImageDraw
 ph=Image.open('laptop_photo1.jpg').convert('RGB')
-quad=[(146,460),(1012,454),(1014,997),(151,1001)]  # TL TR BR BL in photo px
+quad=[(142,454),(1017,448),(1019,1001),(146,1006)]  # TL TR BR BL in photo px
 sc=Image.open('screen.png').convert('RGB'); sw,sh=sc.size
 def coeffs(dst,src):
     A=[];B=[]
