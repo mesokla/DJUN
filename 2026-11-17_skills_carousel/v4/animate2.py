@@ -12,7 +12,7 @@ def at(s):
     return f(s,0),f(s,1),a
 bg=Image.open('bg.png').convert('RGB'); fg=Image.open('fg.png').convert('RGBA')
 C=1000; bases={}
-for nm in ('car4x.png','car4x_light.png'):
+for nm in ('car4x.png',):
     b0=Image.new('RGBA',(C,C)); b0.paste(Image.open(nm).convert('RGBA'),(C//2-312,C//2-280)); bases[nm]=b0
 cache={}
 def carimg(a,nm='car4x.png'):
@@ -31,7 +31,7 @@ for i in range(7):
         u=f/(NF-1)
         if i==6: u=ease(u)            # last slide: glide in and stop at the dot
         
-        x,y,a=at(s0+u*(s1-s0)); im=carimg(a,'car4x_light.png' if i==0 else 'car4x.png')
+        x,y,a=at(s0+u*(s1-s0)); im=carimg(a)
         fr=bgs.copy(); fr.paste(im,(int(round(x-i*W))-C//8,int(round(y))-C//8),im); fr.paste(fgs,(0,0),fgs)
         pp.stdin.write(fr.tobytes()); small[i][f]=fr.resize((540,675))
         if (f==NF//2 and i<6) or (i==6 and f==NF-1): fr.save(f'skills_{i+1}.png')

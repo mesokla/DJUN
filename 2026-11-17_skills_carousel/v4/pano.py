@@ -12,14 +12,14 @@ END=pts[-1]
 d='M'+' L'.join(f'{x:.1f},{y:.1f}' for x,y in pts)
 CX=300; a=math.degrees(math.atan((yat(CX+5)-yat(CX-5))/10))
 CAR=f'''<svg class="car" style="left:{CX-78}px;top:{yat(CX)-70}px;transform:rotate({a:.1f}deg)" width="156" height="73" viewBox="0 0 120 56">
-<path d="M6,38 Q6,28 18,27 L34,25 Q44,10 60,9 L78,9 Q92,10 100,25 L110,28 Q116,30 116,38 L116,42 Q116,45 112,45 L10,45 Q6,45 6,42Z" fill="#190F09"/>
+<path d="M6,38 Q6,28 18,27 L34,25 Q44,10 60,9 L78,9 Q92,10 100,25 L110,28 Q116,30 116,38 L116,42 Q116,45 112,45 L10,45 Q6,45 6,42Z" fill="#D8352A"/>
 <path d="M40,25 Q48,14 60,14 L68,14 L68,25Z M73,14 L78,14 Q88,15 94,25 L73,25Z" fill="#F3EDE6"/>
 <circle cx="32" cy="45" r="9" fill="#190F09" stroke="#F3EDE6" stroke-width="3"/><circle cx="92" cy="45" r="9" fill="#190F09" stroke="#F3EDE6" stroke-width="3"/></svg>'''
 def note(x,y,t,rot=-4,size=52,w=None): return f'<div class="cv" style="left:{x}px;top:{y}px;transform:rotate({rot}deg);font-size:{size}px;{"width:%dpx"%w if w else ""}">{t}</div>'
 def arrow(x,y,dpath,w=200,h=160): return f'<svg class="ar" style="left:{x}px;top:{y}px" width="{w}" height="{h}"><path d="{dpath}"/></svg>'
 LOGO='<div class="logo"><img src="crest.svg" style="height:46px"><div class="w"><img src="letters.svg" style="height:19px"><small>AI академія</small></div></div>'
 S=[]
-S.append(LOGO)
+S.append(LOGO.replace('crest.svg','crest_light.svg').replace('letters.svg','letters_light.svg').replace('<small>','<small style="color:#C9935E">'))
 S.append('''<div class="h" style="top:230px;font-size:84px">Скіл це<br>навик <span class="itx">для AI</span></div>
 <div class="p" style="top:460px;width:480px">Ви один раз описуєте, як робити задачу. AI зберігає це й сам відкриває, щойно бачить схожу.</div>
 <div class="card" style="left:600px;top:450px;transform:rotate(3deg)"><div class="mono" style="color:#A16E3B">skill.md</div><div style="font:800 32px/1.1 M;margin:14px 0 16px">Стиль презентацій</div><div class="mono" style="line-height:1.7;color:#5d5248">одна думка на слайд<br>до 6 рядків тексту<br>фірмові кольори</div></div>'''+note(640,790,'один файл, і AI<br>знає, як треба',-5,52))
