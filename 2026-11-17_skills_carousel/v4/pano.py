@@ -8,17 +8,19 @@ pts+=[(LX+R*math.sin(t/60*2*math.pi), cy+R*math.cos(t/60*2*math.pi)) for t in ra
 pts+=[(x,yat(x)) for x in range(LX+8,6*W+700,8)]
 END=pts[-1]
 d='M'+' L'.join(f'{x:.1f},{y:.1f}' for x,y in pts)
-CX=760; a=math.degrees(math.atan((yat(CX+5)-yat(CX-5))/10))
+CX=300; a=math.degrees(math.atan((yat(CX+5)-yat(CX-5))/10))
 CAR=f'''<svg class="car" style="left:{CX-78}px;top:{yat(CX)-70}px;transform:rotate({a:.1f}deg)" width="156" height="73" viewBox="0 0 120 56">
-<path d="M6,38 Q6,28 18,27 L34,25 Q44,10 60,9 L78,9 Q92,10 100,25 L110,28 Q116,30 116,38 L116,42 Q116,45 112,45 L10,45 Q6,45 6,42Z" fill="#A16E3B"/>
+<path d="M6,38 Q6,28 18,27 L34,25 Q44,10 60,9 L78,9 Q92,10 100,25 L110,28 Q116,30 116,38 L116,42 Q116,45 112,45 L10,45 Q6,45 6,42Z" fill="#190F09"/>
 <path d="M40,25 Q48,14 60,14 L68,14 L68,25Z M73,14 L78,14 Q88,15 94,25 L73,25Z" fill="#F3EDE6"/>
-<circle cx="32" cy="45" r="9" fill="#190F09"/><circle cx="92" cy="45" r="9" fill="#190F09"/></svg>'''
+<circle cx="32" cy="45" r="9" fill="#190F09" stroke="#F3EDE6" stroke-width="3"/><circle cx="92" cy="45" r="9" fill="#190F09" stroke="#F3EDE6" stroke-width="3"/></svg>'''
 def note(x,y,t,rot=-4,size=52,w=None): return f'<div class="cv" style="left:{x}px;top:{y}px;transform:rotate({rot}deg);font-size:{size}px;{"width:%dpx"%w if w else ""}">{t}</div>'
 def arrow(x,y,dpath,w=200,h=160): return f'<svg class="ar" style="left:{x}px;top:{y}px" width="{w}" height="{h}"><path d="{dpath}"/></svg>'
 LOGO='<div class="logo"><img src="crest.svg" style="height:46px"><div class="w"><img src="letters.svg" style="height:19px"><small>AI академія</small></div></div>'
 S=[]
-S.append(LOGO+'''<div class="h" style="top:330px;font-size:150px">AI-скіли:</div>
-<div class="it" style="top:480px;font-size:112px">що це і де<br>їх брати</div>'''+note(72,800,'і чому без них AI щоразу<br>починає з нуля',-3,56)+arrow(560,860,'M10,20 C90,30 150,70 170,130 M150,112 L170,132 L182,106',220,160))
+S.append(LOGO.replace('<small>','<small style="color:#190F09">')+'''<div class="h" style="top:250px;font-size:150px;color:#F3EDE6">AI-скіли:</div>
+<div class="it" style="top:400px;font-size:112px;color:#190F09">що це і де<br>їх брати</div>
+<img class="ui" src="ui_menu.png" style="z-index:3;left:500px;top:720px;width:560px;transform:rotate(-7deg);box-shadow:0 30px 70px rgba(25,15,9,.45)">
+<div class="ring" style="z-index:4;left:510px;top:948px;width:390px;height:78px;border-color:#F3EDE6;transform:rotate(-5deg)"></div>'''+note(72,650,'і чому без них AI<br>щоразу починає з нуля',-3,56).replace('style="left:','style="color:#F3EDE6;left:',1))
 S.append('''<div class="h" style="top:230px;font-size:84px">Скіл це<br>навик <span class="itx">для AI</span></div>
 <div class="p" style="top:460px;width:480px">Ви один раз описуєте, як робити задачу. AI зберігає це й сам відкриває, щойно бачить схожу.</div>
 <div class="card" style="left:600px;top:450px;transform:rotate(3deg)"><div class="mono" style="color:#A16E3B">skill.md</div><div style="font:800 32px/1.1 M;margin:14px 0 16px">Стиль постів</div><div class="mono" style="line-height:1.7;color:#5d5248">коротко, на «ви»<br>без емодзі<br>теплий тон</div></div>'''+note(640,790,'один файл, і AI<br>знає, як треба',-5,52))
@@ -41,7 +43,7 @@ S.append('''<div class="h" style="top:230px;font-size:84px">Скіл під<br><
 <img class="ui" src="ui_add.png" style="left:600px;top:470px;width:400px;transform:rotate(-2deg)">
 <div class="ring" style="left:618px;top:665px;width:330px;height:66px;transform:rotate(-3deg)"></div>
 <div class="h" style="top:1180px;font-size:40px;line-height:1">Підпишіться, <span class="itx" style="font-size:44px">щоб не пропустити</span></div>''')
-body=''.join(f'<section style="left:{i*W}px">{s}</section>' for i,s in enumerate(S))
+body=''.join(f'<section style="left:{i*W}px'+(';background:#A16E3B url(grain.png)' if i==0 else '')+f'">{s}</section>' for i,s in enumerate(S))
 html=f'''<!doctype html><meta charset="utf-8"><style>
 @font-face{{font-family:M;src:url(Montserrat.ttf)}}@font-face{{font-family:J;src:url(JetBrainsMono.ttf)}}
 @font-face{{font-family:C;src:url(cav-cyrillic.woff2);unicode-range:U+0400-04FF}}@font-face{{font-family:C;src:url(cav-latin.woff2);unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2713-2717}}
@@ -61,8 +63,8 @@ section{{position:absolute;top:0;width:{W}px;height:{H}px}}
 .ui{{position:absolute;border-radius:18px;box-shadow:0 22px 50px rgba(25,15,9,.22)}}
 .ring{{position:absolute;border:4px solid #A16E3B;border-radius:50%;transform:rotate(-2deg)}}
 .sticky{{position:absolute;width:380px;background:#FBF6EF;border-radius:6px;padding:34px 34px;box-shadow:0 14px 34px rgba(25,15,9,.12);transform:rotate(3deg)}}
-.car{{position:absolute;transform-origin:78px 70px}}
+.car{{position:absolute;z-index:5;transform-origin:78px 70px}}
 </style>
-<svg style="position:absolute;left:0;top:0" width="{W*N}" height="{H}"><path d="{d}" fill="none" stroke="#A16E3B" stroke-width="6" stroke-dasharray="0 17" stroke-linecap="round" opacity=".75"/><circle cx="{END[0]}" cy="{END[1]}" r="11" fill="#A16E3B"/></svg>
-{body}{CAR}'''
+
+{body}<svg style="position:absolute;z-index:2;left:0;top:0" width="{W*N}" height="{H}"><path d="{d}" fill="none" stroke="#A16E3B" stroke-width="6" stroke-dasharray="0 17" stroke-linecap="round" opacity=".75"/><clipPath id="c0"><rect x="0" y="0" width="1080" height="1350"/></clipPath><path d="{d}" clip-path="url(#c0)" fill="none" stroke="#F3EDE6" stroke-width="6" stroke-dasharray="0 17" stroke-linecap="round"/><circle cx="{END[0]}" cy="{END[1]}" r="11" fill="#A16E3B"/></svg>{CAR}'''
 open('pano.html','w').write(html)
