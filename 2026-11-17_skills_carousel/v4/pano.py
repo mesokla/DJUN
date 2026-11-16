@@ -1,8 +1,10 @@
-import math
+import math,os
+NOCAR=os.environ.get('NOCAR')=='1'
+FG=os.environ.get('FG')=='1'
 W,H,N=1080,1350,7
 def yat(x): return 1060+38*math.sin(x/520+.6)+18*math.sin(x/210)
 LX=2*W+820; R=88
-pts=[(x,yat(x)) for x in range(-40,LX,8)]
+pts=[(x,yat(x)) for x in range(-1200,LX,8)]
 y0=yat(LX); cy=y0-R
 pts+=[(LX+R*math.sin(t/60*2*math.pi), cy+R*math.cos(t/60*2*math.pi)) for t in range(61)]
 pts+=[(x,yat(x)) for x in range(LX+8,6*W+700,8)]
@@ -19,13 +21,13 @@ LOGO='<div class="logo"><img src="crest.svg" style="height:46px"><div class="w">
 S=[]
 S.append(LOGO.replace('<small>','<small style="color:#190F09">')+'''<div class="h" style="top:250px;font-size:150px;color:#F3EDE6">AI-скіли:</div>
 <div class="it" style="top:400px;font-size:112px;color:#190F09">що це і де<br>їх брати</div>
-<img class="ui" src="ui_menu.png" style="z-index:3;left:500px;top:720px;width:560px;transform:rotate(-7deg);box-shadow:0 30px 70px rgba(25,15,9,.45)">
-<div class="ring" style="z-index:4;left:510px;top:948px;width:390px;height:78px;border-color:#F3EDE6;transform:rotate(-5deg)"></div>'''+note(72,650,'і чому без них AI<br>щоразу починає з нуля',-3,56).replace('style="left:','style="color:#F3EDE6;left:',1))
+<img class="ui" src="ui_menu.png" style="z-index:3;left:590px;top:600px;width:440px;transform:rotate(-7deg);box-shadow:0 30px 70px rgba(25,15,9,.45)">
+<div class="ring" style="z-index:4;left:596px;top:778px;width:310px;height:62px;border-color:#F3EDE6;transform:rotate(-5deg)"></div>'''+note(72,650,'і чому без них AI<br>щоразу починає з нуля',-3,56).replace('style="left:','style="color:#F3EDE6;left:',1))
 S.append('''<div class="h" style="top:230px;font-size:84px">Скіл це<br>навик <span class="itx">для AI</span></div>
 <div class="p" style="top:460px;width:480px">Ви один раз описуєте, як робити задачу. AI зберігає це й сам відкриває, щойно бачить схожу.</div>
-<div class="card" style="left:600px;top:450px;transform:rotate(3deg)"><div class="mono" style="color:#A16E3B">skill.md</div><div style="font:800 32px/1.1 M;margin:14px 0 16px">Стиль постів</div><div class="mono" style="line-height:1.7;color:#5d5248">коротко, на «ви»<br>без емодзі<br>теплий тон</div></div>'''+note(640,790,'один файл, і AI<br>знає, як треба',-5,52))
+<div class="card" style="left:600px;top:450px;transform:rotate(3deg)"><div class="mono" style="color:#A16E3B">skill.md</div><div style="font:800 32px/1.1 M;margin:14px 0 16px">Стиль презентацій</div><div class="mono" style="line-height:1.7;color:#5d5248">одна думка на слайд<br>до 6 рядків тексту<br>фірмові кольори</div></div>'''+note(640,790,'один файл, і AI<br>знає, як треба',-5,52))
 S.append('''<div class="h" style="top:230px;font-size:84px">Більше не треба<br><span class="itx">повторювати</span></div>
-<div style="position:absolute;left:72px;top:470px;display:flex;flex-direction:column;gap:12px">'''+''.join(f'<div class="old" style="opacity:{o}">Пиши коротко, на «ви»…</div>' for o in (1,.65,.4))+'''</div>'''+note(640,560,'і так у кожному<br>новому чаті',6,52)+'''<div class="new" style="left:72px;top:790px">Зроби пост ✓</div>''')
+<div style="position:absolute;left:72px;top:470px;display:flex;flex-direction:column;gap:12px">'''+''.join(f'<div class="old" style="opacity:{o}">Одна думка на слайд, до 6 рядків…</div>' for o in (1,.65,.4))+'''</div>'''+note(640,560,'і так у кожному<br>новому чаті',6,52)+'''<div class="new" style="left:72px;top:790px">Зроби презентацію ✓</div>''')
 S.append('''<div class="h" style="top:230px;font-size:84px">Каталог прямо<br><span class="itx">в Claude</span></div>
 <div class="p" style="top:450px;width:930px;font-size:33px">Плюсик у чаті → Skills → Переглянути. Там тисячі скілів за темами, серед них офіційні від Anthropic для Word, Excel, PowerPoint і PDF.</div>
 <img class="ui" src="ui_menu.png" style="left:72px;top:620px;width:460px;transform:rotate(-2deg)">
@@ -58,7 +60,7 @@ section{{position:absolute;top:0;width:{W}px;height:{H}px}}
 .cv{{position:absolute;font-family:C;font-weight:600;color:#A16E3B;line-height:1.05}}
 .ar{{position:absolute;overflow:visible}}.ar path{{fill:none;stroke:#A16E3B;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}}
 .card{{position:absolute;width:390px;background:#fff;border-radius:18px;box-shadow:0 18px 40px rgba(25,15,9,.08);padding:30px 32px}}.mono{{font:500 23px/1.3 J}}
-.old{{background:#fff;color:#9c8f82;border-radius:18px;padding:18px 24px;font:600 27px/1.2 M;text-decoration:line-through;text-decoration-color:#A16E3B;text-decoration-thickness:3px;width:520px}}
+.old{{background:#fff;color:#9c8f82;border-radius:18px;padding:18px 24px;font:600 27px/1.2 M;text-decoration:line-through;text-decoration-color:#A16E3B;text-decoration-thickness:3px;width:560px}}
 .new{{position:absolute;background:#190F09;color:#F3EDE6;border-radius:18px;padding:22px 30px;font:800 42px/1 M}}
 .ui{{position:absolute;border-radius:18px;box-shadow:0 22px 50px rgba(25,15,9,.22)}}
 .ring{{position:absolute;border:4px solid #A16E3B;border-radius:50%;transform:rotate(-2deg)}}
@@ -66,5 +68,7 @@ section{{position:absolute;top:0;width:{W}px;height:{H}px}}
 .car{{position:absolute;z-index:5;transform-origin:78px 70px}}
 </style>
 
-{body}<svg style="position:absolute;z-index:2;left:0;top:0" width="{W*N}" height="{H}"><path d="{d}" fill="none" stroke="#A16E3B" stroke-width="6" stroke-dasharray="0 17" stroke-linecap="round" opacity=".75"/><clipPath id="c0"><rect x="0" y="0" width="1080" height="1350"/></clipPath><path d="{d}" clip-path="url(#c0)" fill="none" stroke="#F3EDE6" stroke-width="6" stroke-dasharray="0 17" stroke-linecap="round"/><circle cx="{END[0]}" cy="{END[1]}" r="11" fill="#A16E3B"/></svg>{CAR}'''
+{body}<svg style="position:absolute;z-index:2;left:0;top:0" width="{W*N}" height="{H}"><path d="{d}" fill="none" stroke="#A16E3B" stroke-width="6" stroke-dasharray="0 17" stroke-linecap="round" opacity=".75"/><clipPath id="c0"><rect x="0" y="0" width="1080" height="1350"/></clipPath><path d="{d}" clip-path="url(#c0)" fill="none" stroke="#F3EDE6" stroke-width="6" stroke-dasharray="0 17" stroke-linecap="round"/><circle cx="{END[0]}" cy="{END[1]}" r="11" fill="#A16E3B"/></svg>'''+('' if NOCAR else CAR)
+if FG:
+    html=html.replace('</style>','body{background:none!important}body *{visibility:hidden}section:first-child .ui,section:first-child .ring,section:nth-child(4) .ui,section:nth-child(4) .ring,section:nth-child(4) .ar,section:nth-child(4) .cv{visibility:visible}</style>')
 open('pano.html','w').write(html)
