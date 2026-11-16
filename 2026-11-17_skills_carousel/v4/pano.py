@@ -33,7 +33,7 @@ S.append('''<div class="h" style="top:230px;font-size:84px">Каталог пр�
 S.append('''<div class="h" style="top:230px;font-size:84px">Маркетплейс<br><span class="itx">скілів</span></div>
 <div class="p" style="top:460px;width:470px">На сайті skillsmp.com зібрали понад 4 мільйони скілів. Шукаєте за задачею, читаєте опис, завантажуєте.</div>
 <img class="ui" src="ui_mp.png" style="left:590px;top:420px;width:420px;transform:rotate(3deg)">
-<div class="ring" style="left:600px;top:810px;width:250px;height:80px;transform:rotate(1deg)"></div>'''+note(330,830,'4 мільйони!',-6,56)+arrow(470,840,'M10,40 C60,20 100,20 130,30 M112,16 L132,30 L112,44',150,70))
+<div class="ring" style="left:568px;top:772px;width:240px;height:76px;transform:rotate(2deg)"></div>'''+note(250,870,'4 мільйони!',-6,56)+arrow(470,800,'M10,80 C40,72 70,55 92,24 M70,26 L93,22 L96,46',120,100))
 S.append('''<div class="h" style="top:230px;font-size:84px">GitHub.<br><span class="itx">Але обережно</span></div>
 <div class="p" style="top:460px;width:500px">Більшість цих мільйонів зібрали саме звідти, а викласти на GitHub може будь-хто. Разом зі скілом легко завантажити шкідливий код.</div>
 <div class="sticky" style="left:620px;top:450px"><div class="cv" style="position:static;font-size:48px;line-height:1.25">перед тим як<br>встановити:<br><br>✓ хто автор?<br>✓ що всередині?<br>✗ просить паролі?<br>&nbsp;&nbsp;&nbsp;не беремо</div></div>''')
