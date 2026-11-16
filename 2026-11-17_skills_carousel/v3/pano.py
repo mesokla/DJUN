@@ -19,7 +19,7 @@ bg=''.join(f'<div class="bg {t}" style="left:{i*W}px"></div>' for i,t in enumera
 def logo(i):
     l='_light' if TH[i]=='D' else ''
     return f'<div class="logo" style="left:{i*W+72}px"><img src="crest{l}.svg" style="height:48px"><div class="w"><img src="letters{l}.svg" style="height:20px"><small>AI академія</small></div></div><div class="pg {TH[i]}" style="left:{i*W+940}px">{i+1}/7</div>'
-L=''.join(logo(i) for i in range(N))
+L=''.join(logo(i) for i in range(N)).replace('>1/7<','><',1)
 def at(i,s): return s.replace('LEFT',str(i*W+72)).replace('XX',str(i*W))
 S=[]
 S.append(at(0,'''<div class="h" style="left:LEFTpx;top:300px;font-size:150px;color:#EFE7DF">AI-скіли:</div>
