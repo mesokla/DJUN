@@ -2,7 +2,7 @@ import math,os
 NOCAR=os.environ.get('NOCAR')=='1'
 FG=os.environ.get('FG')=='1'
 W,H,N=1080,1350,7
-def yat(x): return 1060+38*math.sin(x/520+.6)+18*math.sin(x/210)
+def yat(x): return 1060+38*math.sin(x/520+.6)+18*math.sin(x/210)+95*math.exp(-((x-(3*W+330))/330)**2)
 LX=2*W+820; R=130
 pts=[(x,yat(x)) for x in range(-1200,LX,8)]
 y0=yat(LX); cy=y0-R
@@ -19,10 +19,7 @@ def note(x,y,t,rot=-4,size=52,w=None): return f'<div class="cv" style="left:{x}p
 def arrow(x,y,dpath,w=200,h=160): return f'<svg class="ar" style="left:{x}px;top:{y}px" width="{w}" height="{h}"><path d="{dpath}"/></svg>'
 LOGO='<div class="logo"><img src="crest.svg" style="height:46px"><div class="w"><img src="letters.svg" style="height:19px"><small>AI академія</small></div></div>'
 S=[]
-S.append(LOGO.replace('<small>','<small style="color:#190F09">')+'''<div class="h" style="top:250px;font-size:150px;color:#F3EDE6">AI-скіли:</div>
-<div class="it" style="top:400px;font-size:112px;color:#190F09">що це і де<br>їх брати</div>
-<img class="ui" src="ui_menu.png" style="z-index:3;left:590px;top:600px;width:440px;transform:rotate(-7deg);box-shadow:0 30px 70px rgba(25,15,9,.45)">
-<div class="ring" style="z-index:4;left:596px;top:778px;width:310px;height:62px;border-color:#F3EDE6;transform:rotate(-5deg)"></div>'''+note(72,650,'і чому без них AI<br>щоразу починає з нуля',-3,56).replace('style="left:','style="color:#F3EDE6;left:',1))
+S.append(LOGO)
 S.append('''<div class="h" style="top:230px;font-size:84px">Скіл це<br>навик <span class="itx">для AI</span></div>
 <div class="p" style="top:460px;width:480px">Ви один раз описуєте, як робити задачу. AI зберігає це й сам відкриває, щойно бачить схожу.</div>
 <div class="card" style="left:600px;top:450px;transform:rotate(3deg)"><div class="mono" style="color:#A16E3B">skill.md</div><div style="font:800 32px/1.1 M;margin:14px 0 16px">Стиль презентацій</div><div class="mono" style="line-height:1.7;color:#5d5248">одна думка на слайд<br>до 6 рядків тексту<br>фірмові кольори</div></div>'''+note(640,790,'один файл, і AI<br>знає, як треба',-5,52))
@@ -45,7 +42,7 @@ S.append('''<div class="h" style="top:230px;font-size:84px">Скіл під<br><
 <img class="ui" src="ui_add.png" style="left:600px;top:470px;width:400px;transform:rotate(-2deg)">
 <div class="ring" style="left:618px;top:665px;width:330px;height:66px;transform:rotate(-3deg)"></div>
 <div class="h" style="top:1180px;font-size:40px;line-height:1">Збережіть, <span class="itx" style="font-size:44px">щоб не загубити</span></div>''')
-body=''.join(f'<section style="left:{i*W}px'+(';background:#A16E3B url(grain.png)' if i==0 else '')+f'">{s}</section>' for i,s in enumerate(S))
+body=''.join(f'<section style="left:{i*W}px'+(';background:url(cover_bg.png) center/cover' if i==0 else '')+f'">{s}</section>' for i,s in enumerate(S))
 html=f'''<!doctype html><meta charset="utf-8"><style>
 @font-face{{font-family:M;src:url(Montserrat.ttf)}}@font-face{{font-family:J;src:url(JetBrainsMono.ttf)}}
 @font-face{{font-family:C;src:url(cav-cyrillic.woff2);unicode-range:U+0400-04FF}}@font-face{{font-family:C;src:url(cav-latin.woff2);unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF,U+2713-2717}}
