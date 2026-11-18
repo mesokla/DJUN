@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Anthropic IPO reel</title>
+<style>
+@font-face{font-family:"Montserrat";src:url("assets/brand/Montserrat.ttf");font-weight:100 900;font-display:block}
+@font-face{font-family:"JBM";src:url("assets/brand/JetBrainsMono.ttf");font-weight:100 900;font-display:block}
+:root{--ink:#190F09;--brown:#A16E3B;--green:#01403D;--beige:#EFE7DF;--white:#FFFFFF;--deep:#714326;--muted:#6E5F52;--muted-d:#C9B8A6}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--beige)}
+body{font-family:"Montserrat",sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.scene{position:absolute;inset:0;overflow:hidden;visibility:hidden}
+.scene.beige{background:var(--beige)} .scene.white{background:var(--white)}
+.scene.ink{background:var(--ink);color:var(--beige)} .scene.accent{background:var(--brown);color:var(--ink)}
+.el{position:absolute;will-change:transform,opacity}
+/* header lockup, as in the site header */
+.hdr{position:absolute;left:80px;top:150px;display:flex;align-items:center;gap:22px}
+.hdr .c{height:78px} .hdr .w{display:flex;flex-direction:column;align-items:flex-end}
+.hdr .w img{height:30px} .hdr .w small{font:700 14.5px/1 "Montserrat";letter-spacing:.2em;color:var(--brown);margin-top:9px;margin-right:-.2em}
+.ink .hdr .w small,.accent .hdr .w small{color:var(--beige)}
+/* type */
+.mono{font:500 34px/1 "JBM",monospace;color:var(--brown);letter-spacing:-.01em}
+.ink .mono{color:#C99A6A}
+.accent .mono{color:var(--ink)}
+.hl{font-weight:800;letter-spacing:-.04em;line-height:.98}
+.a{color:var(--brown)} .ink .a{color:#C99A6A} .accent .a{color:var(--white)}
+.lead{font-weight:500;font-size:42px;line-height:1.35}
+/* cards */
+.meme{background:var(--white);padding:10px;border:2px solid var(--ink)}
+.ink .meme{border-color:var(--beige);background:var(--beige)}
+.meme img{display:block;width:100%}
+.card{background:var(--white);border:2px solid var(--ink);padding:0;overflow:hidden}
+.card img{display:block;width:100%}
+.mark{position:absolute;background:rgba(161,110,59,.42);mix-blend-mode:multiply}
+/* strike */
+.strike{position:relative;display:inline-block;color:var(--muted)}
+.strike .line{position:absolute;left:-2%;top:54%;height:.09em;background:var(--brown);width:0}
+/* chat */
+.who{font:600 30px/1 "JBM",monospace;color:var(--muted)}
+.who.ai{color:var(--brown)}
+.bubble{font-weight:600;font-size:40px;line-height:1.32;padding:26px 30px;border:2px solid var(--ink);background:var(--white);min-height:120px}
+.bubble.ai{border-color:var(--brown);background:var(--beige)}
+.caret{display:inline-block;width:.08em;height:1em;background:var(--brown);vertical-align:-.12em;margin-left:4px}
+/* pipeline */
+.node{border:2px solid var(--beige);padding:36px 44px}
+.node .y{font:500 32px/1 "JBM",monospace;color:#C99A6A}
+.node .n{font-weight:800;font-size:120px;letter-spacing:-.04em;line-height:1;margin-top:18px}
+.node.ai{background:var(--green);border-color:var(--green)}
+/* stamp */
+.stamp{background:var(--ink);color:var(--beige);font-weight:800;letter-spacing:-.03em;padding:18px 34px 22px}
+/* subtitles */
+#sub{position:absolute;left:70px;right:150px;top:1505px;display:flex;justify-content:flex-start;z-index:50}
+#sub span{font:700 42px/1.25 "Montserrat";background:var(--ink);color:var(--beige);padding:10px 22px 12px;max-width:860px}
+#sub.dark span{background:var(--beige);color:var(--ink)}
+/* scene wipe */
+#wipe{position:absolute;top:0;left:0;width:1080px;height:1920px;z-index:60;transform:translateX(-1100px)}
+/* pattern */
+.pattern{position:absolute;inset:0;background:url("assets/brand/pattern.svg") center/1300px auto repeat;opacity:.13}
+</style>
+</head>
+<body>
+
+<!-- A · hook -->
+<section class="scene beige" data-from="0" data-to="1">
+  <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></span></div>
+  <div class="el mono" style="left:80px;top:330px" data-s="0" data-o="-1" data-anim="fade">// Anthropic IPO</div>
+  <div class="el hl" style="left:74px;top:392px;font-size:220px" data-s="0" data-o="-1" data-anim="up">Боялись</div>
+  <div class="el hl a" style="left:74px;top:600px;font-size:220px" data-s="0" data-o="-1" data-anim="up">AI.</div>
+  <div class="el meme" style="left:330px;top:860px;width:600px" data-s="0" data-o="0.7" data-anim="pop" data-rot="3" data-float="1">
+    <div id="gif15" style="position:relative">
+      <img src="assets/gif15/00.jpg">
+    </div>
+  </div>
+</section>
+
+<!-- B · trillion -->
+<section class="scene ink" data-from="1" data-to="2">
+  <div class="hdr"><img class="c" src="assets/brand/crest_light.svg"><span class="w"><img src="assets/brand/letters_light.svg"><small>AI академія</small></span></span></div>
+  <div class="el mono" style="left:80px;top:330px" data-s="1" data-o="0" data-anim="fade">// щойно оцінили</div>
+  <div class="el hl" style="left:78px;top:395px;font-size:92px;font-variant-numeric:tabular-nums;letter-spacing:-.03em" data-s="1" data-o="0" data-anim="fade"><span class="a">$</span><span data-count="1000000000000" data-s="1" data-o="0" data-dur="1.5">0</span></div>
+  <div class="el hl a" style="left:76px;top:520px;font-size:150px;line-height:.95" data-s="1" data-c="1" data-o="0" data-anim="stamp">трильйон<br>доларів</div>
+  <div class="el meme" style="left:300px;top:850px;width:620px" data-s="1" data-c="1" data-o="0.15" data-anim="pop" data-rot="-3"><img src="assets/memes/shocked_phone.jpg"></div>
+</section>
+
+<!-- C · 2021, left OpenAI -->
+<section class="scene white" data-from="2" data-to="3">
+  <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></span></div>
+  <div class="el mono" style="left:80px;top:330px" data-s="2" data-o="0.05" data-anim="fade">// січень 2021</div>
+  <div class="el hl" style="left:76px;top:392px;font-size:150px" data-s="2" data-o="0.05" data-anim="up">Пішли з<br><span class="a">OpenAI</span></div>
+  <div class="el card" style="left:60px;top:735px;width:960px" data-s="2" data-o="0.3" data-anim="up" data-rot="-1.5" data-kb="1,1.04">
+    <img src="assets/news/wikipedia.png">
+    <div class="mark" style="left:28.5%;top:20%;width:19.5%;height:9.5%" data-s="2" data-o="0.8" data-anim="wipe"></div>
+    <div class="mark" style="left:50%;top:20%;width:47%;height:9.5%" data-s="2" data-c="1" data-o="0" data-anim="wipe"></div>
+  </div>
+  <div class="el meme" style="left:680px;top:1105px;width:300px" data-s="2" data-c="1" data-o="0.1" data-anim="right" data-rot="4"><img src="assets/memes/elevator_jump.jpg"></div>
+</section>
+
+<!-- D · too fast -->
+<section class="scene beige" data-from="3" data-to="4">
+  <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></span></div>
+  <div class="el mono" style="left:80px;top:330px" data-s="3" data-o="0.05" data-anim="fade">// їм здавалось</div>
+  <div class="el lead" style="left:80px;top:392px;width:880px" data-s="3" data-o="0.1" data-anim="up">що штучний інтелект розвивають…</div>
+  <div class="el hl" style="left:76px;top:520px;font-size:104px" data-s="3" data-c="1" data-o="0" data-anim="left">Надто <span class="a">швидко.</span></div>
+  <div class="el hl" style="left:76px;top:636px;font-size:104px" data-s="3" data-c="1" data-o="0.75" data-anim="left">Надто <span class="a">необережно.</span></div>
+  <div class="el meme" style="left:300px;top:860px;width:560px" data-s="3" data-o="0.4" data-anim="pop" data-rot="-2"><img src="assets/memes/puppet_sideeye.jpg"></div>
+</section>
+
+<!-- E · Anthropic → Claude -->
+<section class="scene ink" data-from="4" data-to="5">
+  <div class="hdr"><img class="c" src="assets/brand/crest_light.svg"><span class="w"><img src="assets/brand/letters_light.svg"><small>AI академія</small></span></span></div>
+  <div class="el mono" style="left:80px;top:330px" data-s="4" data-o="0.05" data-anim="fade">// заснували і зробили</div>
+  <div class="el node" style="left:80px;top:420px;width:820px" data-s="4" data-o="0.1" data-anim="left">
+    <div class="y">2021</div><div class="n">Anthropic</div>
+  </div>
+  <div class="el hl a" style="left:120px;top:760px;font-size:150px;transform-origin:50% 0" data-s="4" data-c="1" data-o="-0.15" data-anim="down">↓</div>
+  <div class="el node ai" style="left:80px;top:950px;width:820px" data-s="4" data-c="1" data-o="0.1" data-anim="pop">
+    <div class="y" style="color:#9DC9B9">2023</div><div class="n">Claude</div>
+  </div>
+</section>
+
+<!-- F · 2026: NASDAQ, ANT -->
+<section class="scene beige" data-from="5" data-to="6">
+  <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></span></div>
+  <div class="el mono" style="left:80px;top:330px" data-s="5" data-o="0.05" data-anim="fade">// листопад 2026</div>
+  <div class="el hl" style="left:76px;top:420px;font-size:190px" data-s="5" data-o="0.05" data-anim="up" data-xs="5" data-xc="1" data-xo="-0.05">5 років<br><span class="a">потому</span></div>
+  <div class="el card" style="left:60px;top:420px;width:960px" data-s="5" data-c="1" data-o="0" data-anim="up" data-rot="1.2" data-kb="1,1.06">
+    <img src="assets/news/bloomberg.webp">
+  </div>
+  <div class="el card" style="left:100px;top:1150px;width:900px" data-s="5" data-c="1" data-o="0.55" data-anim="right" data-rot="-1.5">
+    <img src="assets/news/tradingview.png">
+    <div class="mark" style="left:21%;top:34%;width:21%;height:16%" data-s="5" data-c="1" data-o="1.0" data-anim="wipe"></div>
+  </div>
+  <div class="el stamp" style="left:70px;top:990px;font-size:96px" data-s="5" data-c="2" data-o="0.25" data-anim="stamp" data-rot="-2">≈ $1 трлн</div>
+  <div class="el meme" style="left:560px;top:620px;width:430px" data-s="5" data-c="2" data-o="0" data-anim="pop" data-rot="4"><img src="assets/memes/wolf.jpg"></div>
+</section>
+
+<!-- G · loudest promises -->
+<section class="scene white" data-from="6" data-to="7">
+  <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></span></div>
+  <div class="el mono" style="left:80px;top:330px" data-s="6" data-o="0.05" data-anim="fade">// на ринку AI</div>
+  <div class="el hl" style="left:76px;top:392px;font-size:100px" data-s="6" data-o="0.1" data-anim="up">Виграє той, хто</div>
+  <div class="el hl a" style="left:70px;top:510px;font-size:116px;transform-origin:30% 60%" data-s="6" data-c="1" data-o="0.2" data-anim="stamp" data-shake="1">найголосніше</div>
+  <div class="el hl" style="left:76px;top:640px;font-size:100px" data-s="6" data-c="1" data-o="0.9" data-anim="up">обіцяє.</div>
+  <div class="el meme" style="left:150px;top:800px;width:800px" data-s="6" data-c="1" data-o="0" data-anim="left" data-rot="-2" data-shake="1"><img src="assets/memes/megaphone.jpg"></div>
+</section>
+
+<!-- H · trust -->
+<section class="scene beige" data-from="7" data-to="8">
+  <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></span></div>
+  <div class="el mono" style="left:80px;top:330px" data-s="7" data-o="0.05" data-anim="fade">// бізнесу потрібен інструмент</div>
+  <div class="el hl" style="left:76px;top:392px;font-size:140px" data-s="7" data-o="0.05" data-anim="up"><span class="strike">Обіцянки<span class="line" data-s="7" data-o="0.7" data-dur="0.45"></span></span></div>
+  <div class="el hl a" style="left:70px;top:545px;font-size:200px" data-s="7" data-c="1" data-o="0" data-anim="stamp">Довіра</div>
+  <div class="el lead" style="left:80px;top:860px;width:360px;font-weight:600" data-s="7" data-c="1" data-o="0.35" data-anim="up">Інструмент, якому можна довірити роботу.</div>
+  <div class="el meme" style="left:470px;top:820px;width:500px" data-s="7" data-o="0.3" data-anim="pop" data-rot="3"><img src="assets/memes/thinking_monkey.jpg"></div>
+</section>
+
+<!-- I · same with your work / AI won't do everything -->
+<section class="scene ink" data-from="8" data-to="10">
+  <div class="hdr"><img class="c" src="assets/brand/crest_light.svg"><span class="w"><img src="assets/brand/letters_light.svg"><small>AI академія</small></span></span></div>
+  <div class="el mono" style="left:80px;top:330px" data-s="8" data-o="0.05" data-anim="fade">// з вашою роботою так само</div>
+  <div class="el hl" style="left:76px;top:400px;font-size:150px" data-s="9" data-o="-0.05" data-anim="up">AI не<br>зробить <span class="a">усе</span><br>за вас.</div>
+  <div class="el hl" style="left:76px;top:400px;font-size:120px" data-s="8" data-o="0.05" data-anim="up" data-xs="9" data-xo="-0.1">Так само<br>з <span class="a">вашою<br>роботою.</span></div>
+  <div class="el meme" style="left:250px;top:900px;width:660px" data-s="9" data-c="1" data-o="0" data-anim="pop" data-rot="-2"><img src="assets/memes/facepalm.jpg"></div>
+</section>
+
+<!-- J · what you explained clearly -->
+<section class="scene white" data-from="10" data-to="11">
+  <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></span></div>
+  <div class="el hl" style="left:76px;top:330px;font-size:104px" data-s="10" data-o="0.0" data-anim="up">Але зробить те,</div>
+  <div class="el hl" style="left:76px;top:450px;font-size:104px" data-s="10" data-c="1" data-o="0" data-anim="up">що ви <span class="a">чітко<br>пояснили.</span></div>
+  <div class="el who" style="left:80px;top:760px" data-s="10" data-o="0.2" data-anim="fade">// ви</div>
+  <div class="el bubble" style="left:80px;top:805px;width:860px" data-s="10" data-o="0.2" data-anim="up"><span data-type="Щопонеділка збирай заявки з сайту і надсилай мені звіт у Telegram." data-s="10" data-o="0.35" data-dur="1.5"></span></div>
+  <div class="el who ai" style="left:80px;top:1105px" data-s="10" data-c="1" data-o="0.75" data-anim="fade">// AI</div>
+  <div class="el bubble ai" style="left:80px;top:1150px;width:860px" data-s="10" data-c="1" data-o="0.75" data-anim="up">Готово. Перший звіт прийде в понеділок о 9:00.</div>
+</section>
+
+<!-- K · one routine task -->
+<section class="scene beige" data-from="11" data-to="12">
+  <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></span></div>
+  <div class="el mono" style="left:80px;top:330px" data-s="11" data-o="0.05" data-anim="fade">// у Джун AI академії</div>
+  <div class="el hl" style="left:76px;top:392px;font-size:104px" data-s="11" data-o="0.15" data-anim="up">Починаємо з</div>
+  <div class="el hl a" style="left:72px;top:505px;font-size:170px" data-s="11" data-c="1" data-o="0" data-anim="stamp">однієї</div>
+  <div class="el hl" style="left:76px;top:680px;font-size:104px" data-s="11" data-c="1" data-o="0.3" data-anim="up">рутинної задачі</div>
+  <div class="el meme" style="left:220px;top:850px;width:700px" data-s="11" data-c="1" data-o="0.15" data-anim="pop" data-rot="2"><img src="assets/memes/michael_sad.jpg"></div>
+</section>
+
+<!-- L · this week (accent) -->
+<section class="scene accent" data-from="12" data-to="13">
+  <div class="pattern"></div>
+  <div class="hdr"><img class="c" src="assets/brand/crest_onbrown.svg"><span class="w"><img src="assets/brand/letters_onbrown.svg"><small>AI академія</small></span></span></div>
+  <div class="el hl" style="left:76px;top:520px;font-size:120px" data-s="12" data-o="0.05" data-anim="up">Віддати її AI</div>
+  <div class="el hl a" style="left:72px;top:700px;font-size:200px;line-height:.92" data-s="12" data-c="1" data-o="0" data-anim="stamp">вже цього<br>тижня.</div>
+</section>
+
+<!-- M · end card -->
+<section class="scene beige" data-from="13" data-to="14">
+  <div class="el" style="left:0;width:1080px;top:470px;display:flex;flex-direction:column;align-items:center" data-s="13" data-o="0.05" data-anim="pop">
+    <img src="assets/brand/crest.svg" style="height:330px">
+    <img src="assets/brand/letters.svg" style="height:92px;margin-top:56px">
+    <div style="font:700 34px/1 Montserrat;letter-spacing:.2em;color:var(--brown);margin-top:26px;margin-right:-.2em">AI академія</div>
+  </div>
+  <div class="el hl" style="left:0;width:1080px;text-align:center;top:1330px;font-size:84px" data-s="13" data-o="0.45" data-anim="up"><span class="strike">Вчимо код<span class="line" data-s="13" data-o="0.9" data-dur="0.4"></span></span></div>
+  <div class="el hl a" style="left:0;width:1080px;text-align:center;top:1435px;font-size:110px" data-s="13" data-o="1.25" data-anim="stamp">Вчимо AI</div>
+</section>
+
+<div id="sub"><span></span></div>
+<div id="wipe"></div>
+
+<script src="timing.js" onerror=""></script>
+<script>
+const FPS = 30;
+const CPS = 16;            // ElevenLabs-ish speaking rate, chars per second
+// p: pause after the sentence, x: extra seconds (numbers, English words read slower)
+const SENT = [
+  {c:["Компанію, яку заснували люди,","що боялись штучного інтелекту,"], p:0.12},
+  {c:["щойно оцінили","майже в трильйон доларів."], p:0.55},
+  {c:["У 2021 році кілька людей","пішли з OpenAI."], p:0.45, x:0.7},
+  {c:["Їм здавалось, що штучний інтелект розвивають","надто швидко і необережно."], p:0.45},
+  {c:["Вони заснували Anthropic","і зробили Claude."], p:0.6, x:0.2},
+  {c:["П'ять років потому:","біржа NASDAQ, тікер ANT,","оцінка приблизно трильйон доларів."], p:0.6, x:0.6},
+  {c:["Здавалося б, на ринку штучного інтелекту","виграє той, хто найголосніше обіцяє."], p:0.45},
+  {c:["Бізнесу потрібен інструмент,","якому можна довірити роботу."], p:0.6},
+  {c:["З вашою роботою так само."], p:0.35},
+  {c:["Штучний інтелект","не зробить усе за вас."], p:0.35},
+  {c:["Але зробить те,","що ви чітко пояснили."], p:0.45},
+  {c:["Тому в Джун AI академії ми починаємо","з однієї рутинної задачі,"], p:0.12},
+  {c:["яку можна віддати штучному інтелекту","вже цього тижня."], p:0.7},
+  {c:[""], fixed:2.8},
+];
+// Optional exact sentence starts from the real voiceover (seconds), set by timing.js: 14 starts + total
+const T = (window.TIMING || null);
+
+// build chunk timeline
+const CH = []; let t0 = 0.25;
+SENT.forEach((s, i) => {
+  const lens = s.c.map(c => Math.max(c.length / CPS, 0.55));
+  let dur = s.fixed || (lens.reduce((a,b)=>a+b,0) + (s.x||0));
+  const start = T ? T.starts[i] : t0;
+  const speak = T ? ((i+1 < T.starts.length ? T.starts[i+1] : T.total) - start - (s.fixed?0:Math.min(s.p||0, 0.3))) : dur;
+  const sum = lens.reduce((a,b)=>a+b,0);
+  let acc = start;
+  CH[i] = s.c.map((c, k) => { const st = acc; acc += lens[k] / sum * speak; return {t:st, e:acc, text:c}; });
+  CH[i].start = start;
+  t0 = start + dur + (s.p||0);
+});
+const TOTAL = T ? T.total : t0;
+const START = i => i < CH.length ? CH[i].start : TOTAL;
+
+// helpers
+const clamp = (v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+const eo = p => 1 - Math.pow(1-p, 3);
+const back = p => { const c1=1.70158, c3=c1+1; return 1 + c3*Math.pow(p-1,3) + c1*Math.pow(p-1,2); };
+function tIn(el){
+  const s = +el.dataset.s, c = +(el.dataset.c||0), o = +(el.dataset.o||0);
+  return CH[s][c] ? CH[s][c].t + o : START(s) + o;
+}
+function tOut(el){
+  if (el.dataset.xs === undefined) return Infinity;
+  const s = +el.dataset.xs, c = +(el.dataset.xc||0), o = +(el.dataset.xo||0);
+  return CH[s][c].t + o;
+}
+function grp(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+
+const scenes = [...document.querySelectorAll('.scene')];
+const els = [...document.querySelectorAll('.el')];
+const counts = [...document.querySelectorAll('[data-count]')];
+const types = [...document.querySelectorAll('[data-type]')];
+const lines = [...document.querySelectorAll('.strike .line')];
+const marks = [...document.querySelectorAll('.mark')];
+const gifImg = document.querySelector('#gif15 img');
+const gifFrames = [...Array(20).keys()].map(i => 'assets/gif15/' + String(i).padStart(2,'0') + '.jpg');
+gifFrames.forEach(src => { const im = new Image(); im.src = src; });
+const sub = document.getElementById('sub'), subSpan = sub.querySelector('span');
+const wipe = document.getElementById('wipe');
+const BOUNDS = scenes.map(sc => START(+sc.dataset.from)).filter(b => b > 0.3);
+
+function seek(t){
+  // scenes
+  let cur = null;
+  scenes.forEach(sc => {
+    const a = START(+sc.dataset.from), b = START(+sc.dataset.to);
+    const on = t >= (a <= 0.3 ? 0 : a) && t < b;
+    sc.style.visibility = on ? 'visible' : 'hidden';
+    if (on) cur = sc;
+  });
+  // elements
+  els.concat(marks).forEach(el => {
+    const ti = tIn(el), to = tOut(el), anim = el.dataset.anim || 'fade';
+    const d = anim === 'stamp' ? 0.35 : 0.45;
+    const p = clamp((t - ti) / d), q = clamp((t - to) / 0.2);
+    let op = clamp((t - ti) / 0.18) * (1 - q), x = 0, y = 0, sc = 1, r = +(el.dataset.rot || 0);
+    if (anim === 'up') { y = (1 - eo(p)) * 70; }
+    else if (anim === 'down') { y = (1 - eo(p)) * -60; }
+    else if (anim === 'left') { x = (1 - eo(p)) * -140; }
+    else if (anim === 'right') { x = (1 - eo(p)) * 160; }
+    else if (anim === 'pop') { sc = 0.55 + 0.45 * back(p); r *= p; }
+    else if (anim === 'stamp') { sc = 1.7 - 0.7 * eo(p); }
+    if (anim === 'wipe') { el.style.clipPath = `inset(0 ${100 - eo(p)*100}% 0 0)`; el.style.opacity = 1 - q; return; }
+    if (el.dataset.kb) { const [k0,k1] = el.dataset.kb.split(',').map(Number); const sceneEnd = START(+el.closest('.scene').dataset.to); sc *= k0 + (k1-k0) * clamp((t - ti) / Math.max(1, sceneEnd - ti)); }
+    if (el.dataset.shake && t > ti + d) { const k = t - ti - d; r += Math.sin(k*38) * 1.6 * Math.max(0.25, 1 - k/1.5); }
+    if (el.dataset.float) { y += Math.sin((t - ti) * 2.2) * 6; }
+    el.style.opacity = op;
+    el.style.transform = `translate(${x}px,${y}px) scale(${sc}) rotate(${r}deg)`;
+  });
+  // counters
+  counts.forEach(el => {
+    const ti = tIn(el), p = eo(clamp((t - ti) / +(el.dataset.dur||1.2)));
+    el.textContent = grp(Math.round(+el.dataset.count * p / 1e9) * 1e9);
+  });
+  // typing
+  types.forEach(el => {
+    const ti = tIn(el), full = el.dataset.type, p = clamp((t - ti) / +(el.dataset.dur||1.2));
+    const n = Math.round(full.length * p);
+    el.innerHTML = full.slice(0, n) + (p < 1 ? '<span class="caret"></span>' : '');
+  });
+  // strike lines
+  lines.forEach(el => { const p = eo(clamp((t - tIn(el)) / +(el.dataset.dur||0.4))); el.style.width = (p*104) + '%'; });
+  // gif
+  gifImg.src = gifFrames[Math.floor(t * 20) % 20];
+  // subtitles
+  let txt = '';
+  CH.forEach(cs => cs.forEach(c => { if (c.text && t >= c.t && t < c.e + 0.25) txt = c.text; }));
+  subSpan.textContent = txt; subSpan.style.display = txt ? '' : 'none';
+  sub.className = cur && cur.classList.contains('ink') ? 'dark' : '';
+  // wipe between scenes
+  let wx = -1100, wc = 'var(--brown)';
+  BOUNDS.forEach((b, i) => { const k = (t - (b - 0.16)) / 0.32; if (k >= 0 && k <= 1) { const sm = k*k*(3-2*k); wx = -1080 + sm * 2160; wc = i % 2 ? 'var(--ink)' : 'var(--brown)'; } });
+  wipe.style.transform = `translateX(${wx}px)`; wipe.style.background = wc;
+}
+window.TOTAL = TOTAL; window.FPS = FPS; window.CH = CH;
+seek(0);
+</script>
+</body>
+</html>
