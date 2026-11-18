@@ -78,7 +78,7 @@ body{font-family:"Montserrat",sans-serif;color:var(--ink);-webkit-font-smoothing
 <section class="scene ink" data-from="1" data-to="2">
   <div class="hdr"><img class="c" src="assets/brand/crest_light.svg"><span class="w"><img src="assets/brand/letters_light.svg"><small>AI академія</small></span></span></div>
   <div class="el mono" style="left:80px;top:330px" data-s="1" data-o="0" data-anim="fade">// щойно оцінили</div>
-  <div class="el hl" style="left:78px;top:395px;font-size:92px;font-variant-numeric:tabular-nums;letter-spacing:-.03em" data-s="1" data-o="0" data-anim="fade"><span class="a">$</span><span data-count="1000000000000" data-s="1" data-o="0" data-dur="1.5">0</span></div>
+  <div class="el hl" style="left:78px;top:395px;font-size:92px;font-variant-numeric:tabular-nums;letter-spacing:-.03em" data-s="1" data-o="0" data-anim="fade"><span class="a">$</span><span data-count="1000000000000" data-s="1" data-o="0" data-dur="0.75">0</span></div>
   <div class="el hl a" style="left:76px;top:520px;font-size:150px;line-height:.95" data-s="1" data-c="1" data-o="0" data-anim="stamp">трильйон<br>доларів</div>
   <div class="el meme" style="left:300px;top:850px;width:620px" data-s="1" data-c="1" data-o="0.15" data-anim="pop" data-rot="-3"><img src="assets/memes/shocked_phone.jpg"></div>
 </section>
@@ -140,8 +140,8 @@ body{font-family:"Montserrat",sans-serif;color:var(--ink);-webkit-font-smoothing
   <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></span></div>
   <div class="el mono" style="left:80px;top:330px" data-s="6" data-o="0.05" data-anim="fade">// на ринку AI</div>
   <div class="el hl" style="left:76px;top:392px;font-size:100px" data-s="6" data-o="0.1" data-anim="up">Виграє той, хто</div>
-  <div class="el hl a" style="left:70px;top:510px;font-size:116px;transform-origin:30% 60%" data-s="6" data-c="1" data-o="0.2" data-anim="stamp" data-shake="1">найголосніше</div>
-  <div class="el hl" style="left:76px;top:640px;font-size:100px" data-s="6" data-c="1" data-o="0.9" data-anim="up">обіцяє.</div>
+  <div class="el hl a" style="left:70px;top:510px;font-size:116px;transform-origin:30% 60%" data-s="6" data-c="1" data-o="0.95" data-anim="stamp" data-shake="1">найголосніше</div>
+  <div class="el hl" style="left:76px;top:640px;font-size:100px" data-s="6" data-c="1" data-o="1.6" data-anim="up">обіцяє.</div>
   <div class="el meme" style="left:150px;top:800px;width:800px" data-s="6" data-c="1" data-o="0" data-anim="left" data-rot="-2" data-shake="1"><img src="assets/memes/megaphone.jpg"></div>
 </section>
 
@@ -170,9 +170,9 @@ body{font-family:"Montserrat",sans-serif;color:var(--ink);-webkit-font-smoothing
   <div class="el hl" style="left:76px;top:330px;font-size:104px" data-s="10" data-o="0.0" data-anim="up">Але зробить те,</div>
   <div class="el hl" style="left:76px;top:450px;font-size:104px" data-s="10" data-c="1" data-o="0" data-anim="up">що ви <span class="a">чітко<br>пояснили.</span></div>
   <div class="el who" style="left:80px;top:760px" data-s="10" data-o="0.2" data-anim="fade">// ви</div>
-  <div class="el bubble" style="left:80px;top:805px;width:860px" data-s="10" data-o="0.2" data-anim="up"><span data-type="Щопонеділка збирай заявки з сайту і надсилай мені звіт у Telegram." data-s="10" data-o="0.35" data-dur="1.5"></span></div>
-  <div class="el who ai" style="left:80px;top:1105px" data-s="10" data-c="1" data-o="0.75" data-anim="fade">// AI</div>
-  <div class="el bubble ai" style="left:80px;top:1150px;width:860px" data-s="10" data-c="1" data-o="0.75" data-anim="up">Готово. Перший звіт прийде в понеділок о 9:00.</div>
+  <div class="el bubble" style="left:80px;top:805px;width:860px" data-s="10" data-o="0.2" data-anim="up"><span data-type="Щопонеділка збирай заявки з сайту і надсилай мені звіт у Telegram." data-s="10" data-o="0.25" data-dur="0.9"></span></div>
+  <div class="el who ai" style="left:80px;top:1105px" data-s="10" data-c="1" data-o="0.3" data-anim="fade">// AI</div>
+  <div class="el bubble ai" style="left:80px;top:1150px;width:860px" data-s="10" data-c="1" data-o="0.3" data-anim="up">Готово. Перший звіт прийде в понеділок о 9:00.</div>
 </section>
 
 <!-- K · one routine task -->
@@ -240,6 +240,10 @@ SENT.forEach((s, i) => {
   const speak = T ? ((i+1 < T.starts.length ? T.starts[i+1] : T.total) - start - (s.fixed?0:Math.min(s.p||0, 0.3))) : dur;
   const sum = lens.reduce((a,b)=>a+b,0);
   let acc = start;
+  if (T && T.chunks) {
+    const nxt = i+1 < T.chunks.length ? T.chunks[i+1][0] : T.total;
+    CH[i] = s.c.map((c, k) => ({t: T.chunks[i][k], e: (k+1 < s.c.length ? T.chunks[i][k+1] : nxt - 0.15), text: c}));
+  } else
   CH[i] = s.c.map((c, k) => { const st = acc; acc += lens[k] / sum * speak; return {t:st, e:acc, text:c}; });
   CH[i].start = start;
   t0 = start + dur + (s.p||0);
@@ -320,7 +324,7 @@ function seek(t){
   gifImg.src = gifFrames[Math.floor(t * 20) % 20];
   // subtitles
   let txt = '';
-  CH.forEach(cs => cs.forEach(c => { if (c.text && t >= c.t && t < c.e + 0.25) txt = c.text; }));
+  CH.forEach(cs => cs.forEach(c => { if (c.text && t >= c.t && t < c.e + (T ? 0 : 0.25)) txt = c.text; }));
   subSpan.textContent = txt; subSpan.style.display = txt ? '' : 'none';
   sub.className = cur && cur.classList.contains('ink') ? 'dark' : '';
   // wipe between scenes

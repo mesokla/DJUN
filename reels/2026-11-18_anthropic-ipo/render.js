@@ -25,7 +25,7 @@ const path = require('path'), fs = require('fs');
   const out = path.resolve(args[0] || path.join(__dirname, 'out', 'anthropic_ipo_reel.mp4'));
   const voice = path.join(__dirname, 'voice.mp3');
   const ff = ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', '30', '-i', '-'];
-  if (fs.existsSync(voice)) ff.push('-i', voice, '-c:a', 'aac', '-b:a', '192k', '-shortest');
+  if (fs.existsSync(voice)) ff.push('-i', voice, '-af', 'apad', '-c:a', 'aac', '-b:a', '192k', '-t', total.toFixed(3));
   ff.push('-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'medium', '-movflags', '+faststart', out);
   const proc = spawn('ffmpeg', ff, { stdio: ['pipe', 'inherit', 'inherit'] });
   const n = Math.ceil(total * 30);
