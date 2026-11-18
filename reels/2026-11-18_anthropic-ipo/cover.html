@@ -1,0 +1,38 @@
+<!doctype html><html lang="uk"><head><meta charset="utf-8"><style>
+@font-face{font-family:"Montserrat";src:url("assets/brand/Montserrat.ttf");font-weight:100 900}
+@font-face{font-family:"JBM";src:url("assets/brand/JetBrainsMono.ttf");font-weight:100 900}
+:root{--ink:#190F09;--brown:#A16E3B;--beige:#EFE7DF}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Montserrat}
+.v{position:absolute;inset:0;overflow:hidden}
+.beige{background:var(--beige);color:var(--ink)} .ink{background:var(--ink);color:var(--beige)}
+.hdr{position:absolute;left:80px;top:300px;display:flex;align-items:center;gap:22px}
+.hdr .c{height:78px}.hdr .w{display:flex;flex-direction:column;align-items:flex-end}.hdr .w img{height:30px}
+.hdr .w small{font:700 14.5px/1 Montserrat;letter-spacing:.2em;color:var(--brown);margin-top:9px;margin-right:-.2em}
+.ink .hdr .w small{color:var(--beige)}
+.mono{position:absolute;left:80px;font:500 36px/1 JBM;color:var(--brown)} .ink .mono{color:#C99A6A}
+.hl{position:absolute;left:72px;font-weight:800;letter-spacing:-.045em;line-height:.95}
+.a{color:var(--brown)} .ink .a{color:#C99A6A}
+.stamp{position:absolute;background:var(--ink);color:var(--beige);font-weight:800;letter-spacing:-.03em;padding:18px 34px 22px;transform:rotate(-3deg)}
+.ink .stamp{background:var(--brown);color:var(--ink)}
+.chev{position:absolute;width:700px;height:700px;border-right:120px solid var(--brown);border-bottom:120px solid var(--brown);transform:rotate(-45deg)}
+.ring{position:absolute;border-radius:50%;border:120px solid var(--brown)}
+</style></head><body>
+<div class="v beige" id="A">
+  <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></div>
+  <div class="ring" style="width:760px;height:760px;right:-330px;top:1050px"></div>
+  <div class="mono" style="top:520px">// Anthropic IPO</div>
+  <div class="hl" style="top:590px;font-size:170px">Люди, які</div>
+  <div class="hl" style="top:760px;font-size:230px">боялись</div>
+  <div class="hl a" style="top:975px;font-size:230px">AI.</div>
+  <div class="stamp" style="left:80px;top:1260px;font-size:110px">→ $1 трлн</div>
+</div>
+<div class="v ink" id="B" style="display:none">
+  <div class="hdr"><img class="c" src="assets/brand/crest_light.svg"><span class="w"><img src="assets/brand/letters_light.svg"><small>AI академія</small></span></div>
+  <div class="chev" style="left:600px;top:1230px;width:560px;height:560px"></div>
+  <div class="mono" style="top:520px">// Anthropic IPO</div>
+  <div class="hl" style="top:590px;font-size:170px">Боялись AI.</div>
+  <div class="hl a" style="top:790px;font-size:165px">Коштують</div>
+  <div class="hl a" style="top:950px;font-size:165px">трильйон.</div>
+</div>
+</body></html>
