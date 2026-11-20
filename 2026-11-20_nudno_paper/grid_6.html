@@ -1,0 +1,29 @@
+<!doctype html><meta charset="utf-8"><style>
+@font-face{font-family:Cav;src:url(caveat-cyrillic-700-normal.woff2);unicode-range:U+0400-04FF}@font-face{font-family:Cav;src:url(caveat-latin-700-normal.woff2);unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF}
+@font-face{font-family:Neu;src:url(neucha-cyrillic-400-normal.woff2);unicode-range:U+0400-04FF}@font-face{font-family:Neu;src:url(neucha-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF}
+@font-face{font-family:Bad;src:url(bad-script-cyrillic-400-normal.woff2);unicode-range:U+0400-04FF}@font-face{font-family:Bad;src:url(bad-script-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+2000-206F,U+2190-21FF}
+*{margin:0;box-sizing:border-box}
+body{width:1080px;height:1350px;position:relative;overflow:hidden;color:#231c17}
+body.K,body.P{background:url(bg_grid.png)}
+.a{position:absolute}
+.cav{font-family:Cav;line-height:.95}.neu{font-family:Neu;line-height:1.25}.bad{font-family:Bad;line-height:1.3}
+.br{color:#8C5A2B}.rd{color:#A8432C}
+.scrap{position:absolute;background:#F7F2E8;padding:26px 34px;box-shadow:0 8px 18px rgba(60,40,20,.18)}
+.tape{position:absolute;width:120px;height:38px;background:rgba(235,225,200,.75);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+svg#rough{position:absolute;left:0;top:0;pointer-events:none}
+.ink{mix-blend-mode:multiply}
+</style><script src="rough.js"></script><body class="P"><div class="a cav" style="left:190px;top:250px;font-size:110px;transform:rotate(-2deg)"><span data-u>Збережіть:</span></div>
+<div class="a" style="left:190px;top:420px;width:740px"><div style="margin:0 0 18px 60px"><span class="neu" data-box style="font-size:44px">власні інструкції</span><div class="bad br" style="font-size:30px">хто ви і як із вами працювати</div></div><div style="margin:0 0 18px 60px"><span class="neu" data-box style="font-size:44px">Проєкти</span><div class="bad br" style="font-size:30px">документи й контекст однієї задачі</div></div><div style="margin:0 0 18px 60px"><span class="neu" data-box style="font-size:44px">скіли</span><div class="bad br" style="font-size:30px">інструкції для задач, які повторюються</div></div><div style="margin:0 0 18px 60px"><span class="neu" data-box style="font-size:44px">пам'ять</span><div class="bad br" style="font-size:30px">AI пам'ятає попередні розмови</div></div></div>
+<div class="a neu" style="left:200px;top:905px;font-size:38px;transform:rotate(1deg)"><span class="br">Ви:</span> «Підготуй апдейт для клієнта»</div>
+<div class="a neu" style="left:200px;top:975px;width:700px;font-size:38px;transform:rotate(-1deg)"><span class="br">AI:</span> Готово. Діловим тоном, з цифрами за тиждень і наступними кроками.</div>
+<div class="a bad" style="left:220px;top:1140px;font-size:34px;transform:rotate(-2deg)">і пояснювати нічого не треба</div><svg id="rough" width="1080" height="1350"></svg><script>
+document.fonts.ready.then(()=>{const svg=document.getElementById('rough');const rc=rough.svg(svg);
+const O=(o)=>Object.assign({roughness:1.4,bowing:1.2,stroke:'#231c17',strokeWidth:3},o||{});
+function R(el){return el.getBoundingClientRect()}
+document.querySelectorAll('[data-u]').forEach(el=>{const r=R(el);const c=el.dataset.u||'#8C5A2B';svg.appendChild(rc.line(r.left,r.bottom+4,r.right,r.bottom+2,O({stroke:c,strokeWidth:4})));svg.appendChild(rc.line(r.left+20,r.bottom+12,r.right-30,r.bottom+10,O({stroke:c,strokeWidth:3})))});
+document.querySelectorAll('[data-c]').forEach(el=>{const r=R(el);svg.appendChild(rc.ellipse((r.left+r.right)/2,(r.top+r.bottom)/2,r.width+40,r.height+26,O({stroke:el.dataset.c||'#8C5A2B',strokeWidth:3})))});
+document.querySelectorAll('[data-x]').forEach(el=>{const r=R(el);svg.appendChild(rc.line(r.left-6,(r.top+r.bottom)/2+3,r.right+6,(r.top+r.bottom)/2-2,O({stroke:'#A8432C',strokeWidth:4})))});
+document.querySelectorAll('[data-box]').forEach(el=>{const r=R(el);const x=r.left-58,y=r.top+(r.height-34)/2;svg.appendChild(rc.rectangle(x,y,34,34,O({strokeWidth:3})));svg.appendChild(rc.linearPath([[x+6,y+16],[x+15,y+28],[x+40,y-8]],O({stroke:'#8C5A2B',strokeWidth:4})))});
+document.querySelectorAll('[data-ar]').forEach(el=>{const p=el.dataset.ar.split(',').map(Number);const [x1,y1,x2,y2]=p;svg.appendChild(rc.curve([[x1,y1],[(x1+x2)/2+(p[4]||0),(y1+y2)/2+(p[5]||0)],[x2,y2]],O({stroke:'#8C5A2B',strokeWidth:3.5})));const a=Math.atan2(y2-((y1+y2)/2+(p[5]||0)),x2-((x1+x2)/2+(p[4]||0)));for(const d of [2.6,-2.6]){svg.appendChild(rc.line(x2,y2,x2+22*Math.cos(a+d),y2+22*Math.sin(a+d),O({stroke:'#8C5A2B',strokeWidth:3.5})))}});
+document.querySelectorAll('.scrap').forEach(el=>{let pts=[];const n=18;for(let i=0;i<=n;i++)pts.push(`${i/n*100}% ${Math.random()*4}%`);for(let i=0;i<=n;i++)pts.push(`${100-Math.random()*1.5}% ${i/n*100}%`);for(let i=n;i>=0;i--)pts.push(`${i/n*100}% ${100-Math.random()*4}%`);for(let i=n;i>=0;i--)pts.push(`${Math.random()*1.5}% ${i/n*100}%`);el.style.clipPath=`polygon(${pts.join(',')})`});document.body.dataset.done=1});
+</script>
