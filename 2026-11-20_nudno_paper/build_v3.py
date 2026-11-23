@@ -27,17 +27,17 @@ def checklist(items, top, size=44, sub=31, gap=22):
 S = []
 # 1
 S.append(T('Це нудно…', 'zzz…',
-    L(610, 'Напиши лист клієнту', True, rot=1) + L(690, 'Напиши лист клієнту', True, rot=-1) + L(770, 'Напиши лист клієнту', rot=.5),
-    'і щоразу лист як під копірку'))
+    L(610, 'Зроби аналітику продажів', True, rot=1) + L(690, 'Зроби аналітику продажів', True, rot=-1) + L(770, 'Зроби аналітику продажів', rot=.5),
+    'і щоразу загальні фрази замість висновків'))
 # 2
 S.append(P('Додайте в промпт:', 94, checklist([
-    ('роль', '«ти досвідчений менеджер з продажів»'),
-    ('кому', '«клієнту, який уже купував у нас»'),
-    ('формат', '«до 5 речень»'),
-    ('тон', '«дружній, але діловий»'),
-    ('приклад', '«ось лист, який мені подобається»'),
-    ('чого не писати', '«без “Сподіваюсь, у вас усе добре”»')], 410, gap=16) +
-    '<div class="a bad" style="left:430px;top:1105px;font-size:36px;transform:rotate(-3deg)">і лист не схожий<br>на шаблон</div>'
+    ('роль', '«ти аналітик онлайн-магазину»'),
+    ('дані', '«ось таблиця продажів за жовтень»'),
+    ('формат', '«3 головні висновки і 3 дії»'),
+    ('тон', '«простими словами, з цифрами»'),
+    ('приклад', '«ось звіт, який мені сподобався»'),
+    ('чого не писати', '«без “продажі демонструють динаміку”»')], 410, gap=16) +
+    '<div class="a bad" style="left:430px;top:1105px;font-size:36px;transform:rotate(-3deg)">і висновки, з якими<br>можна працювати</div>'
     '<i data-ar="360,1075,420,1135,-40,20"></i>'))
 # 3
 flow = '''<div class="a neu" style="left:150px;top:640px;font-size:54px"><span data-c="#231c17">пошта</span></div>
@@ -56,10 +56,10 @@ S.append(P('Підключіть:', 110, f'<div class="a" style="left:200px;top:
     '<div class="a bad br" style="left:200px;top:690px;font-size:46px;transform:rotate(-2deg)">і AI сам:</div>'
     f'<div class="a" style="left:200px;top:790px;width:720px">{exl}</div>'))
 # 5
-a1, a2 = 'Я працюю в онлайн-школі, пиши просто,', 'на «ви», без канцеляриту…'
+a1, a2 = 'Я діджитал-маркетолог онлайн-магазину,', 'веду рекламу в Meta, пиши коротко і з цифрами…'
 S.append(T('Це нудно…', 'вдесяте',
-    f'<div class="a neu" style="left:140px;top:600px;font-size:42px;transform:rotate(1deg)"><span data-x>{a1}</span><br><span data-x>{a2}</span></div>'
-    f'<div class="a neu" style="left:140px;top:750px;font-size:42px;transform:rotate(-1deg)">{a1}<br>{a2}</div>',
+    f'<div class="a neu" style="left:140px;top:600px;font-size:35px;transform:rotate(1deg)"><span data-x>{a1}</span><br><span data-x>{a2}</span></div>'
+    f'<div class="a neu" style="left:140px;top:750px;font-size:35px;transform:rotate(-1deg)">{a1}<br>{a2}</div>',
     'і так у кожному новому чаті'))
 # 6
 S.append(P('Збережіть:', 110, checklist([
@@ -67,8 +67,8 @@ S.append(P('Збережіть:', 110, checklist([
     ('Проєкти', 'файли й контекст однієї задачі'),
     ('скіли', 'інструкції для задач, які повторюються'),
     ('пам\'ять', 'AI пам\'ятає попередні розмови')], 420, sub=30, gap=18) +
-    '<div class="a neu" style="left:200px;top:900px;width:700px;font-size:38px;transform:rotate(1deg)"><span class="br">Ви:</span> «Напиши клієнту, що зустріч переноситься»</div>'
-    '<div class="a neu" style="left:200px;top:1020px;width:700px;font-size:38px;transform:rotate(-1deg)"><span class="br">AI:</span> Готово. Коротко, на «ви» і у вашому стилі.</div>'
+    '<div class="a neu" style="left:200px;top:900px;width:700px;font-size:38px;transform:rotate(1deg)"><span class="br">Ви:</span> «Підсумуй рекламу за тиждень»</div>'
+    '<div class="a neu" style="left:200px;top:1020px;width:700px;font-size:38px;transform:rotate(-1deg)"><span class="br">AI:</span> Готово. Коротко, з цифрами і у вашому стилі.</div>'
     '<div class="a bad" style="left:220px;top:1150px;font-size:34px;transform:rotate(-2deg)">і пояснювати нічого не треба</div>'))
 # 7
 S.append(page('P', '''<div class="a cav" style="left:190px;top:310px;font-size:118px;line-height:.95;transform:rotate(-2deg)">AI нудний,<br><span class="br">поки ви його<br>не налаштуєте</span></div>
