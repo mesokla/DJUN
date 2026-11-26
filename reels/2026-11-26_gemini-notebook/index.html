@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Gemini Notebook reel</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
 <style>
 @font-face{font-family:"Montserrat";src:url("assets/brand/Montserrat.ttf");font-weight:100 900;font-display:block}
 @font-face{font-family:"JBM";src:url("assets/brand/JetBrainsMono.ttf");font-weight:100 900;font-display:block}
@@ -13,156 +14,152 @@ body{font-family:"Montserrat",sans-serif;color:var(--ink);-webkit-font-smoothing
 .scene{position:absolute;inset:0;overflow:hidden;visibility:hidden}
 .scene.beige{background:var(--beige)} .scene.green{background:var(--green);color:var(--beige)}
 .el{position:absolute;will-change:transform,opacity}
-/* header lockup */
 .hdr{position:absolute;left:80px;top:150px;display:flex;align-items:center;gap:22px;z-index:5}
 .hdr .c{height:78px} .hdr .w{display:flex;flex-direction:column;align-items:flex-end}
 .hdr .w img{height:30px} .hdr .w small{font:700 14.5px/1 "Montserrat";letter-spacing:.2em;color:var(--brown);margin-top:9px;margin-right:-.2em}
 .green .hdr .w small{color:var(--beige)}
-/* type */
-.mono{font:500 34px/1 "JBM",monospace;color:var(--brown)} .green .mono{color:var(--ochre-l)}
+/* type: Montserrat for the statement, Playfair italic for the accent word (as on the current feed), Caveat for handwritten notes */
 .hl{font-weight:800;letter-spacing:-.04em;line-height:.98}
+.it{font-family:"Playfair Display",serif;font-style:italic;font-weight:600;letter-spacing:-.01em}
 .a{color:var(--brown)} .green .a{color:var(--ochre-l)}
-/* collage stickers: b/w cut-outs with white border and paper tape */
+.hand{font-family:"Caveat",cursive;font-weight:600;line-height:1}
+/* collage stickers */
 .stk{background:var(--white);padding:12px}
 .stk img{display:block;width:100%}
-.tape{position:absolute;top:-22px;left:50%;width:170px;height:46px;margin-left:-85px;background:rgba(239,231,223,.78);transform:rotate(-4deg);
-      box-shadow:none;border-left:2px dashed rgba(0,0,0,.06);border-right:2px dashed rgba(0,0,0,.06)}
-.glyph{font-weight:800;color:var(--ochre);line-height:1;letter-spacing:0}
-.ring{border-radius:50%;border:110px solid var(--ochre)}
-/* tags */
-.tag{font-weight:700;font-size:46px;line-height:1;padding:16px 26px 18px;border:3px solid var(--brown);color:var(--ink);background:transparent}
-.green .tag{border-color:var(--ochre-l);color:var(--beige)}
-/* strike */
-.strike{position:relative;display:inline-block;color:var(--muted)}
-.strike .line{position:absolute;left:-2%;top:54%;height:.09em;background:var(--brown);width:0}
-/* input + sources */
-.input{background:var(--white);border:3px solid var(--ink);font-weight:600;font-size:40px;line-height:1.2;padding:30px 32px;min-height:118px}
-.caret{display:inline-block;width:.08em;height:1em;background:var(--brown);vertical-align:-.12em;margin-left:4px}
-.src{background:var(--white);border:2px solid var(--ink);height:80px;display:flex;align-items:center;gap:24px;padding:0 26px}
-.src .ic{width:34px;height:34px;flex:none}
-.src .ln{display:flex;flex-direction:column;gap:12px;flex:1}
-.src .ln i{display:block;height:12px;background:#CFC6BC}
-/* number labels */
-.num{font-weight:800;color:var(--ochre);letter-spacing:-.04em;line-height:1}
-/* button */
-.btn{background:var(--ink);color:var(--beige);font-weight:800;font-size:64px;letter-spacing:-.02em;padding:26px 50px 30px}
-/* subtitles */
+.tape{position:absolute;top:-22px;left:50%;width:170px;height:46px;margin-left:-85px;background:rgba(239,231,223,.8);transform:rotate(-4deg)}
+.cut img{display:block;width:100%}
+/* retro window, borrowed from the old Djun posts */
+.win{background:var(--white);border:3px solid var(--ink)}
+.win .bar{height:52px;border-bottom:3px solid var(--ink);position:relative;
+  background:repeating-linear-gradient(180deg,var(--ink) 0 3px,var(--white) 3px 9px);background-clip:content-box;padding:9px 60px 9px 60px}
+.win .bar .t{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--white);padding:0 18px;font:600 26px/1 "JBM",monospace;color:var(--ink);white-space:nowrap}
+.win .bar .b{position:absolute;top:12px;width:26px;height:26px;border:3px solid var(--ink);background:var(--white)}
+.win .body{overflow:hidden;position:relative}
+.win .body img{display:block;width:100%}
+.win .txt{font:600 44px/1.25 "Montserrat";padding:34px 36px;min-height:150px}
+.caret{display:inline-block;width:.07em;height:1em;background:var(--brown);vertical-align:-.12em;margin-left:4px}
+.slip{background:var(--white);padding:20px 30px 24px;font-family:"Caveat",cursive;font-weight:600;font-size:66px;line-height:1;color:var(--ink)}
+.doodle{overflow:visible}
+.doodle path{fill:none;stroke-linecap:round;stroke-linejoin:round}
 #sub{position:absolute;left:70px;right:150px;top:1505px;display:flex;z-index:50}
 #sub span{font:700 42px/1.25 "Montserrat";background:var(--ink);color:var(--beige);padding:10px 22px 12px;max-width:860px}
 #sub.dark span{background:var(--beige);color:var(--ink)}
 #wipe{position:absolute;top:0;left:0;width:1080px;height:1920px;z-index:60;transform:translateX(-1100px)}
-/* film grain, a nod to the old collage style */
 #grain{position:absolute;inset:0;z-index:55;pointer-events:none;opacity:.10;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 1.2 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>")}
 </style>
 </head>
 <body>
 
-<!-- A · problem -->
+<!-- A · problem: hours of searching -->
 <section class="scene green" data-from="0" data-to="1">
   <div class="hdr"><img class="c" src="assets/brand/crest_light.svg"><span class="w"><img src="assets/brand/letters_light.svg"><small>AI академія</small></span></div>
-  <div class="el glyph" style="left:930px;top:720px;font-size:240px" data-s="0" data-o="-1" data-anim="fade" data-float="1">#</div>
-  <div class="el mono" style="left:80px;top:330px" data-s="0" data-o="-1" data-anim="fade">// знайомо?</div>
-  <div class="el hl" style="left:76px;top:390px;font-size:96px" data-s="0" data-o="-1" data-anim="up">Годинами шукаєте</div>
-  <div class="el hl a" style="left:72px;top:490px;font-size:150px" data-s="0" data-o="-1" data-anim="up">подкасти?</div>
-  <div class="el hl" style="left:76px;top:665px;font-size:62px" data-s="0" data-c="1" data-o="0" data-anim="up">і перечитуєте документи</div>
-  <div class="el stk" style="left:60px;top:810px;width:600px" data-s="0" data-o="0.9" data-anim="pop" data-rot="-3">
-    <img data-seq="assets/clips/grass" data-n="106" data-fps="30"><div class="tape"></div></div>
-  <div class="el stk" style="left:560px;top:975px;width:430px" data-s="0" data-c="1" data-o="0.1" data-anim="pop" data-rot="4">
-    <img src="assets/memes/woman_reading_painting_bw.jpg"><div class="tape" style="transform:rotate(5deg)"></div></div>
-  <div class="el tag" style="left:80px;top:1215px" data-s="0" data-c="2" data-o="0.1" data-anim="stamp" data-rot="-3">робота</div>
-  <div class="el tag" style="left:110px;top:1315px" data-s="0" data-c="2" data-o="0.45" data-anim="stamp" data-rot="2">навчання</div>
+  <div class="el hl" style="left:74px;top:330px;font-size:170px" data-s="0" data-o="-1" data-anim="up">Годинами</div>
+  <div class="el hl" style="left:78px;top:505px;font-size:92px" data-s="0" data-o="-1" data-anim="up">шукаєте <span class="it a" style="font-size:118px">подкасти</span></div>
+  <div class="el stk" style="left:50px;top:720px;width:640px" data-s="0" data-o="0.9" data-anim="pop" data-rot="-4">
+    <img data-seq="assets/clips/grass_color" data-n="106" data-fps="30"><div class="tape"></div></div>
+  <div class="el hand" style="left:610px;top:660px;font-size:70px;color:var(--ochre-l);transform-origin:0 50%" data-s="0" data-o="1.3" data-anim="fade" data-rot="-8">zzz…</div>
+  <svg class="el doodle" style="left:560px;top:690px" width="240" height="120" data-kind="arrow" data-arg="200,20,40,100" data-col="#C99A6A" data-w="6" data-s="0" data-o="1.35" data-dur="0.4"></svg>
+  <div class="el stk" style="left:600px;top:900px;width:400px" data-s="0" data-c="1" data-o="0.05" data-anim="pop" data-rot="5">
+    <img src="assets/memes/woman_reading_painting.jpg"><div class="tape" style="transform:rotate(6deg)"></div></div>
+  <div class="el hand" style="left:610px;top:1350px;font-size:58px;color:var(--beige)" data-s="0" data-c="1" data-o="0.5" data-anim="fade" data-rot="-4">ще 300 сторінок</div>
+  <div class="el cut" style="left:70px;top:1060px;width:250px" data-s="0" data-c="2" data-o="0" data-anim="up"><img src="assets/cutouts/monitor_kid.png"></div>
+  <div class="el hand" style="left:330px;top:1150px;font-size:66px;color:var(--ochre-l)" data-s="0" data-c="2" data-o="0.3" data-anim="fade" data-rot="-6">робота?</div>
+  <div class="el hand" style="left:350px;top:1240px;font-size:66px;color:var(--ochre-l)" data-s="0" data-c="2" data-o="0.7" data-anim="fade" data-rot="3">навчання?</div>
 </section>
 
 <!-- B · the simplest way -->
 <section class="scene beige" data-from="1" data-to="2">
   <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></div>
-  <div class="el ring" style="left:640px;top:1120px;width:760px;height:760px" data-s="1" data-o="0" data-anim="fade"></div>
-  <div class="el mono" style="left:80px;top:330px" data-s="1" data-o="0.05" data-anim="fade">// є найпростіший спосіб</div>
-  <div class="el stk" style="left:90px;top:430px;width:900px" data-s="1" data-o="0.1" data-anim="up" data-rot="-2.5">
-    <img src="assets/clips/hero.jpg"><div class="tape"></div></div>
-  <div class="el" style="left:150px;top:1010px;width:780px" data-s="1" data-c="1" data-o="0" data-anim="stamp" data-rot="2">
+  <div class="el hl" style="left:76px;top:330px;font-size:104px" data-s="1" data-o="0.05" data-anim="up">Є найпростіший</div>
+  <div class="el it a" style="left:76px;top:440px;font-size:150px;line-height:1" data-s="1" data-o="0.2" data-anim="up">спосіб</div>
+  <div class="el cut" style="left:560px;top:600px;width:470px" data-s="1" data-o="0.15" data-anim="up"><img src="assets/cutouts/bulb_man.png"></div>
+  <svg class="el doodle" style="left:640px;top:560px" width="300" height="200" data-kind="spark" data-col="#A16E3B" data-w="7" data-s="1" data-o="0.5" data-dur="0.35"></svg>
+  <div class="el" style="left:70px;top:980px;width:560px" data-s="1" data-c="1" data-o="0" data-anim="stamp" data-rot="-3">
     <img src="assets/gemini_notebook_logo.png" style="display:block;width:100%"></div>
-  <div class="el mono" style="left:170px;top:1230px;color:var(--muted)" data-s="1" data-c="1" data-o="0.4" data-anim="fade">// раніше NotebookLM</div>
+  <svg class="el doodle" style="left:30px;top:930px" width="650" height="230" data-kind="circle" data-col="#A16E3B" data-w="7" data-s="1" data-c="1" data-o="0.3" data-dur="0.55"></svg>
+  <div class="el hand" style="left:110px;top:1210px;font-size:60px;color:var(--muted)" data-s="1" data-c="1" data-o="0.6" data-anim="fade" data-rot="-3">раніше NotebookLM</div>
 </section>
 
-<!-- C · what it makes: podcast, mind map, test -->
+<!-- C · what it makes: three retro windows piling up -->
 <section class="scene green" data-from="2" data-to="3">
   <div class="hdr"><img class="c" src="assets/brand/crest_light.svg"><span class="w"><img src="assets/brand/letters_light.svg"><small>AI академія</small></span></div>
-  <div class="el glyph" style="left:-60px;top:1180px;font-size:420px" data-s="2" data-o="0" data-anim="fade" data-float="1">}</div>
-  <div class="el mono" style="left:80px;top:330px" data-s="2" data-o="0.05" data-anim="fade">// він робить з ваших матеріалів</div>
+  <div class="el win" style="left:60px;top:330px;width:640px" data-s="2" data-c="0" data-o="0" data-anim="pop" data-rot="-2">
+    <div class="bar"><i class="b" style="left:14px"></i><span class="t">podcast.mp3</span></div><div class="body"><img src="assets/stills/audio.jpg" data-kb="1,1.08"></div></div>
+  <div class="el it" style="left:735px;top:430px;font-size:82px;color:var(--ochre-l)" data-s="2" data-c="0" data-o="0.2" data-anim="left">подкаст</div>
+  <svg class="el doodle" style="left:690px;top:520px" width="200" height="120" data-kind="arrow" data-arg="150,10,20,90" data-col="#C99A6A" data-w="6" data-s="2" data-c="0" data-o="0.35" data-dur="0.35"></svg>
 
-  <div class="el num" style="left:76px;top:385px;font-size:150px" data-s="2" data-c="0" data-o="0" data-anim="stamp" data-xs="2" data-xc="1" data-xo="-0.05">01</div>
-  <div class="el hl" style="left:300px;top:418px;font-size:86px" data-s="2" data-c="0" data-o="0.05" data-anim="left" data-xs="2" data-xc="1" data-xo="-0.05">Подкаст</div>
-  <div class="el stk" style="left:80px;top:610px;width:920px" data-s="2" data-c="0" data-o="0.1" data-anim="right" data-rot="-1.5" data-xs="2" data-xc="1" data-xo="-0.05">
-    <img data-seq="assets/clips/audio" data-n="39" data-fps="30"><div class="tape"></div></div>
+  <div class="el win" style="left:380px;top:650px;width:640px" data-s="2" data-c="1" data-o="0" data-anim="pop" data-rot="2">
+    <div class="bar"><i class="b" style="left:14px"></i><span class="t">mind_map</span></div><div class="body"><img src="assets/stills/mind.jpg" data-kb="1,1.08"></div></div>
+  <div class="el it" style="left:40px;top:770px;font-size:66px;line-height:1;color:var(--ochre-l)" data-s="2" data-c="1" data-o="0.15" data-anim="right">ментальна<br>карта</div>
+  <svg class="el doodle" style="left:150px;top:925px" width="240" height="120" data-kind="arrow" data-arg="20,10,215,80" data-col="#C99A6A" data-w="6" data-s="2" data-c="1" data-o="0.3" data-dur="0.35"></svg>
 
-  <div class="el num" style="left:76px;top:385px;font-size:150px" data-s="2" data-c="1" data-o="0" data-anim="stamp" data-xs="2" data-xc="2" data-xo="-0.05">02</div>
-  <div class="el hl" style="left:300px;top:395px;font-size:72px;line-height:1" data-s="2" data-c="1" data-o="0.05" data-anim="left" data-xs="2" data-xc="2" data-xo="-0.05">Ментальна<br>карта</div>
-  <div class="el stk" style="left:80px;top:610px;width:920px" data-s="2" data-c="1" data-o="0.1" data-anim="right" data-rot="1.5" data-xs="2" data-xc="2" data-xo="-0.05">
-    <img data-seq="assets/clips/mind" data-n="39" data-fps="30"><div class="tape" style="transform:rotate(3deg)"></div></div>
-
-  <div class="el num" style="left:76px;top:385px;font-size:150px" data-s="2" data-c="2" data-o="0" data-anim="stamp">03</div>
-  <div class="el hl" style="left:300px;top:418px;font-size:86px" data-s="2" data-c="2" data-o="0.05" data-anim="left">Тест</div>
-  <div class="el stk" style="left:80px;top:610px;width:920px" data-s="2" data-c="2" data-o="0.1" data-anim="right" data-rot="-1">
-    <img data-seq="assets/clips/tests3" data-n="18" data-fps="30"><div class="tape" style="transform:rotate(-6deg)"></div></div>
+  <div class="el win" style="left:90px;top:960px;width:640px" data-s="2" data-c="2" data-o="0" data-anim="pop" data-rot="-1.5">
+    <div class="bar"><i class="b" style="left:14px"></i><span class="t">test_01</span></div><div class="body"><img src="assets/stills/tests.jpg" data-kb="1,1.08"></div></div>
+  <div class="el it" style="left:770px;top:1120px;font-size:96px;color:var(--ochre-l)" data-s="2" data-c="2" data-o="0.15" data-anim="left">тест</div>
+  <svg class="el doodle" style="left:745px;top:1240px" width="250" height="60" data-kind="under" data-col="#C99A6A" data-w="6" data-s="2" data-c="2" data-o="0.35" data-dur="0.35"></svg>
 </section>
 
-<!-- D · result -->
+<!-- D · result: one evening -->
 <section class="scene beige" data-from="3" data-to="4">
   <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></div>
-  <div class="el mono" style="left:80px;top:330px" data-s="3" data-o="0.05" data-anim="fade">// результат</div>
-  <div class="el hl" style="left:76px;top:392px;font-size:120px" data-s="3" data-o="0.05" data-anim="up"><span class="strike">Години пошуку<span class="line" data-s="3" data-o="0.55" data-dur="0.4"></span></span></div>
-  <div class="el hl a" style="left:70px;top:540px;font-size:150px" data-s="3" data-c="1" data-o="0" data-anim="stamp">Один вечір</div>
-  <div class="el hl" style="left:80px;top:880px;font-size:48px;line-height:1.5" data-s="3" data-o="0.35" data-anim="up"><span class="a">✓</span> слухаєте</div>
-  <div class="el hl" style="left:80px;top:960px;font-size:48px;line-height:1.5" data-s="3" data-o="0.9" data-anim="up"><span class="a">✓</span> тест</div>
-  <div class="el hl" style="left:80px;top:1040px;font-size:48px;line-height:1.5" data-s="3" data-c="1" data-o="0.3" data-anim="up"><span class="a">✓</span> розумієте</div>
-  <div class="el stk" style="left:440px;top:830px;width:560px" data-s="3" data-c="1" data-o="0.15" data-anim="pop" data-rot="3">
-    <img src="assets/memes/roll_safe_bw.jpg"><div class="tape"></div></div>
+  <div class="el hl" style="left:76px;top:340px;font-size:118px;color:var(--muted)" data-s="3" data-o="0.05" data-anim="up">Години пошуку</div>
+  <svg class="el doodle" style="left:60px;top:345px" width="960" height="120" data-kind="scribble" data-col="#A16E3B" data-w="9" data-s="3" data-o="0.5" data-dur="0.5"></svg>
+  <div class="el it a" style="left:80px;top:520px;font-size:150px;line-height:1.1;white-space:nowrap" data-s="3" data-c="1" data-o="0" data-anim="stamp">один вечір</div>
+  <svg class="el doodle" style="left:395px;top:500px" width="470" height="210" data-kind="circle" data-col="#190F09" data-w="6" data-s="3" data-c="1" data-o="0.3" data-dur="0.5"></svg>
+  <div class="el stk" style="left:420px;top:880px;width:560px" data-s="3" data-c="1" data-o="0.15" data-anim="pop" data-rot="4">
+    <img src="assets/memes/roll_safe.jpg"><div class="tape"></div></div>
+  <div class="el hand" style="left:90px;top:960px;font-size:64px;color:var(--ink);line-height:1.15" data-s="3" data-o="0.3" data-anim="fade" data-rot="-5">послухали,<br>пройшли тест,<br>зрозуміли</div>
+  <svg class="el doodle" style="left:120px;top:1170px" width="300" height="150" data-kind="arrow" data-arg="40,10,280,120" data-col="#A16E3B" data-w="6" data-s="3" data-c="1" data-o="0.4" data-dur="0.35"></svg>
 </section>
 
 <!-- E · how it works: upload -->
 <section class="scene green" data-from="4" data-to="5">
   <div class="hdr"><img class="c" src="assets/brand/crest_light.svg"><span class="w"><img src="assets/brand/letters_light.svg"><small>AI академія</small></span></div>
-  <div class="el glyph" style="left:880px;top:1250px;font-size:360px" data-s="4" data-o="0" data-anim="fade" data-float="1">›</div>
-  <div class="el mono" style="left:80px;top:330px" data-s="4" data-o="0.05" data-anim="fade">// як це працює</div>
-  <div class="el hl" style="left:76px;top:390px;font-size:92px" data-s="4" data-o="0.05" data-anim="up">Завантажуєте<br><span class="a">свої матеріали</span></div>
-  <div class="el stk" style="left:80px;top:640px;width:920px" data-s="4" data-o="0.3" data-anim="up" data-rot="-1.5">
-    <img data-seq="assets/clips/how" data-n="79" data-fps="30"><div class="tape"></div></div>
-  <div class="el tag" style="left:80px;top:1330px" data-s="4" data-o="1.1" data-anim="stamp" data-rot="-2">Документи</div>
-  <div class="el tag" style="left:440px;top:1330px" data-s="4" data-c="1" data-o="0" data-anim="stamp" data-rot="2">YouTube</div>
+  <div class="el it" style="left:76px;top:320px;font-size:118px;line-height:1;color:var(--ochre-l)" data-s="4" data-o="0.05" data-anim="up">Як це працює</div>
+  <div class="el win" style="left:70px;top:500px;width:940px" data-s="4" data-o="0.2" data-anim="up" data-rot="-1">
+    <div class="bar"><i class="b" style="left:14px"></i><span class="t">Gemini Notebook</span></div><div class="body"><img src="assets/stills/how.jpg" data-kb="1,1.06"></div></div>
+  <div class="el hand" style="left:90px;top:1250px;font-size:72px;color:var(--beige)" data-s="4" data-o="1.0" data-anim="fade" data-rot="-4">документи</div>
+  <svg class="el doodle" style="left:150px;top:1120px" width="160" height="140" data-kind="arrow" data-arg="60,130,120,15" data-col="#C99A6A" data-w="6" data-s="4" data-o="1.15" data-dur="0.3"></svg>
+  <div class="el hand" style="left:420px;top:1330px;font-size:72px;color:var(--beige)" data-s="4" data-c="1" data-o="0" data-anim="fade" data-rot="3">YouTube</div>
+  <svg class="el doodle" style="left:470px;top:1180px" width="160" height="150" data-kind="arrow" data-arg="70,140,40,15" data-col="#C99A6A" data-w="6" data-s="4" data-c="1" data-o="0.15" data-dur="0.3"></svg>
+  <div class="el cut" style="left:760px;top:1130px;width:260px" data-s="4" data-o="0.5" data-anim="up" data-rot="3"><img src="assets/cutouts/typewriter.png"></div>
 </section>
 
 <!-- F · or just type a topic -->
 <section class="scene beige" data-from="5" data-to="6">
   <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></div>
-  <div class="el mono" style="left:80px;top:330px" data-s="5" data-o="0.05" data-anim="fade">// або ще простіше</div>
-  <div class="el hl" style="left:76px;top:390px;font-size:120px" data-s="5" data-o="0.05" data-anim="up">Пишете <span class="a">тему</span></div>
-  <div class="el input" style="left:80px;top:575px;width:920px" data-s="5" data-o="0.15" data-anim="up"><span data-type="Основи маркетингу для малого бізнесу" data-s="5" data-o="0.3" data-dur="0.9"></span></div>
-  <div class="el mono" style="left:80px;top:760px;color:var(--muted)" data-s="5" data-c="1" data-o="0" data-anim="fade">// він сам знаходить джерела</div>
-  <div class="el src" style="left:80px;top:810px;width:920px" data-s="5" data-c="1" data-o="0.1" data-anim="left"><div class="ic" style="background:var(--brown)"></div><div class="ln"><i style="width:80%"></i><i style="width:55%"></i></div></div>
-  <div class="el src" style="left:80px;top:905px;width:920px" data-s="5" data-c="1" data-o="0.3" data-anim="left"><div class="ic" style="background:#C4302B"></div><div class="ln"><i style="width:70%"></i><i style="width:45%"></i></div></div>
-  <div class="el src" style="left:80px;top:1000px;width:920px" data-s="5" data-c="1" data-o="0.5" data-anim="left"><div class="ic" style="background:var(--ink)"></div><div class="ln"><i style="width:85%"></i><i style="width:60%"></i></div></div>
-  <div class="el stk" style="left:590px;top:1105px;width:380px" data-s="5" data-c="1" data-o="0.7" data-anim="pop" data-rot="-4">
-    <img src="assets/memes/bateman_satisfied_bw.jpg"><div class="tape"></div></div>
+  <div class="el hl" style="left:76px;top:330px;font-size:96px" data-s="5" data-o="0.05" data-anim="up">Або просто</div>
+  <div class="el it a" style="left:76px;top:425px;font-size:130px;line-height:1" data-s="5" data-o="0.15" data-anim="up">пишете тему</div>
+  <div class="el win" style="left:70px;top:610px;width:940px" data-s="5" data-o="0.2" data-anim="up" data-rot="1">
+    <div class="bar"><i class="b" style="left:14px"></i><span class="t">Note Pad</span></div>
+    <div class="txt"><span data-type="Основи маркетингу для малого бізнесу" data-s="5" data-o="0.35" data-dur="0.8"></span></div></div>
+  <div class="el slip" style="left:80px;top:920px" data-s="5" data-c="1" data-o="0.05" data-anim="pop" data-rot="-6">стаття<div class="tape" style="width:90px;margin-left:-45px;top:-16px;height:32px"></div></div>
+  <div class="el slip" style="left:300px;top:990px" data-s="5" data-c="1" data-o="0.25" data-anim="pop" data-rot="4">відео<div class="tape" style="width:90px;margin-left:-45px;top:-16px;height:32px"></div></div>
+  <div class="el slip" style="left:120px;top:1110px" data-s="5" data-c="1" data-o="0.45" data-anim="pop" data-rot="-2">дослідження<div class="tape" style="width:90px;margin-left:-45px;top:-16px;height:32px"></div></div>
+  <div class="el stk" style="left:600px;top:1000px;width:390px" data-s="5" data-c="1" data-o="0.6" data-anim="pop" data-rot="-4">
+    <img src="assets/memes/bateman_satisfied.jpg"><div class="tape"></div></div>
+  <svg class="el doodle" style="left:520px;top:900px" width="120" height="120" data-kind="spark" data-col="#A16E3B" data-w="6" data-s="5" data-c="1" data-o="0.8" data-dur="0.3"></svg>
 </section>
 
 <!-- G · grounded answers -->
 <section class="scene green" data-from="6" data-to="7">
   <div class="hdr"><img class="c" src="assets/brand/crest_light.svg"><span class="w"><img src="assets/brand/letters_light.svg"><small>AI академія</small></span></div>
-  <div class="el ring" style="left:600px;top:1100px;width:800px;height:800px" data-s="6" data-o="0" data-anim="fade"></div>
-  <div class="el mono" style="left:80px;top:330px" data-s="6" data-o="0.05" data-anim="fade">// з сайту Gemini Notebook</div>
-  <div class="el hl" style="left:76px;top:400px;width:920px;font-size:80px;line-height:1.08" data-s="6" data-o="0.05" data-anim="up">«Відповіді завжди ґрунтуватимуться на інформації, <span class="a">яку ви надали»</span></div>
+  <div class="el hl" style="left:76px;top:340px;font-size:100px" data-s="6" data-o="0.0" data-anim="up">Відповідає тільки</div>
+  <div class="el it" style="left:76px;top:450px;font-size:120px;line-height:1.05;color:var(--ochre-l)" data-s="6" data-o="0.15" data-anim="up">за вашими джерелами</div>
+  <svg class="el doodle" style="left:300px;top:690px" width="560" height="70" data-kind="under" data-col="#EFE7DF" data-w="7" data-s="6" data-o="0.45" data-dur="0.35"></svg>
+  <div class="el cut" style="left:240px;top:830px;width:600px" data-s="6" data-o="0.2" data-anim="up"><img src="assets/cutouts/newspaper.png"></div>
 </section>
 
 <!-- H · subscribe / end card -->
 <section class="scene beige" data-from="7" data-to="9">
-  <div class="el" style="left:0;width:1080px;top:470px;display:flex;flex-direction:column;align-items:center" data-s="7" data-o="0.05" data-anim="pop">
-    <img src="assets/brand/crest.svg" style="height:330px">
-    <img src="assets/brand/letters.svg" style="height:92px;margin-top:56px">
-    <div style="font:700 34px/1 Montserrat;letter-spacing:.2em;color:var(--brown);margin-top:26px;margin-right:-.2em">AI академія</div>
+  <div class="el" style="left:0;width:1080px;top:440px;display:flex;flex-direction:column;align-items:center" data-s="7" data-o="0.05" data-anim="pop">
+    <img src="assets/brand/crest.svg" style="height:300px">
+    <img src="assets/brand/letters.svg" style="height:86px;margin-top:50px">
+    <div style="font:700 32px/1 Montserrat;letter-spacing:.2em;color:var(--brown);margin-top:24px;margin-right:-.2em">AI академія</div>
   </div>
-  <div class="el btn" style="left:50%;top:1180px;transform-origin:50% 50%;margin-left:-245px" data-s="7" data-o="0.45" data-anim="stamp">Підписуйтесь</div>
+  <div class="el it a" style="left:0;width:1080px;text-align:center;top:1120px;font-size:104px;line-height:1.1;white-space:nowrap" data-s="7" data-o="0.35" data-anim="stamp">підписуйтесь</div>
+  <svg class="el doodle" style="left:150px;top:1080px" width="780" height="200" data-kind="circle" data-col="#190F09" data-w="6" data-s="7" data-o="0.7" data-dur="0.5"></svg>
 </section>
 
 <div id="sub"><span></span></div>
@@ -172,7 +169,7 @@ body{font-family:"Montserrat",sans-serif;color:var(--ink);-webkit-font-smoothing
 <script src="timing.js" onerror=""></script>
 <script>
 const FPS = 30;
-const CPS = 19;            // ElevenLabs Ivo pace (written chars per second)
+const CPS = 19;
 const SENT = [
   {c:["Годинами шукаєте подкасти","і перечитуєте купу документів,","щоб розібратися в темі для роботи чи навчання?"], p:0.45},
   {c:["Є найпростіший спосіб:","Gemini Notebook від Google."], p:0.45},
@@ -196,12 +193,35 @@ SENT.forEach((s, i) => {
   } else {
     let acc = t0;
     CH[i] = s.c.map((c, k) => { const st = acc; acc += lens[k]; return {t:st, e:acc, text:c}; });
-    CH[i].start = t0;
-    t0 += dur + (s.p||0);
+    CH[i].start = t0; t0 += dur + (s.p||0);
   }
 });
 const TOTAL = T ? T.total : t0;
 const START = i => i < CH.length ? CH[i].start : TOTAL;
+
+/* ---- hand-drawn doodles (seeded wobble so every frame draws the same line) ---- */
+let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const J = a => (rnd() - 0.5) * 2 * a;
+function smooth(pts){ let d = `M${pts[0][0]},${pts[0][1]}`;
+  for (let i = 1; i < pts.length - 1; i++){ const [x,y] = pts[i], [nx,ny] = pts[i+1]; d += ` Q${x},${y} ${(x+nx)/2},${(y+ny)/2}`; }
+  const l = pts[pts.length-1]; return d + ` L${l[0]},${l[1]}`; }
+const KINDS = {
+  circle(w,h){ const cx=w/2, cy=h/2, pts=[]; for (let a=-0.5; a<=Math.PI*2+0.7; a+=0.28){ const k=1+J(0.06); pts.push([cx+Math.cos(a)*(w/2-8)*k, cy+Math.sin(a)*(h/2-8)*k + a*1.5]); } return [smooth(pts)]; },
+  under(w,h){ const pts=[]; for (let x=6; x<=w-6; x+=w/9) pts.push([x, h/2 + Math.sin(x/w*Math.PI*3)*h*0.22 + J(3)]); return [smooth(pts)]; },
+  scribble(w,h){ const pts=[]; let up=true; for (let x=0; x<=w; x+=w/14){ pts.push([x+J(8), up? h*0.3+J(8) : h*0.7+J(8)]); up=!up; } return [smooth(pts)]; },
+  spark(w,h){ const cx=w/2, cy=h/2, r=Math.min(w,h)/2, out=[]; for (let i=0;i<7;i++){ const a=-Math.PI/2+(i-3)*0.42; out.push(`M${cx+Math.cos(a)*r*0.35},${cy+Math.sin(a)*r*0.35} L${cx+Math.cos(a)*r*(0.85+J(0.1))},${cy+Math.sin(a)*r*(0.85+J(0.1))}`); } return out; },
+  arrow(w,h,arg){ const [x0,y0,x1,y1] = arg.split(',').map(Number); const mx=(x0+x1)/2+(y1-y0)*0.25, my=(y0+y1)/2-(x1-x0)*0.25;
+    const ang = Math.atan2(y1-my, x1-mx), L=26;
+    return [`M${x0},${y0} Q${mx},${my} ${x1},${y1}`, `M${x1-Math.cos(ang-0.5)*L},${y1-Math.sin(ang-0.5)*L} L${x1},${y1} L${x1-Math.cos(ang+0.5)*L},${y1-Math.sin(ang+0.5)*L}`]; },
+};
+document.querySelectorAll('svg.doodle').forEach(svg => {
+  const w=+svg.getAttribute('width'), h=+svg.getAttribute('height');
+  KINDS[svg.dataset.kind](w,h,svg.dataset.arg||'').forEach(d => {
+    const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+    p.setAttribute('d', d); p.setAttribute('pathLength','1'); p.setAttribute('stroke', svg.dataset.col); p.setAttribute('stroke-width', svg.dataset.w);
+    p.style.strokeDasharray = '1 1'; p.style.strokeDashoffset = '1'; svg.appendChild(p);
+  });
+});
 
 const clamp = (v,a=0,b=1)=>Math.min(b,Math.max(a,v));
 const eo = p => 1 - Math.pow(1-p, 3);
@@ -211,12 +231,12 @@ function tOut(el){ if (el.dataset.xs === undefined) return Infinity; const s=+el
 
 const scenes = [...document.querySelectorAll('.scene')];
 const els = [...document.querySelectorAll('.el')];
+const doodles = [...document.querySelectorAll('svg.doodle')];
 const types = [...document.querySelectorAll('[data-type]')];
-const lines = [...document.querySelectorAll('.strike .line')];
+const kbs = [...document.querySelectorAll('img[data-kb]')];
 const seqs = [...document.querySelectorAll('img[data-seq]')].map(img => {
   const n = +img.dataset.n, urls = [...Array(n).keys()].map(i => img.dataset.seq + '/' + String(i+1).padStart(3,'0') + '.jpg');
-  urls.forEach(u => { const im = new Image(); im.src = u; });
-  img.src = urls[0];
+  urls.forEach(u => { const im = new Image(); im.src = u; }); img.src = urls[0];
   return {img, urls, fps: +img.dataset.fps, host: img.closest('.el')};
 });
 const sub = document.getElementById('sub'), subSpan = sub.querySelector('span');
@@ -225,13 +245,10 @@ const BOUNDS = scenes.map(sc => START(+sc.dataset.from)).filter(b => b > 0.3);
 
 function seek(t){
   let cur = null;
-  scenes.forEach(sc => {
-    const a = START(+sc.dataset.from), b = START(+sc.dataset.to);
-    const on = t >= (a <= 0.3 ? 0 : a) && t < b;
-    sc.style.visibility = on ? 'visible' : 'hidden'; if (on) cur = sc;
-  });
+  scenes.forEach(sc => { const a = START(+sc.dataset.from), b = START(+sc.dataset.to); const on = t >= (a <= 0.3 ? 0 : a) && t < b; sc.style.visibility = on ? 'visible' : 'hidden'; if (on) cur = sc; });
   els.forEach(el => {
     const ti = tIn(el), to = tOut(el), anim = el.dataset.anim || 'fade';
+    if (el.classList.contains('doodle')) { el.style.opacity = t >= ti ? 1 : 0; return; }
     const d = anim === 'stamp' ? 0.35 : 0.45;
     const p = clamp((t - ti) / d), q = clamp((t - to) / 0.22);
     let op = clamp((t - ti) / 0.18) * (1 - q), x = 0, y = 0, sc = 1, r = +(el.dataset.rot || 0);
@@ -240,22 +257,19 @@ function seek(t){
     else if (anim === 'right') x = (1 - eo(p)) * 160;
     else if (anim === 'pop') { sc = 0.55 + 0.45 * back(p); r *= p; }
     else if (anim === 'stamp') sc = 1.7 - 0.7 * eo(p);
-    x -= eo(q) * 180;                                           // exits slide out to the left
-    if (el.dataset.float) y += Math.sin((t - ti) * 1.6) * 10;
+    x -= eo(q) * 180;
     el.style.opacity = op;
-    const base = el.style.marginLeft ? '' : '';
     el.style.transform = `translate(${x}px,${y}px) scale(${sc}) rotate(${r}deg)`;
   });
-  types.forEach(el => {
-    const p = clamp((t - tIn(el)) / +(el.dataset.dur||1)), full = el.dataset.type, n = Math.round(full.length * p);
-    el.innerHTML = full.slice(0, n) + (p < 1 ? '<span class="caret"></span>' : '');
-  });
-  lines.forEach(el => { const p = eo(clamp((t - tIn(el)) / +(el.dataset.dur||0.4))); el.style.width = (p*104) + '%'; });
+  doodles.forEach(svg => { const p = eo(clamp((t - tIn(svg)) / +(svg.dataset.dur||0.4))); const ps = svg.querySelectorAll('path');
+    ps.forEach((path, i) => { const k = clamp(p * ps.length - i); path.style.strokeDashoffset = String(1 - k); }); });
+  kbs.forEach(img => { const host = img.closest('.el'); const [a,b] = img.dataset.kb.split(',').map(Number); const sceneEnd = START(+host.closest('.scene').dataset.to);
+    const k = clamp((t - tIn(host)) / Math.max(1, sceneEnd - tIn(host))); img.style.transform = `scale(${a + (b-a)*k})`; });
+  types.forEach(el => { const p = clamp((t - tIn(el)) / +(el.dataset.dur||1)), full = el.dataset.type, n = Math.round(full.length * p);
+    el.innerHTML = full.slice(0, n) + (p < 1 ? '<span class="caret"></span>' : ''); });
   const waits = [];
-  seqs.forEach(s => {
-    const lt = Math.max(0, t - tIn(s.host)); const i = Math.min(s.urls.length - 1, Math.floor(lt * s.fps));
-    if (!s.img.src.endsWith(s.urls[i])) { s.img.src = s.urls[i]; waits.push(s.img.decode().catch(()=>{})); }
-  });
+  seqs.forEach(s => { const lt = Math.max(0, t - tIn(s.host)); const i = Math.min(s.urls.length - 1, Math.floor(lt * s.fps));
+    if (!s.img.src.endsWith(s.urls[i])) { s.img.src = s.urls[i]; waits.push(s.img.decode().catch(()=>{})); } });
   let txt = '';
   CH.forEach(cs => cs.forEach(c => { if (c.text && t >= c.t && t < c.e + (T ? 0 : 0.2)) txt = c.text; }));
   subSpan.textContent = txt; subSpan.style.display = txt ? '' : 'none';
