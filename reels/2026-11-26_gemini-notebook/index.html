@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Gemini Notebook reel</title>
+<style>
+@font-face{font-family:"Montserrat";src:url("assets/brand/Montserrat.ttf");font-weight:100 900;font-display:block}
+@font-face{font-family:"JBM";src:url("assets/brand/JetBrainsMono.ttf");font-weight:100 900;font-display:block}
+:root{--ink:#190F09;--brown:#A16E3B;--ochre:#A67445;--ochre-l:#C99A6A;--green:#0D3732;--beige:#EFE7DF;--white:#fff;--muted:#6E5F52}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--green)}
+body{font-family:"Montserrat",sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.scene{position:absolute;inset:0;overflow:hidden;visibility:hidden}
+.scene.beige{background:var(--beige)} .scene.green{background:var(--green);color:var(--beige)}
+.el{position:absolute;will-change:transform,opacity}
+/* header lockup */
+.hdr{position:absolute;left:80px;top:150px;display:flex;align-items:center;gap:22px;z-index:5}
+.hdr .c{height:78px} .hdr .w{display:flex;flex-direction:column;align-items:flex-end}
+.hdr .w img{height:30px} .hdr .w small{font:700 14.5px/1 "Montserrat";letter-spacing:.2em;color:var(--brown);margin-top:9px;margin-right:-.2em}
+.green .hdr .w small{color:var(--beige)}
+/* type */
+.mono{font:500 34px/1 "JBM",monospace;color:var(--brown)} .green .mono{color:var(--ochre-l)}
+.hl{font-weight:800;letter-spacing:-.04em;line-height:.98}
+.a{color:var(--brown)} .green .a{color:var(--ochre-l)}
+/* collage stickers: b/w cut-outs with white border and paper tape */
+.stk{background:var(--white);padding:12px}
+.stk img{display:block;width:100%}
+.tape{position:absolute;top:-22px;left:50%;width:170px;height:46px;margin-left:-85px;background:rgba(239,231,223,.78);transform:rotate(-4deg);
+      box-shadow:none;border-left:2px dashed rgba(0,0,0,.06);border-right:2px dashed rgba(0,0,0,.06)}
+.glyph{font-weight:800;color:var(--ochre);line-height:1;letter-spacing:0}
+.ring{border-radius:50%;border:110px solid var(--ochre)}
+/* tags */
+.tag{font-weight:700;font-size:46px;line-height:1;padding:16px 26px 18px;border:3px solid var(--brown);color:var(--ink);background:transparent}
+.green .tag{border-color:var(--ochre-l);color:var(--beige)}
+/* strike */
+.strike{position:relative;display:inline-block;color:var(--muted)}
+.strike .line{position:absolute;left:-2%;top:54%;height:.09em;background:var(--brown);width:0}
+/* input + sources */
+.input{background:var(--white);border:3px solid var(--ink);font-weight:600;font-size:40px;line-height:1.2;padding:30px 32px;min-height:118px}
+.caret{display:inline-block;width:.08em;height:1em;background:var(--brown);vertical-align:-.12em;margin-left:4px}
+.src{background:var(--white);border:2px solid var(--ink);height:80px;display:flex;align-items:center;gap:24px;padding:0 26px}
+.src .ic{width:34px;height:34px;flex:none}
+.src .ln{display:flex;flex-direction:column;gap:12px;flex:1}
+.src .ln i{display:block;height:12px;background:#CFC6BC}
+/* number labels */
+.num{font-weight:800;color:var(--ochre);letter-spacing:-.04em;line-height:1}
+/* button */
+.btn{background:var(--ink);color:var(--beige);font-weight:800;font-size:64px;letter-spacing:-.02em;padding:26px 50px 30px}
+/* subtitles */
+#sub{position:absolute;left:70px;right:150px;top:1505px;display:flex;z-index:50}
+#sub span{font:700 42px/1.25 "Montserrat";background:var(--ink);color:var(--beige);padding:10px 22px 12px;max-width:860px}
+#sub.dark span{background:var(--beige);color:var(--ink)}
+#wipe{position:absolute;top:0;left:0;width:1080px;height:1920px;z-index:60;transform:translateX(-1100px)}
+/* film grain, a nod to the old collage style */
+#grain{position:absolute;inset:0;z-index:55;pointer-events:none;opacity:.10;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 1.2 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>")}
+</style>
+</head>
+<body>
+
+<!-- A · problem -->
+<section class="scene green" data-from="0" data-to="1">
+  <div class="hdr"><img class="c" src="assets/brand/crest_light.svg"><span class="w"><img src="assets/brand/letters_light.svg"><small>AI академія</small></span></div>
+  <div class="el glyph" style="left:930px;top:720px;font-size:240px" data-s="0" data-o="-1" data-anim="fade" data-float="1">#</div>
+  <div class="el mono" style="left:80px;top:330px" data-s="0" data-o="-1" data-anim="fade">// знайомо?</div>
+  <div class="el hl" style="left:76px;top:390px;font-size:96px" data-s="0" data-o="-1" data-anim="up">Годинами шукаєте</div>
+  <div class="el hl a" style="left:72px;top:490px;font-size:150px" data-s="0" data-o="-1" data-anim="up">подкасти?</div>
+  <div class="el hl" style="left:76px;top:665px;font-size:62px" data-s="0" data-c="1" data-o="0" data-anim="up">і перечитуєте документи</div>
+  <div class="el stk" style="left:60px;top:810px;width:600px" data-s="0" data-o="0.9" data-anim="pop" data-rot="-3">
+    <img data-seq="assets/clips/grass" data-n="106" data-fps="30"><div class="tape"></div></div>
+  <div class="el stk" style="left:560px;top:975px;width:430px" data-s="0" data-c="1" data-o="0.1" data-anim="pop" data-rot="4">
+    <img src="assets/memes/woman_reading_painting_bw.jpg"><div class="tape" style="transform:rotate(5deg)"></div></div>
+  <div class="el tag" style="left:80px;top:1215px" data-s="0" data-c="2" data-o="0.1" data-anim="stamp" data-rot="-3">робота</div>
+  <div class="el tag" style="left:110px;top:1315px" data-s="0" data-c="2" data-o="0.45" data-anim="stamp" data-rot="2">навчання</div>
+</section>
+
+<!-- B · the simplest way -->
+<section class="scene beige" data-from="1" data-to="2">
+  <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></div>
+  <div class="el ring" style="left:640px;top:1120px;width:760px;height:760px" data-s="1" data-o="0" data-anim="fade"></div>
+  <div class="el mono" style="left:80px;top:330px" data-s="1" data-o="0.05" data-anim="fade">// є найпростіший спосіб</div>
+  <div class="el stk" style="left:90px;top:430px;width:900px" data-s="1" data-o="0.1" data-anim="up" data-rot="-2.5">
+    <img src="assets/clips/hero.jpg"><div class="tape"></div></div>
+  <div class="el" style="left:150px;top:1010px;width:780px" data-s="1" data-c="1" data-o="0" data-anim="stamp" data-rot="2">
+    <img src="assets/gemini_notebook_logo.png" style="display:block;width:100%"></div>
+  <div class="el mono" style="left:170px;top:1230px;color:var(--muted)" data-s="1" data-c="1" data-o="0.4" data-anim="fade">// раніше NotebookLM</div>
+</section>
+
+<!-- C · what it makes: podcast, mind map, test -->
+<section class="scene green" data-from="2" data-to="3">
+  <div class="hdr"><img class="c" src="assets/brand/crest_light.svg"><span class="w"><img src="assets/brand/letters_light.svg"><small>AI академія</small></span></div>
+  <div class="el glyph" style="left:-60px;top:1180px;font-size:420px" data-s="2" data-o="0" data-anim="fade" data-float="1">}</div>
+  <div class="el mono" style="left:80px;top:330px" data-s="2" data-o="0.05" data-anim="fade">// він робить з ваших матеріалів</div>
+
+  <div class="el num" style="left:76px;top:385px;font-size:150px" data-s="2" data-c="0" data-o="0" data-anim="stamp" data-xs="2" data-xc="1" data-xo="-0.05">01</div>
+  <div class="el hl" style="left:300px;top:418px;font-size:86px" data-s="2" data-c="0" data-o="0.05" data-anim="left" data-xs="2" data-xc="1" data-xo="-0.05">Подкаст</div>
+  <div class="el stk" style="left:80px;top:610px;width:920px" data-s="2" data-c="0" data-o="0.1" data-anim="right" data-rot="-1.5" data-xs="2" data-xc="1" data-xo="-0.05">
+    <img data-seq="assets/clips/audio" data-n="39" data-fps="30"><div class="tape"></div></div>
+
+  <div class="el num" style="left:76px;top:385px;font-size:150px" data-s="2" data-c="1" data-o="0" data-anim="stamp" data-xs="2" data-xc="2" data-xo="-0.05">02</div>
+  <div class="el hl" style="left:300px;top:395px;font-size:72px;line-height:1" data-s="2" data-c="1" data-o="0.05" data-anim="left" data-xs="2" data-xc="2" data-xo="-0.05">Ментальна<br>карта</div>
+  <div class="el stk" style="left:80px;top:610px;width:920px" data-s="2" data-c="1" data-o="0.1" data-anim="right" data-rot="1.5" data-xs="2" data-xc="2" data-xo="-0.05">
+    <img data-seq="assets/clips/mind" data-n="39" data-fps="30"><div class="tape" style="transform:rotate(3deg)"></div></div>
+
+  <div class="el num" style="left:76px;top:385px;font-size:150px" data-s="2" data-c="2" data-o="0" data-anim="stamp">03</div>
+  <div class="el hl" style="left:300px;top:418px;font-size:86px" data-s="2" data-c="2" data-o="0.05" data-anim="left">Тест</div>
+  <div class="el stk" style="left:80px;top:610px;width:920px" data-s="2" data-c="2" data-o="0.1" data-anim="right" data-rot="-1">
+    <img data-seq="assets/clips/tests3" data-n="18" data-fps="30"><div class="tape" style="transform:rotate(-6deg)"></div></div>
+</section>
+
+<!-- D · result -->
+<section class="scene beige" data-from="3" data-to="4">
+  <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></div>
+  <div class="el mono" style="left:80px;top:330px" data-s="3" data-o="0.05" data-anim="fade">// результат</div>
+  <div class="el hl" style="left:76px;top:392px;font-size:120px" data-s="3" data-o="0.05" data-anim="up"><span class="strike">Години пошуку<span class="line" data-s="3" data-o="0.55" data-dur="0.4"></span></span></div>
+  <div class="el hl a" style="left:70px;top:540px;font-size:150px" data-s="3" data-c="1" data-o="0" data-anim="stamp">Один вечір</div>
+  <div class="el hl" style="left:80px;top:880px;font-size:48px;line-height:1.5" data-s="3" data-o="0.35" data-anim="up"><span class="a">✓</span> слухаєте</div>
+  <div class="el hl" style="left:80px;top:960px;font-size:48px;line-height:1.5" data-s="3" data-o="0.9" data-anim="up"><span class="a">✓</span> тест</div>
+  <div class="el hl" style="left:80px;top:1040px;font-size:48px;line-height:1.5" data-s="3" data-c="1" data-o="0.3" data-anim="up"><span class="a">✓</span> розумієте</div>
+  <div class="el stk" style="left:440px;top:830px;width:560px" data-s="3" data-c="1" data-o="0.15" data-anim="pop" data-rot="3">
+    <img src="assets/memes/roll_safe_bw.jpg"><div class="tape"></div></div>
+</section>
+
+<!-- E · how it works: upload -->
+<section class="scene green" data-from="4" data-to="5">
+  <div class="hdr"><img class="c" src="assets/brand/crest_light.svg"><span class="w"><img src="assets/brand/letters_light.svg"><small>AI академія</small></span></div>
+  <div class="el glyph" style="left:880px;top:1250px;font-size:360px" data-s="4" data-o="0" data-anim="fade" data-float="1">›</div>
+  <div class="el mono" style="left:80px;top:330px" data-s="4" data-o="0.05" data-anim="fade">// як це працює</div>
+  <div class="el hl" style="left:76px;top:390px;font-size:92px" data-s="4" data-o="0.05" data-anim="up">Завантажуєте<br><span class="a">свої матеріали</span></div>
+  <div class="el stk" style="left:80px;top:640px;width:920px" data-s="4" data-o="0.3" data-anim="up" data-rot="-1.5">
+    <img data-seq="assets/clips/how" data-n="79" data-fps="30"><div class="tape"></div></div>
+  <div class="el tag" style="left:80px;top:1330px" data-s="4" data-o="1.1" data-anim="stamp" data-rot="-2">Документи</div>
+  <div class="el tag" style="left:440px;top:1330px" data-s="4" data-c="1" data-o="0" data-anim="stamp" data-rot="2">YouTube</div>
+</section>
+
+<!-- F · or just type a topic -->
+<section class="scene beige" data-from="5" data-to="6">
+  <div class="hdr"><img class="c" src="assets/brand/crest.svg"><span class="w"><img src="assets/brand/letters.svg"><small>AI академія</small></span></div>
+  <div class="el mono" style="left:80px;top:330px" data-s="5" data-o="0.05" data-anim="fade">// або ще простіше</div>
+  <div class="el hl" style="left:76px;top:390px;font-size:120px" data-s="5" data-o="0.05" data-anim="up">Пишете <span class="a">тему</span></div>
+  <div class="el input" style="left:80px;top:575px;width:920px" data-s="5" data-o="0.15" data-anim="up"><span data-type="Основи маркетингу для малого бізнесу" data-s="5" data-o="0.3" data-dur="0.9"></span></div>
+  <div class="el mono" style="left:80px;top:760px;color:var(--muted)" data-s="5" data-c="1" data-o="0" data-anim="fade">// він сам знаходить джерела</div>
+  <div class="el src" style="left:80px;top:810px;width:920px" data-s="5" data-c="1" data-o="0.1" data-anim="left"><div class="ic" style="background:var(--brown)"></div><div class="ln"><i style="width:80%"></i><i style="width:55%"></i></div></div>
+  <div class="el src" style="left:80px;top:905px;width:920px" data-s="5" data-c="1" data-o="0.3" data-anim="left"><div class="ic" style="background:#C4302B"></div><div class="ln"><i style="width:70%"></i><i style="width:45%"></i></div></div>
+  <div class="el src" style="left:80px;top:1000px;width:920px" data-s="5" data-c="1" data-o="0.5" data-anim="left"><div class="ic" style="background:var(--ink)"></div><div class="ln"><i style="width:85%"></i><i style="width:60%"></i></div></div>
+  <div class="el stk" style="left:590px;top:1105px;width:380px" data-s="5" data-c="1" data-o="0.7" data-anim="pop" data-rot="-4">
+    <img src="assets/memes/bateman_satisfied_bw.jpg"><div class="tape"></div></div>
+</section>
+
+<!-- G · grounded answers -->
+<section class="scene green" data-from="6" data-to="7">
+  <div class="hdr"><img class="c" src="assets/brand/crest_light.svg"><span class="w"><img src="assets/brand/letters_light.svg"><small>AI академія</small></span></div>
+  <div class="el ring" style="left:600px;top:1100px;width:800px;height:800px" data-s="6" data-o="0" data-anim="fade"></div>
+  <div class="el mono" style="left:80px;top:330px" data-s="6" data-o="0.05" data-anim="fade">// з сайту Gemini Notebook</div>
+  <div class="el hl" style="left:76px;top:400px;width:920px;font-size:80px;line-height:1.08" data-s="6" data-o="0.05" data-anim="up">«Відповіді завжди ґрунтуватимуться на інформації, <span class="a">яку ви надали»</span></div>
+</section>
+
+<!-- H · subscribe / end card -->
+<section class="scene beige" data-from="7" data-to="9">
+  <div class="el" style="left:0;width:1080px;top:470px;display:flex;flex-direction:column;align-items:center" data-s="7" data-o="0.05" data-anim="pop">
+    <img src="assets/brand/crest.svg" style="height:330px">
+    <img src="assets/brand/letters.svg" style="height:92px;margin-top:56px">
+    <div style="font:700 34px/1 Montserrat;letter-spacing:.2em;color:var(--brown);margin-top:26px;margin-right:-.2em">AI академія</div>
+  </div>
+  <div class="el btn" style="left:50%;top:1180px;transform-origin:50% 50%;margin-left:-245px" data-s="7" data-o="0.45" data-anim="stamp">Підписуйтесь</div>
+</section>
+
+<div id="sub"><span></span></div>
+<div id="grain"></div>
+<div id="wipe"></div>
+
+<script src="timing.js" onerror=""></script>
+<script>
+const FPS = 30;
+const CPS = 19;            // ElevenLabs Ivo pace (written chars per second)
+const SENT = [
+  {c:["Годинами шукаєте подкасти","і перечитуєте купу документів,","щоб розібратися в темі для роботи чи навчання?"], p:0.45},
+  {c:["Є найпростіший спосіб:","Gemini Notebook від Google."], p:0.45},
+  {c:["Він робить подкаст на потрібну тему,","ментальну карту","і тест, щоб перевірити себе."], p:0.45},
+  {c:["Ви слухаєте, проходите тест","і розумієте тему за вечір."], p:0.45},
+  {c:["Як це працює: завантажуєте свої документи","чи відео з YouTube."], p:0.4},
+  {c:["Або просто пишете тему,","і він сам знаходить джерела."], p:0.3},
+  {c:["І відповідає тільки за ними."], p:0.45},
+  {c:["Підписуйтесь на Джун AI академію."], p:0.2},
+  {c:[""], fixed:2.0},
+];
+const T = (window.TIMING || null);
+const CH = []; let t0 = 0.15;
+SENT.forEach((s, i) => {
+  const lens = s.c.map(c => Math.max(c.length / CPS, 0.6));
+  const dur = s.fixed || lens.reduce((a,b)=>a+b,0);
+  if (T && T.chunks) {
+    const nxt = i+1 < T.chunks.length ? T.chunks[i+1][0] : T.total;
+    CH[i] = s.c.map((c, k) => ({t: T.chunks[i][k], e: (k+1 < s.c.length ? T.chunks[i][k+1] : nxt - 0.15), text: c}));
+    CH[i].start = T.chunks[i][0];
+  } else {
+    let acc = t0;
+    CH[i] = s.c.map((c, k) => { const st = acc; acc += lens[k]; return {t:st, e:acc, text:c}; });
+    CH[i].start = t0;
+    t0 += dur + (s.p||0);
+  }
+});
+const TOTAL = T ? T.total : t0;
+const START = i => i < CH.length ? CH[i].start : TOTAL;
+
+const clamp = (v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+const eo = p => 1 - Math.pow(1-p, 3);
+const back = p => { const c1=1.70158, c3=c1+1; return 1 + c3*Math.pow(p-1,3) + c1*Math.pow(p-1,2); };
+function tIn(el){ const s=+el.dataset.s, c=+(el.dataset.c||0), o=+(el.dataset.o||0); return (CH[s][c] ? CH[s][c].t : START(s)) + o; }
+function tOut(el){ if (el.dataset.xs === undefined) return Infinity; const s=+el.dataset.xs, c=+(el.dataset.xc||0), o=+(el.dataset.xo||0); return CH[s][c].t + o; }
+
+const scenes = [...document.querySelectorAll('.scene')];
+const els = [...document.querySelectorAll('.el')];
+const types = [...document.querySelectorAll('[data-type]')];
+const lines = [...document.querySelectorAll('.strike .line')];
+const seqs = [...document.querySelectorAll('img[data-seq]')].map(img => {
+  const n = +img.dataset.n, urls = [...Array(n).keys()].map(i => img.dataset.seq + '/' + String(i+1).padStart(3,'0') + '.jpg');
+  urls.forEach(u => { const im = new Image(); im.src = u; });
+  img.src = urls[0];
+  return {img, urls, fps: +img.dataset.fps, host: img.closest('.el')};
+});
+const sub = document.getElementById('sub'), subSpan = sub.querySelector('span');
+const wipe = document.getElementById('wipe');
+const BOUNDS = scenes.map(sc => START(+sc.dataset.from)).filter(b => b > 0.3);
+
+function seek(t){
+  let cur = null;
+  scenes.forEach(sc => {
+    const a = START(+sc.dataset.from), b = START(+sc.dataset.to);
+    const on = t >= (a <= 0.3 ? 0 : a) && t < b;
+    sc.style.visibility = on ? 'visible' : 'hidden'; if (on) cur = sc;
+  });
+  els.forEach(el => {
+    const ti = tIn(el), to = tOut(el), anim = el.dataset.anim || 'fade';
+    const d = anim === 'stamp' ? 0.35 : 0.45;
+    const p = clamp((t - ti) / d), q = clamp((t - to) / 0.22);
+    let op = clamp((t - ti) / 0.18) * (1 - q), x = 0, y = 0, sc = 1, r = +(el.dataset.rot || 0);
+    if (anim === 'up') y = (1 - eo(p)) * 70;
+    else if (anim === 'left') x = (1 - eo(p)) * -140;
+    else if (anim === 'right') x = (1 - eo(p)) * 160;
+    else if (anim === 'pop') { sc = 0.55 + 0.45 * back(p); r *= p; }
+    else if (anim === 'stamp') sc = 1.7 - 0.7 * eo(p);
+    x -= eo(q) * 180;                                           // exits slide out to the left
+    if (el.dataset.float) y += Math.sin((t - ti) * 1.6) * 10;
+    el.style.opacity = op;
+    const base = el.style.marginLeft ? '' : '';
+    el.style.transform = `translate(${x}px,${y}px) scale(${sc}) rotate(${r}deg)`;
+  });
+  types.forEach(el => {
+    const p = clamp((t - tIn(el)) / +(el.dataset.dur||1)), full = el.dataset.type, n = Math.round(full.length * p);
+    el.innerHTML = full.slice(0, n) + (p < 1 ? '<span class="caret"></span>' : '');
+  });
+  lines.forEach(el => { const p = eo(clamp((t - tIn(el)) / +(el.dataset.dur||0.4))); el.style.width = (p*104) + '%'; });
+  const waits = [];
+  seqs.forEach(s => {
+    const lt = Math.max(0, t - tIn(s.host)); const i = Math.min(s.urls.length - 1, Math.floor(lt * s.fps));
+    if (!s.img.src.endsWith(s.urls[i])) { s.img.src = s.urls[i]; waits.push(s.img.decode().catch(()=>{})); }
+  });
+  let txt = '';
+  CH.forEach(cs => cs.forEach(c => { if (c.text && t >= c.t && t < c.e + (T ? 0 : 0.2)) txt = c.text; }));
+  subSpan.textContent = txt; subSpan.style.display = txt ? '' : 'none';
+  sub.className = cur && cur.classList.contains('green') ? 'dark' : '';
+  let wx = -1100, wc = 'var(--ochre)';
+  BOUNDS.forEach((b, i) => { const k = (t - (b - 0.16)) / 0.32; if (k >= 0 && k <= 1) { wx = -1080 + k*k*(3-2*k) * 2160; wc = i % 2 ? 'var(--green)' : 'var(--ochre)'; } });
+  wipe.style.transform = `translateX(${wx}px)`; wipe.style.background = wc;
+  return Promise.all(waits);
+}
+window.TOTAL = TOTAL; window.FPS = FPS; window.CH = CH;
+seek(0);
+</script>
+</body>
+</html>
